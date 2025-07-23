@@ -475,6 +475,53 @@
             opacity: 0.3;
         }
 
+        /* Logo Ticker Section */
+        .logo-ticker-section {
+            background-color: var(--white);
+            padding: 40px 0;
+            border-bottom: 1px solid var(--border-color);
+            overflow: hidden;
+        }
+
+        .logo-ticker-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .logo-ticker {
+            display: flex;
+            gap: 4rem;
+            animation: scroll-logos 40s linear infinite;
+        }
+
+        .logo-ticker-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            padding: 0 2rem;
+            filter: grayscale(100%) contrast(150%) brightness(0) invert(0.4);
+            opacity: 0.6;
+        }
+
+        .logo-ticker-item span {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: var(--text-dark);
+            text-align: center;
+            white-space: nowrap;
+        }
+
+        @keyframes scroll-logos {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
         /* Contact Section */
         .contact-section {
             background-color: var(--light-gray);
@@ -679,6 +726,52 @@
             <div class="cta-buttons">
                 <a href="#contact" class="cta-button cta-primary">Request Consultation</a>
                 <a href="#projects" class="cta-button cta-secondary">View Major Projects</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Logo Ticker Section -->
+    <section class="logo-ticker-section">
+        <div class="logo-ticker-container">
+            <div class="logo-ticker">
+                <!-- First set of logos -->
+                <div class="logo-ticker-item"><span>US DOE</span></div>
+                <div class="logo-ticker-item"><span>NASA</span></div>
+                <div class="logo-ticker-item"><span>Los Alamos National Lab</span></div>
+                <div class="logo-ticker-item"><span>NM DOT</span></div>
+                <div class="logo-ticker-item"><span>Colorado Springs Utilities</span></div>
+                <div class="logo-ticker-item"><span>Stantec</span></div>
+                <div class="logo-ticker-item"><span>MWH Global</span></div>
+                <div class="logo-ticker-item"><span>Bechtel</span></div>
+                <div class="logo-ticker-item"><span>AECOM</span></div>
+                <div class="logo-ticker-item"><span>Wilson & Company</span></div>
+                <div class="logo-ticker-item"><span>RMF Engineering</span></div>
+                <div class="logo-ticker-item"><span>UCLA</span></div>
+                <div class="logo-ticker-item"><span>Raytheon</span></div>
+                <div class="logo-ticker-item"><span>SET Inc.</span></div>
+                <div class="logo-ticker-item"><span>Cross Connection Inc.</span></div>
+                <div class="logo-ticker-item"><span>RED Rochester</span></div>
+                <div class="logo-ticker-item"><span>Frank Lill & Son</span></div>
+                <div class="logo-ticker-item"><span>Twenty20 Construction</span></div>
+                <!-- Duplicate set for seamless loop -->
+                <div class="logo-ticker-item"><span>US DOE</span></div>
+                <div class="logo-ticker-item"><span>NASA</span></div>
+                <div class="logo-ticker-item"><span>Los Alamos National Lab</span></div>
+                <div class="logo-ticker-item"><span>NM DOT</span></div>
+                <div class="logo-ticker-item"><span>Colorado Springs Utilities</span></div>
+                <div class="logo-ticker-item"><span>Stantec</span></div>
+                <div class="logo-ticker-item"><span>MWH Global</span></div>
+                <div class="logo-ticker-item"><span>Bechtel</span></div>
+                <div class="logo-ticker-item"><span>AECOM</span></div>
+                <div class="logo-ticker-item"><span>Wilson & Company</span></div>
+                <div class="logo-ticker-item"><span>RMF Engineering</span></div>
+                <div class="logo-ticker-item"><span>UCLA</span></div>
+                <div class="logo-ticker-item"><span>Raytheon</span></div>
+                <div class="logo-ticker-item"><span>SET Inc.</span></div>
+                <div class="logo-ticker-item"><span>Cross Connection Inc.</span></div>
+                <div class="logo-ticker-item"><span>RED Rochester</span></div>
+                <div class="logo-ticker-item"><span>Frank Lill & Son</span></div>
+                <div class="logo-ticker-item"><span>Twenty20 Construction</span></div>
             </div>
         </div>
     </section>
