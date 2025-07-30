@@ -463,14 +463,52 @@
         }
 
         .leadership-content {
+            max-width: 1000px;
+            margin: 60px auto 0;
+            text-align: left;
+        }
+
+        .name-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: white;
+            margin-bottom: 15px;
+        }
+
+        .credentials-leadership {
             display: flex;
-            flex-direction: column;
             align-items: center;
-            text-align: center;
-            margin-top: 60px;
-            max-width: 800px;
-            margin-left: auto;
-            margin-right: auto;
+            gap: 30px;
+            margin-bottom: 20px;
+            flex-wrap: wrap;
+        }
+
+        .credentials-leadership .badges {
+            display: flex;
+            gap: 10px;
+        }
+
+        .credentials-leadership .badge {
+            background: var(--accent-gold);
+            color: var(--primary-navy);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 0.9rem;
+            font-weight: 600;
+        }
+
+        .credentials-leadership .leadership-text-inline {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .bio {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: white;
+            opacity: 0.9;
+            margin-bottom: 15px;
         }
 
         .leadership-profile {
@@ -986,8 +1024,10 @@
                 margin-top: 40px;
             }
 
-            .leadership-profile {
-                margin-bottom: 40px;
+            .credentials-leadership {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
             }
             .projects-grid {
                 grid-template-columns: 1fr;
@@ -1354,23 +1394,20 @@
         <div class="leadership-container">
             <h2 class="section-title" style="color: white;">EXPERT <span class="highlight">LEADERSHIP</span></h2>
             <div class="leadership-content">
-                <div class="leadership-profile">
-                    <div class="profile-avatar">JG</div>
-                    <h3>Jarett Granich, PMP</h3>
-                    <p class="title">Principal & Founder</p>
-                    <div class="credentials">
-                        <span class="credential">PMP Certified</span>
-                        <span class="credential">AACEI Member</span>
-                        <span class="credential">OSHA 30</span>
+                <h2 class="name-title">Jarett Granich, PMP - Principal & Founder</h2>
+                
+                <div class="credentials-leadership">
+                    <div class="badges">
+                        <span class="badge">PMP Certified</span>
+                        <span class="badge">AACEI Member</span>
+                        <span class="badge">OSHA 30</span>
                     </div>
+                    <span class="leadership-text-inline">Proven Leadership in Complex Infrastructure</span>
                 </div>
                 
-                <div class="leadership-text">
-                    <h4>Proven Leadership in Complex Infrastructure</h4>
-                    <p>Jarett Granich founded Granalytich Solutions to deliver specialized project controls expertise for mission-critical infrastructure programs. His comprehensive background spans federal agencies, municipal utilities, and private sector developments across the nation.</p>
-                    <p>As Principal and PMP-certified project manager, Jarett brings deep expertise in cost engineering, advanced scheduling, and large-scale program management. His client portfolio includes the Department of Energy, NASA, Department of Transportation, and major municipal water authorities.</p>
-                    <p>From billion-dollar water supply programs to nuclear facility upgrades and data center infrastructure, Jarett's systematic approach to project controls has consistently delivered complex programs on schedule and within budget, establishing Granalytich Solutions as the trusted partner for infrastructure excellence.</p>
-                </div>
+                <p class="bio">Jarett Granich founded Granalytich Solutions to deliver specialized project controls expertise for mission-critical infrastructure programs. His comprehensive background spans federal agencies, municipal utilities, and private sector developments across the nation.</p>
+                <p class="bio">As Principal and PMP-certified project manager, Jarett brings deep expertise in cost engineering, advanced scheduling, and large-scale program management. His client portfolio includes the Department of Energy, NASA, Department of Transportation, and major municipal water authorities.</p>
+                <p class="bio">From billion-dollar water supply programs to nuclear facility upgrades and data center infrastructure, Jarett's systematic approach to project controls has consistently delivered complex programs on schedule and within budget, establishing Granalytich Solutions as the trusted partner for infrastructure excellence.</p>
             </div>
         </div>
     </section>
