@@ -1,0 +1,582 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>About Section Design Options</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+
+        .option-section {
+            background: var(--light-gray);
+            margin-bottom: 60px;
+            padding: 60px 40px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+        }
+
+        .option-header {
+            background: var(--primary-navy);
+            color: var(--accent-gold);
+            padding: 20px 30px;
+            margin: -60px -40px 40px -40px;
+            border-radius: 12px 12px 0 0;
+            font-size: 1.3rem;
+            font-weight: bold;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            text-align: center;
+        }
+
+        /* Color scheme variables */
+        :root {
+            --primary-navy: #1e3a5f;
+            --secondary-blue: #2e5a8a;
+            --accent-gold: #d4af37;
+            --accent-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --border-color: #dee2e6;
+        }
+
+        /* Option 1: Full-Width Banner Style */
+        .option1 .about-banner {
+            text-align: center;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-blue) 100%);
+            color: white;
+            padding: 40px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+        }
+
+        .option1 .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            margin-bottom: 15px;
+            color: white;
+        }
+
+        .option1 .subtitle {
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 20px;
+            font-weight: 600;
+        }
+
+        .option1 .mission-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            max-width: 800px;
+            margin: 0 auto;
+            opacity: 0.95;
+        }
+
+        .option1 .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 20px;
+            margin-top: 40px;
+        }
+
+        .option1 .stat-box {
+            background: white;
+            color: var(--primary-navy);
+            padding: 20px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .option1 .stat-number {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+        }
+
+        .option1 .stat-label {
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        /* Option 2: Side-by-Side Mission & Values */
+        .option2 .content-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 30px;
+        }
+
+        .option2 .mission-box {
+            background: var(--primary-navy);
+            color: white;
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .option2 .values-box {
+            background: var(--accent-gold);
+            color: var(--primary-navy);
+            padding: 30px;
+            border-radius: 8px;
+        }
+
+        .option2 .box-title {
+            font-size: 1.8rem;
+            font-weight: 700;
+            margin-bottom: 20px;
+        }
+
+        .option2 .mission-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
+        }
+
+        .option2 .values-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .option2 .values-list li {
+            font-size: 1.1rem;
+            font-weight: 600;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .option2 .values-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
+        }
+
+        .option2 .credentials-row {
+            background: var(--light-gray);
+            padding: 25px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .option2 .credentials-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+        }
+
+        .option2 .credentials-text {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+        }
+
+        /* Option 3: Timeline/Process Style */
+        .option3 .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+        }
+
+        .option3 .section-subtitle {
+            text-align: center;
+            font-size: 1.2rem;
+            color: var(--accent-gold);
+            margin-bottom: 40px;
+            font-weight: 600;
+        }
+
+        .option3 .timeline {
+            display: flex;
+            justify-content: space-between;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+
+        .option3 .timeline-item {
+            flex: 1;
+            background: white;
+            padding: 25px;
+            border-radius: 8px;
+            border-top: 4px solid var(--accent-gold);
+            text-align: center;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.05);
+        }
+
+        .option3 .timeline-number {
+            background: var(--primary-navy);
+            color: white;
+            width: 40px;
+            height: 40px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            margin: 0 auto 15px;
+        }
+
+        .option3 .timeline-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 10px;
+        }
+
+        .option3 .timeline-text {
+            font-size: 1rem;
+            color: var(--text-dark);
+        }
+
+        .option3 .company-overview {
+            background: linear-gradient(135deg, var(--light-gray) 0%, #e9ecef 100%);
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+        }
+
+        .option3 .overview-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            color: var(--text-dark);
+            max-width: 700px;
+            margin: 0 auto;
+        }
+
+        /* Option 4: Icon-Based Feature Grid */
+        .option4 .header-section {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .option4 .main-title {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 10px;
+        }
+
+        .option4 .tagline {
+            font-size: 1.3rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 20px;
+        }
+
+        .option4 .description {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.6;
+        }
+
+        .option4 .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin-top: 40px;
+        }
+
+        .option4 .feature-card {
+            background: white;
+            padding: 30px;
+            border-radius: 8px;
+            text-align: center;
+            border: 2px solid var(--border-color);
+            transition: all 0.3s ease;
+        }
+
+        .option4 .feature-card:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+
+        .option4 .feature-icon {
+            width: 60px;
+            height: 60px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 1.5rem;
+            color: var(--primary-navy);
+            font-weight: bold;
+        }
+
+        .option4 .feature-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+        }
+
+        .option4 .feature-text {
+            font-size: 1rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Option 5: Minimal Text-Focused */
+        .option5 .content-wrapper {
+            max-width: 800px;
+            margin: 0 auto;
+            text-align: center;
+        }
+
+        .option5 .company-name {
+            font-size: 3rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            letter-spacing: -1px;
+        }
+
+        .option5 .mission-statement {
+            font-size: 1.5rem;
+            color: var(--accent-gold);
+            font-weight: 600;
+            margin-bottom: 30px;
+            line-height: 1.4;
+        }
+
+        .option5 .company-description {
+            font-size: 1.2rem;
+            color: var(--text-dark);
+            line-height: 1.7;
+            margin-bottom: 40px;
+        }
+
+        .option5 .expertise-tags {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 15px;
+            margin-bottom: 40px;
+        }
+
+        .option5 .tag {
+            background: var(--primary-navy);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 25px;
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .option5 .commitment-box {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .option5 .commitment-title {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+        }
+
+        .option5 .commitment-text {
+            font-size: 1.1rem;
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .option2 .content-grid,
+            .option3 .timeline {
+                flex-direction: column;
+            }
+
+            .option4 .features-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .option5 .expertise-tags {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Option 1: Full-Width Banner Style -->
+        <div class="option-section option1">
+            <div class="option-header">Option 1: Full-Width Banner Style</div>
+            
+            <div class="about-banner">
+                <h1 class="main-title">GRANALYTICH SOLUTIONS</h1>
+                <p class="subtitle">Delivering Excellence in Infrastructure Project Controls</p>
+                <p class="mission-text">We specialize in critical infrastructure programs for federal agencies, municipalities, and private sector clients nationwide. Our comprehensive project controls expertise ensures mission-critical programs are delivered on schedule and within budget.</p>
+                
+                <div class="stats-grid">
+                    <div class="stat-box">
+                        <div class="stat-number">100%</div>
+                        <div class="stat-label">Federal Qualified</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">50+</div>
+                        <div class="stat-label">States Served</div>
+                    </div>
+                    <div class="stat-box">
+                        <div class="stat-number">24/7</div>
+                        <div class="stat-label">Support Available</div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 2: Side-by-Side Mission & Values -->
+        <div class="option-section option2">
+            <div class="option-header">Option 2: Side-by-Side Mission & Values</div>
+            
+            <div class="content-grid">
+                <div class="mission-box">
+                    <h2 class="box-title">Our Mission</h2>
+                    <p class="mission-text">Granalytich Solutions delivers specialized project controls expertise for mission-critical infrastructure programs across federal, municipal, and private sectors.</p>
+                    <p class="mission-text">We ensure complex programs are delivered on schedule, within budget, and to the highest quality standards through systematic project controls and proven methodologies.</p>
+                </div>
+                
+                <div class="values-box">
+                    <h2 class="box-title">Core Values</h2>
+                    <ul class="values-list">
+                        <li>Precision in Project Controls</li>
+                        <li>Unwavering Reliability</li>
+                        <li>Federal Compliance Excellence</li>
+                        <li>Innovation in Infrastructure</li>
+                        <li>Transparent Communication</li>
+                    </ul>
+                </div>
+            </div>
+            
+            <div class="credentials-row">
+                <h3 class="credentials-title">Industry Credentials & Compliance</h3>
+                <p class="credentials-text">PMP certified professionals • AACEI methodologies • OSHA compliance • Federal contracting expertise • Municipal utility specialization • Private sector infrastructure experience</p>
+            </div>
+        </div>
+
+        <!-- Option 3: Timeline/Process Style -->
+        <div class="option-section option3">
+            <div class="option-header">Option 3: Timeline/Process Style</div>
+            
+            <h1 class="section-title">GRANALYTICH SOLUTIONS</h1>
+            <p class="section-subtitle">Your Systematic Approach to Infrastructure Excellence</p>
+            
+            <div class="timeline">
+                <div class="timeline-item">
+                    <div class="timeline-number">1</div>
+                    <h3 class="timeline-title">Analysis</h3>
+                    <p class="timeline-text">Comprehensive program assessment and requirements analysis</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">2</div>
+                    <h3 class="timeline-title">Planning</h3>
+                    <p class="timeline-text">Strategic project controls framework and schedule development</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">3</div>
+                    <h3 class="timeline-title">Execution</h3>
+                    <p class="timeline-text">Systematic program management and quality oversight</p>
+                </div>
+                <div class="timeline-item">
+                    <div class="timeline-number">4</div>
+                    <h3 class="timeline-title">Delivery</h3>
+                    <p class="timeline-text">On-time, on-budget program completion and closeout</p>
+                </div>
+            </div>
+            
+            <div class="company-overview">
+                <p class="overview-text">Founded to serve critical infrastructure needs nationwide, Granalytich Solutions combines federal expertise, municipal experience, and private sector innovation to deliver unparalleled project controls excellence across all program phases.</p>
+            </div>
+        </div>
+
+        <!-- Option 4: Icon-Based Feature Grid -->
+        <div class="option-section option4">
+            <div class="option-header">Option 4: Icon-Based Feature Grid</div>
+            
+            <div class="header-section">
+                <h1 class="main-title">GRANALYTICH SOLUTIONS</h1>
+                <p class="tagline">Infrastructure Project Controls Excellence</p>
+                <p class="description">Specialized expertise for federal agencies, municipalities, and private sector infrastructure programs nationwide.</p>
+            </div>
+            
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏛️</div>
+                    <h3 class="feature-title">Federal Expertise</h3>
+                    <p class="feature-text">DOE, NASA, DOT, and federal agency program management with full compliance standards</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">🏙️</div>
+                    <h3 class="feature-title">Municipal Utilities</h3>
+                    <p class="feature-text">Water authorities, power systems, and municipal infrastructure specialization</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">⚡</div>
+                    <h3 class="feature-title">Critical Infrastructure</h3>
+                    <p class="feature-text">Nuclear facilities, data centers, and mission-critical program controls</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📊</div>
+                    <h3 class="feature-title">Advanced Analytics</h3>
+                    <p class="feature-text">Cost engineering, scheduling, and program management excellence</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Option 5: Minimal Text-Focused -->
+        <div class="option-section option5">
+            <div class="option-header">Option 5: Minimal Text-Focused</div>
+            
+            <div class="content-wrapper">
+                <h1 class="company-name">GRANALYTICH SOLUTIONS</h1>
+                <p class="mission-statement">Delivering specialized project controls expertise for mission-critical infrastructure programs nationwide.</p>
+                
+                <p class="company-description">From billion-dollar water supply programs to nuclear facility upgrades and data center infrastructure, we provide systematic project controls that consistently deliver complex programs on schedule and within budget.</p>
+                
+                <div class="expertise-tags">
+                    <span class="tag">Federal Agencies</span>
+                    <span class="tag">Municipal Utilities</span>
+                    <span class="tag">Critical Infrastructure</span>
+                    <span class="tag">Project Controls</span>
+                    <span class="tag">Cost Engineering</span>
+                    <span class="tag">Program Management</span>
+                </div>
+                
+                <div class="commitment-box">
+                    <h3 class="commitment-title">Our Commitment</h3>
+                    <p class="commitment-text">Every project receives the focused expertise of PMP-certified professionals, AACEI methodologies, and proven track record of infrastructure excellence. We are your trusted partner for infrastructure success.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</body>
+</html>

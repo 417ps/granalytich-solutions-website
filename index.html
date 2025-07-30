@@ -240,7 +240,7 @@
             line-height: 1.6;
         }
 
-        /* About Section - Exact Match */
+        /* About Section - Option 2: Side-by-Side Mission & Values */
         .about-section {
             padding: 100px 0;
             background-color: white;
@@ -275,64 +275,78 @@
             line-height: 1.6;
         }
 
-        .about-cards {
+        .content-grid {
             display: grid;
-            grid-template-columns: repeat(3, 1fr);
-            gap: 0;
-            margin-top: 60px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            grid-template-columns: 1fr 1fr;
+            gap: 40px;
+            margin-bottom: 40px;
+            text-align: left;
         }
 
-        .about-card {
-            padding: 50px 30px;
-            background-color: var(--light-gray);
-        }
-
-        .about-card.center {
-            background-color: var(--accent-gold);
+        .mission-box {
+            background: var(--primary-navy);
             color: white;
+            padding: 40px;
+            border-radius: 8px;
         }
 
-        .about-card h4 {
-            font-size: 16px;
+        .values-box {
+            background: var(--accent-gold);
+            color: var(--primary-navy);
+            padding: 40px;
+            border-radius: 8px;
+        }
+
+        .box-title {
+            font-size: 1.8rem;
             font-weight: 700;
             margin-bottom: 20px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
         }
 
-        .about-card p {
-            font-size: 14px;
-            line-height: 1.6;
-            margin-bottom: 20px;
+        .mission-text {
+            font-size: 1.1rem;
+            line-height: 1.7;
+            margin-bottom: 15px;
         }
 
-        .about-card .read-more {
-            color: var(--accent-gold);
-            text-decoration: none;
+        .values-list {
+            list-style: none;
+            padding: 0;
+        }
+
+        .values-list li {
+            font-size: 1.1rem;
             font-weight: 600;
-            font-size: 12px;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            transition: color 0.3s ease;
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
         }
 
-        .about-card.center .read-more {
-            color: white;
+        .values-list li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            font-weight: bold;
         }
 
-        .about-card .read-more:hover {
+        .credentials-row {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+            text-align: left;
+        }
+
+        .credentials-title {
+            font-size: 1.3rem;
+            font-weight: 700;
             color: var(--primary-navy);
+            margin-bottom: 15px;
         }
 
-        .about-card.center .read-more:hover {
-            color: #f0f0f0;
-        }
-
-        .about-card .icon {
-            font-size: 40px;
-            margin-bottom: 20px;
-            display: block;
+        .credentials-text {
+            font-size: 1.1rem;
+            color: var(--text-dark);
         }
 
 
@@ -1053,7 +1067,7 @@
                 gap: 40px;
             }
 
-            .about-cards {
+            .content-grid {
                 grid-template-columns: 1fr;
             }
 
@@ -1296,24 +1310,28 @@
             <h2 class="about-title">ABOUT <span class="highlight">GRANALYTICH</span></h2>
             <p class="about-subtitle">Delivering critical infrastructure programs for federal agencies, municipalities, and private sector clients nationwide with unparalleled precision and reliability.</p>
             
-            <div class="about-cards">
-                <div class="about-card">
-                    <h4>OUR STORY</h4>
-                    <p>Founded in 2017, Granalytich Solutions has established itself as a premier project controls consulting firm with rigorous integration and skilled team members delivering excellence across all program phases.</p>
-                    <a href="#" class="read-more">READ MORE</a>
+            <div class="content-grid">
+                <div class="mission-box">
+                    <h2 class="box-title">Our Mission</h2>
+                    <p class="mission-text">Granalytich Solutions delivers specialized project controls expertise for mission-critical infrastructure programs across federal, municipal, and private sectors.</p>
+                    <p class="mission-text">We ensure complex programs are delivered on schedule, within budget, and to the highest quality standards through systematic project controls and proven methodologies.</p>
                 </div>
                 
-                <div class="about-card center">
-                    <span class="icon icon-trophy" style="font-size: 40px; color: white;"></span>
-                    <h4>ABOUT US</h4>
-                    <p>Comprehensive project controls and infrastructure management services for DOE, NASA, DOT, and municipal clients with proven track record of delivering complex programs.</p>
+                <div class="values-box">
+                    <h2 class="box-title">Core Values</h2>
+                    <ul class="values-list">
+                        <li>Precision in Project Controls</li>
+                        <li>Unwavering Reliability</li>
+                        <li>Federal Compliance Excellence</li>
+                        <li>Innovation in Infrastructure</li>
+                        <li>Transparent Communication</li>
+                    </ul>
                 </div>
-                
-                <div class="about-card">
-                    <h4>OUR CREDENTIALS</h4>
-                    <p>PMP certified with AACEI membership and OSHA 30 credentials. Specialized expertise in federal contracting requirements and municipal project delivery standards.</p>
-                    <a href="#" class="read-more">READ MORE</a>
-                </div>
+            </div>
+            
+            <div class="credentials-row">
+                <h3 class="credentials-title">Industry Credentials & Compliance</h3>
+                <p class="credentials-text">PMP certified professionals • AACEI methodologies • OSHA compliance • Federal contracting expertise • Municipal utility specialization • Private sector infrastructure experience</p>
             </div>
         </div>
     </section>
