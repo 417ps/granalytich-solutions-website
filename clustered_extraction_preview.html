@@ -1,0 +1,349 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Clustered Logo Extraction Preview</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { position: relative; display: inline-block; }
+        .center-point { position: absolute; width: 16px; height: 16px; 
+                        background: red; border: 3px solid white; border-radius: 50%; 
+                        transform: translate(-8px, -8px); z-index: 3; }
+        .extraction-box { position: absolute; border: 4px solid blue; 
+                          background: rgba(0,0,255,0.1); z-index: 2; }
+        .label { position: absolute; background: white; padding: 3px 8px; 
+                 font-size: 14px; font-weight: bold; border: 2px solid blue;
+                 z-index: 4; }
+        .info { margin: 20px 0; }
+        .legend { margin: 10px 0; font-size: 16px; }
+        .legend span { display: inline-block; width: 20px; height: 20px; margin-right: 8px; }
+        table { border-collapse: collapse; margin-top: 20px; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .multi-blob { background-color: #e8f5e8; }
+    </style>
+</head>
+<body>
+    <h1>Clustered Logo Detection Results</h1>
+    <div class="info">
+        <div class="legend">
+            <p><span style="background: red; border: 3px solid white; border-radius: 50%;"></span> 
+               <strong>Red dots</strong> = Clustered logo centers</p>
+            <p><span style="background: rgba(0,0,255,0.3); border: 4px solid blue;"></span> 
+               <strong>Blue boxes</strong> = Extraction areas (with padding)</p>
+            <p><strong>Labels</strong> = Final logo ID numbers</p>
+        </div>
+        <p><strong>Clustering Parameters:</strong> Minimum distance between logos = 120 pixels</p>
+    </div>
+    
+    <div class="container">
+        <img src="client-logos-collection-v2.png" alt="Logo Collection" style="max-width: 100%;">
+
+        <div class="center-point" style="left: 173px; top: 113px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 29px; top: 54px; width: 288px; height: 118px;">
+        </div>
+        
+        <div class="label" style="left: 188px; top: 98px;">#0</div>
+        
+        <div class="center-point" style="left: 530px; top: 120px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 364px; top: 68px; width: 332px; height: 105px;">
+        </div>
+        
+        <div class="label" style="left: 545px; top: 105px;">#1</div>
+        
+        <div class="center-point" style="left: 918px; top: 91px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 766px; top: 28px; width: 304px; height: 127px;">
+        </div>
+        
+        <div class="label" style="left: 933px; top: 76px;">#2</div>
+        
+        <div class="center-point" style="left: 162px; top: 373px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 39px; top: 244px; width: 246px; height: 258px;">
+        </div>
+        
+        <div class="label" style="left: 177px; top: 358px;">#3</div>
+        
+        <div class="center-point" style="left: 646px; top: 447px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 308px; top: 251px; width: 676px; height: 392px;">
+        </div>
+        
+        <div class="label" style="left: 661px; top: 432px;">#4</div>
+        
+        <div class="center-point" style="left: 1189px; top: 448px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 1161px; top: 362px; width: 56px; height: 172px;">
+        </div>
+        
+        <div class="label" style="left: 1204px; top: 433px;">#5</div>
+        
+        <div class="center-point" style="left: 224px; top: 600px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 32px; top: 543px; width: 384px; height: 115px;">
+        </div>
+        
+        <div class="label" style="left: 239px; top: 585px;">#6</div>
+        
+        <div class="center-point" style="left: 972px; top: 617px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 837px; top: 578px; width: 271px; height: 79px;">
+        </div>
+        
+        <div class="label" style="left: 987px; top: 602px;">#7</div>
+        
+        <div class="center-point" style="left: 235px; top: 814px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 41px; top: 731px; width: 388px; height: 166px;">
+        </div>
+        
+        <div class="label" style="left: 250px; top: 799px;">#8</div>
+        
+        <div class="center-point" style="left: 620px; top: 805px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 505px; top: 715px; width: 231px; height: 181px;">
+        </div>
+        
+        <div class="label" style="left: 635px; top: 790px;">#9</div>
+        
+        <div class="center-point" style="left: 940px; top: 840px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 844px; top: 784px; width: 192px; height: 113px;">
+        </div>
+        
+        <div class="label" style="left: 955px; top: 825px;">#10</div>
+        
+        <div class="center-point" style="left: 164px; top: 1104px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 29px; top: 944px; width: 271px; height: 320px;">
+        </div>
+        
+        <div class="label" style="left: 179px; top: 1089px;">#11</div>
+        
+        <div class="center-point" style="left: 497px; top: 1071px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 387px; top: 1026px; width: 220px; height: 90px;">
+        </div>
+        
+        <div class="label" style="left: 512px; top: 1056px;">#12</div>
+        
+        <div class="center-point" style="left: 746px; top: 1053px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 655px; top: 985px; width: 183px; height: 136px;">
+        </div>
+        
+        <div class="label" style="left: 761px; top: 1038px;">#13</div>
+        
+        <div class="center-point" style="left: 1030px; top: 1062px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 908px; top: 998px; width: 244px; height: 128px;">
+        </div>
+        
+        <div class="label" style="left: 1045px; top: 1047px;">#14</div>
+        
+        <div class="center-point" style="left: 319px; top: 1223px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 279px; top: 1182px; width: 81px; height: 82px;">
+        </div>
+        
+        <div class="label" style="left: 334px; top: 1208px;">#15</div>
+        
+        <div class="center-point" style="left: 546px; top: 1240px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 447px; top: 1183px; width: 199px; height: 115px;">
+        </div>
+        
+        <div class="label" style="left: 561px; top: 1225px;">#16</div>
+        
+        <div class="center-point" style="left: 849px; top: 1248px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 715px; top: 1202px; width: 269px; height: 93px;">
+        </div>
+        
+        <div class="label" style="left: 864px; top: 1233px;">#17</div>
+        
+    </div>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Center (x, y)</th>
+            <th>Extraction Box (x, y, w, h)</th>
+            <th>Total Area</th>
+            <th>Blob Count</th>
+            <th>Type</th>
+        </tr>
+
+        <tr class="multi-blob">
+            <td>#0</td>
+            <td>(173, 113)</td>
+            <td>(29, 54, 288, 118)</td>
+            <td>5819</td>
+            <td>3</td>
+            <td>Multi-part (3 blobs)</td>
+        </tr>
+        <tr class="multi-blob">
+            <td>#1</td>
+            <td>(530, 120)</td>
+            <td>(364, 68, 332, 105)</td>
+            <td>5736</td>
+            <td>4</td>
+            <td>Multi-part (4 blobs)</td>
+        </tr>
+        <tr class="multi-blob">
+            <td>#2</td>
+            <td>(918, 91)</td>
+            <td>(766, 28, 304, 127)</td>
+            <td>7852</td>
+            <td>4</td>
+            <td>Multi-part (4 blobs)</td>
+        </tr>
+        <tr class="multi-blob">
+            <td>#3</td>
+            <td>(162, 373)</td>
+            <td>(39, 244, 246, 258)</td>
+            <td>9191</td>
+            <td>5</td>
+            <td>Multi-part (5 blobs)</td>
+        </tr>
+        <tr class="multi-blob">
+            <td>#4</td>
+            <td>(646, 447)</td>
+            <td>(308, 251, 676, 392)</td>
+            <td>30928</td>
+            <td>13</td>
+            <td>Multi-part (13 blobs)</td>
+        </tr>
+        <tr class="">
+            <td>#5</td>
+            <td>(1189, 448)</td>
+            <td>(1161, 362, 56, 172)</td>
+            <td>537</td>
+            <td>1</td>
+            <td>Single blob</td>
+        </tr>
+        <tr class="">
+            <td>#6</td>
+            <td>(224, 600)</td>
+            <td>(32, 543, 384, 115)</td>
+            <td>7116</td>
+            <td>1</td>
+            <td>Single blob</td>
+        </tr>
+        <tr class="multi-blob">
+            <td>#7</td>
+            <td>(972, 617)</td>
+            <td>(837, 578, 271, 79)</td>
+            <td>2826</td>
+            <td>2</td>
+            <td>Multi-part (2 blobs)</td>
+        </tr>
+        <tr class="">
+            <td>#8</td>
+            <td>(235, 814)</td>
+            <td>(41, 731, 388, 166)</td>
+            <td>38755</td>
+            <td>1</td>
+            <td>Single blob</td>
+        </tr>
+        <tr class="multi-blob">
+            <td>#9</td>
+            <td>(620, 805)</td>
+            <td>(505, 715, 231, 181)</td>
+            <td>5680</td>
+            <td>5</td>
+            <td>Multi-part (5 blobs)</td>
+        </tr>
+        <tr class="">
+            <td>#10</td>
+            <td>(940, 840)</td>
+            <td>(844, 784, 192, 113)</td>
+            <td>8742</td>
+            <td>1</td>
+            <td>Single blob</td>
+        </tr>
+        <tr class="multi-blob">
+            <td>#11</td>
+            <td>(164, 1104)</td>
+            <td>(29, 944, 271, 320)</td>
+            <td>29760</td>
+            <td>2</td>
+            <td>Multi-part (2 blobs)</td>
+        </tr>
+        <tr class="multi-blob">
+            <td>#12</td>
+            <td>(497, 1071)</td>
+            <td>(387, 1026, 220, 90)</td>
+            <td>4849</td>
+            <td>2</td>
+            <td>Multi-part (2 blobs)</td>
+        </tr>
+        <tr class="multi-blob">
+            <td>#13</td>
+            <td>(746, 1053)</td>
+            <td>(655, 985, 183, 136)</td>
+            <td>5118</td>
+            <td>2</td>
+            <td>Multi-part (2 blobs)</td>
+        </tr>
+        <tr class="multi-blob">
+            <td>#14</td>
+            <td>(1030, 1062)</td>
+            <td>(908, 998, 244, 128)</td>
+            <td>5906</td>
+            <td>3</td>
+            <td>Multi-part (3 blobs)</td>
+        </tr>
+        <tr class="">
+            <td>#15</td>
+            <td>(319, 1223)</td>
+            <td>(279, 1182, 81, 82)</td>
+            <td>735</td>
+            <td>1</td>
+            <td>Single blob</td>
+        </tr>
+        <tr class="">
+            <td>#16</td>
+            <td>(546, 1240)</td>
+            <td>(447, 1183, 199, 115)</td>
+            <td>5822</td>
+            <td>1</td>
+            <td>Single blob</td>
+        </tr>
+        <tr class="">
+            <td>#17</td>
+            <td>(849, 1248)</td>
+            <td>(715, 1202, 269, 93)</td>
+            <td>5644</td>
+            <td>1</td>
+            <td>Single blob</td>
+        </tr>
+    </table>
+    
+    <div style="margin-top: 20px;">
+        <p><strong>Green rows</strong> = Logos composed of multiple parts (text + graphics)</p>
+        <p><strong>White rows</strong> = Simple single-blob logos</p>
+    </div>
+</body>
+</html>

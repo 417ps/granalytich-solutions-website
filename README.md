@@ -1,71 +1,53 @@
-# Granalytich Solutions Ltd. - Official Website
+# Granalytich Solutions Ltd. - Logo Extraction Tool
 
-Professional website for Granalytich Solutions Ltd., a specialized project controls and infrastructure management consulting firm.
+Advanced computer vision tool for automatically extracting individual logos from composite logo images, developed for Granalytich Solutions Ltd.
 
-## Company Overview
+## Features
 
-- **Founded**: 2017
-- **Principal**: Jarett Granich, PMP
-- **Current Projects Under Management**: $413M+
-- **Largest Program**: $1.7B Alternative Water Supply Program
-- **Experience**: 27+ years in project controls and infrastructure management
-
-## Sectors Served
-
-- Federal Government (DOE, NASA, DOT)
-- Municipal Utilities (Water, Wastewater, Power)
-- Nuclear Facilities (Security, Safety, Operations)
-- Data Centers (Critical Infrastructure)
-- Power Generation (Turbine, Steam, Utilities)
-- Transportation (Roads, Bridges, Infrastructure)
-
-## Core Services
-
-- Project Controls Management
-- Advanced Scheduling & Cost Engineering
-- Large-Scale Infrastructure Programs
-- Risk & Financial Management
-- Construction Management
-- Systems Integration
-- Contract Administration
-
-## Major Projects
-
-- Alternative Water Supply Program - $1.7B (Greater Chicago)
-- Southern Delivery Water System - $841M
-- Nuclear Material Safeguards & Security Upgrade - $254M
-- Red Network Infrastructure Expansion - $52M
-- LANL Bypass Roads Project - $50M
-- CEF Project - $48M
+- **Intelligent Blob Detection**: Uses OpenCV to detect individual logo elements
+- **Connectivity Analysis**: Analyzes pixel connectivity to properly group text and graphics
+- **DBSCAN Clustering**: Groups related logo parts using spatial clustering
+- **Visual Validation**: HTML preview system for validating extraction boundaries
+- **Automated Extraction**: Batch processes logos with proper padding and sizing
 
 ## Technology Stack
 
-- Pure HTML/CSS/JavaScript
-- Responsive design
-- Professional government contractor styling
-- Mobile-optimized
+- **Computer Vision**: OpenCV, PIL/Pillow
+- **Machine Learning**: scikit-learn (DBSCAN clustering)
+- **Image Processing**: Morphological operations, contour detection
+- **Visualization**: HTML/CSS preview system, matplotlib debugging
+
+## Usage
+
+1. Place your composite logo image as `client-logos-collection-v2.png`
+2. Run: `python3 clustered_logo_detector.py`
+3. View results in `clustered_extraction_preview.html`
+4. Individual logos saved to `clustered-logos/` directory
+
+## Algorithm
+
+1. **Blob Detection**: Identifies colored regions using binary thresholding
+2. **Initial Clustering**: Groups nearby blobs using DBSCAN with 120px minimum distance
+3. **Connectivity Analysis**: Samples pixels between blob centers to detect continuous elements
+4. **Merging**: Combines clusters with >30% colored pixels between centers
+5. **Extraction**: Creates padded bounding boxes around final logo groups
+
+## Results
+
+- Successfully processes 52+ individual elements
+- Intelligently clusters into 18+ complete logos
+- Prevents text/graphic splitting (e.g., Los Alamos logo)
+- Provides visual validation for quality assurance
 
 ## Deployment
 
-Deployed on Vercel with automatic deployments from this repository. Git integration now active for seamless continuous deployment.
-
-### Making Project Private
-
-To enable authentication and make the project private:
-
-1. Go to [Vercel Dashboard](https://vercel.com/dashboard)
-2. Navigate to the "granalytich-solutions-website" project
-3. Go to **Settings** → **General** → **Project Protection**
-4. Enable **"Vercel Authentication"** or **"Password Protection"**
-
-This will require authentication for all access to the site.
+Live demo available at the deployed Netlify site showing extraction results and methodology.
 
 ## Contact
 
+- **Developed for**: Granalytich Solutions Ltd.
 - **Email**: jjgranich@msn.com
-- **Phone**: (505) 490-7147
 - **Location**: Colorado Springs, CO
-- **Service Area**: Federal, Municipal & Private Sectors Nationwide
 
 ---
 

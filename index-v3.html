@@ -1,0 +1,1811 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granalytich Solutions Ltd. - We Build The Trust</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Granalytich Color Scheme */
+        :root {
+            --primary-navy: #1e3a5f;
+            --secondary-blue: #2e5a8a;
+            --accent-gold: #d4af37;
+            --accent-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --border-color: #dee2e6;
+        }
+
+        /* Top Bar - Exact Match */
+        .top-bar {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 8px 0;
+            font-size: 13px;
+            font-weight: 400;
+        }
+
+        .top-bar-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .top-bar-left {
+            display: flex;
+            gap: 30px;
+        }
+
+        .top-bar-right {
+            display: flex;
+            gap: 20px;
+            align-items: center;
+        }
+
+        .discover-btn {
+            background-color: var(--accent-gold);
+            color: white;
+            padding: 6px 16px;
+            border: none;
+            border-radius: 3px;
+            font-size: 12px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .discover-btn:hover {
+            background-color: #b8860b;
+        }
+
+        /* Navigation - Exact Match */
+        .navbar {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            width: 45px;
+            height: 45px;
+            background-color: var(--accent-gold);
+            border-radius: 5px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-weight: bold;
+            font-size: 18px;
+        }
+
+        .logo-text {
+            font-size: 28px;
+            font-weight: bold;
+            color: var(--primary-navy);
+            letter-spacing: -1px;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Hero Section - Exact Match with Real Construction Photo */
+        .hero {
+            height: 70vh;
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.3)), 
+                        url('/Users/personal/Library/CloudStorage/GoogleDrive-dylan@417propertysolutions.com/My Drive/Data Center/TPDC - Contractor Builder Information/Website Creation/MTI NM/MTI Picture Files - png/1. Best Photos/Chamber 15 Metal Building.pdf.png') center/cover;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 80px;
+            background: var(--light-gray);
+            clip-path: polygon(0 100%, 100% 0, 100% 100%);
+        }
+
+        .hero-content {
+            z-index: 2;
+            max-width: 800px;
+            padding: 0 20px;
+        }
+
+        .hero-badge {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 2px;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            opacity: 0.9;
+        }
+
+        .hero-title {
+            font-size: 4.5rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 30px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.3);
+        }
+
+        .hero-subtitle {
+            font-size: 18px;
+            margin-bottom: 40px;
+            opacity: 0.9;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .hero-btn {
+            background-color: var(--accent-gold);
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 3px;
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+        }
+
+        .hero-btn:hover {
+            background-color: #b8860b;
+            transform: translateY(-2px);
+        }
+
+
+        /* Three Features Section - Exact Match */
+        .features-section {
+            padding: 50px 0 80px;
+            background-color: var(--white);
+        }
+
+        .features-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 50px;
+        }
+
+        .feature-item {
+            text-align: center;
+            padding: 40px 20px;
+            background-color: var(--light-gray);
+            border-radius: 8px;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            border: 3px solid var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 25px;
+            font-size: 24px;
+            color: var(--accent-gold);
+            background-color: white;
+            transition: all 0.3s ease;
+        }
+
+        .feature-item:hover .feature-icon {
+            background-color: var(--accent-gold);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .feature-title {
+            font-size: 18px;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .feature-text {
+            font-size: 14px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* About Section - Exact Match */
+        .about-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .about-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .about-title {
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+        }
+
+        .about-title .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .about-subtitle {
+            font-size: 16px;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        .about-cards {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-top: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .about-card {
+            padding: 50px 30px;
+            background-color: var(--light-gray);
+        }
+
+        .about-card.center {
+            background-color: var(--accent-gold);
+            color: white;
+        }
+
+        .about-card h4 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .about-card p {
+            font-size: 14px;
+            line-height: 1.6;
+            margin-bottom: 20px;
+        }
+
+        .about-card .read-more {
+            color: var(--accent-gold);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 12px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: color 0.3s ease;
+        }
+
+        .about-card.center .read-more {
+            color: white;
+        }
+
+        .about-card .read-more:hover {
+            color: var(--primary-navy);
+        }
+
+        .about-card.center .read-more:hover {
+            color: #f0f0f0;
+        }
+
+        .about-card .icon {
+            font-size: 40px;
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        /* Services Section - Exact Match */
+        .services-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .services-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .services-header {
+            text-align: center;
+            margin-bottom: 60px;
+        }
+
+        .services-content {
+            display: grid;
+            grid-template-columns: 300px 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .services-main-image {
+            width: 100%;
+            height: 400px;
+            background-image: url('/Users/personal/Library/CloudStorage/GoogleDrive-dylan@417propertysolutions.com/My Drive/Data Center/TPDC - Contractor Builder Information/Website Creation/MTI NM/MTI Picture Files - png/1. Best Photos/Chamber 15 Metal Building.pdf.png');
+            background-size: cover;
+            background-position: center;
+            border-radius: 8px;
+        }
+
+        .services-worker {
+            width: 280px;
+            height: 350px;
+            background: linear-gradient(45deg, var(--primary-navy), var(--secondary-blue));
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: white;
+            font-size: 4rem;
+            margin-bottom: 30px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
+        }
+
+        .services-title {
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+        }
+
+        .services-title .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .services-text {
+            font-size: 16px;
+            color: #666;
+            line-height: 1.6;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .services-grid {
+            display: flex;
+            flex-wrap: nowrap;
+            gap: 15px;
+            justify-content: space-evenly;
+            margin-bottom: 120px;
+            padding: 40px 0;
+            overflow-x: visible;
+            width: 100%;
+        }
+
+        .service-card {
+            width: 200px;
+            height: 240px;
+            position: relative;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            clip-path: polygon(0% 0%, 85% 0%, 100% 100%, 15% 100%);
+            flex-shrink: 0;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-bg {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background-size: cover;
+            background-position: center;
+        }
+
+        .service-card.construction .service-bg {
+            background: linear-gradient(135deg, #8b4513, #a0522d);
+        }
+
+        .service-card.infrastructure .service-bg {
+            background: linear-gradient(135deg, var(--primary-navy), var(--secondary-blue));
+        }
+
+        .service-card.datacenter .service-bg {
+            background: linear-gradient(135deg, #2c3e50, #34495e);
+        }
+
+        .service-card.federal .service-bg {
+            background: linear-gradient(135deg, var(--accent-gray), #5a6268);
+        }
+
+        .service-overlay {
+            position: absolute;
+            top: 50%;
+            left: 0;
+            right: 0;
+            height: 30px;
+            background: var(--accent-gold);
+            z-index: 2;
+            transform: translateY(-50%);
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .service-card:hover .service-overlay {
+            opacity: 1;
+        }
+
+        .service-content {
+            position: absolute;
+            bottom: -40px;
+            left: 0;
+            right: 0;
+            z-index: 3;
+            text-align: center;
+            color: var(--primary-navy);
+            opacity: 1;
+        }
+
+        .service-card:hover .service-content {
+            opacity: 1;
+        }
+
+        .service-badge {
+            background-color: transparent;
+            color: white;
+            padding: 2px 8px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 5px;
+            display: none;
+        }
+
+        .service-card:hover .service-badge {
+            display: block;
+        }
+
+        .service-title {
+            font-size: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            color: var(--primary-navy);
+            text-shadow: none;
+            margin-top: 12px;
+        }
+
+        /* Projects Section */
+        .projects-section {
+            padding: 100px 0;
+            background-color: white;
+        }
+
+        .projects-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--primary-navy);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 0;
+            margin-top: 60px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .project-card {
+            background-color: var(--light-gray);
+            padding: 50px 30px;
+            text-align: center;
+            transition: all 0.3s ease;
+            border: none;
+            border-radius: 0;
+        }
+
+        .project-card:hover {
+            background-color: var(--accent-gold);
+            color: white;
+            transform: translateY(-3px);
+        }
+
+        .project-value {
+            font-size: 32px;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            display: block;
+        }
+
+        .project-card h4 {
+            font-size: 16px;
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .project-card p {
+            color: #666;
+            line-height: 1.6;
+            margin-bottom: 20px;
+            font-size: 14px;
+        }
+
+        .project-card:hover .project-value,
+        .project-card:hover h4,
+        .project-card:hover p {
+            color: white;
+        }
+
+        .project-tags {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .project-tag {
+            background-color: var(--secondary-blue);
+            color: white;
+            padding: 6px 14px;
+            border-radius: 20px;
+            font-size: 11px;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: all 0.3s ease;
+        }
+
+        .project-card:hover .project-tag {
+            background-color: var(--primary-navy);
+            color: white;
+        }
+
+        /* Leadership Section */
+        .leadership-section {
+            padding: 100px 0;
+            background: linear-gradient(135deg, var(--primary-navy) 0%, var(--secondary-blue) 100%);
+            color: white;
+        }
+
+        .leadership-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .leadership-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            margin-top: 60px;
+            max-width: 800px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .leadership-profile {
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .profile-avatar {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: var(--accent-gold);
+            margin: 0 auto 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 4rem;
+            color: var(--primary-navy);
+            border: 5px solid var(--accent-gold);
+        }
+
+        .leadership-profile h3 {
+            font-size: 24px;
+            margin-bottom: 10px;
+            color: var(--accent-gold);
+        }
+
+        .leadership-profile .title {
+            font-size: 16px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .credentials {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            justify-content: center;
+        }
+
+        .credential {
+            background-color: var(--accent-gold);
+            color: var(--primary-navy);
+            padding: 4px 12px;
+            border-radius: 15px;
+            font-size: 12px;
+            font-weight: 600;
+        }
+
+        .leadership-text {
+            text-align: center;
+        }
+
+        .leadership-text h4 {
+            color: var(--accent-gold);
+            font-size: 24px;
+            margin-bottom: 20px;
+        }
+
+        .leadership-text p {
+            margin-bottom: 20px;
+            line-height: 1.7;
+            opacity: 0.9;
+        }
+
+        /* Contact Section */
+        .contact-section {
+            padding: 100px 0;
+            background-color: var(--white);
+        }
+
+        .contact-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .contact-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            margin-top: 40px;
+        }
+
+        .contact-form {
+            background: white;
+            padding: 40px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group label {
+            display: block;
+            margin-bottom: 8px;
+            font-weight: 600;
+            color: var(--primary-navy);
+        }
+
+        .form-group input,
+        .form-group textarea,
+        .form-group select {
+            width: 100%;
+            padding: 15px;
+            border: 2px solid var(--border-color);
+            border-radius: 5px;
+            font-size: 14px;
+            transition: border-color 0.3s ease;
+        }
+
+        .form-group input:focus,
+        .form-group textarea:focus,
+        .form-group select:focus {
+            outline: none;
+            border-color: var(--accent-gold);
+        }
+
+        .form-group textarea {
+            height: 120px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            background-color: var(--primary-navy);
+            color: white;
+            padding: 18px 35px;
+            border: none;
+            border-radius: 5px;
+            font-size: 14px;
+            font-weight: 700;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            width: 100%;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        .submit-btn:hover {
+            background-color: var(--secondary-blue);
+            transform: translateY(-2px);
+        }
+
+        .contact-info h4 {
+            color: var(--primary-navy);
+            font-size: 24px;
+            margin-bottom: 30px;
+        }
+
+        .contact-item {
+            display: flex;
+            align-items: center;
+            margin-bottom: 20px;
+            font-size: 16px;
+        }
+
+        .contact-item .contact-icon {
+            color: var(--accent-gold);
+            margin-right: 15px;
+            font-size: 18px;
+            min-width: 30px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        /* Custom Icons */
+        .icon {
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            width: 1em;
+            height: 1em;
+            position: relative;
+        }
+
+        .icon-phone::before {
+            content: '';
+            width: 12px;
+            height: 12px;
+            border: 2px solid currentColor;
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .icon-phone::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 2px;
+            background: currentColor;
+            border-radius: 1px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        .icon-email::before {
+            content: '';
+            width: 14px;
+            height: 10px;
+            border: 2px solid currentColor;
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .icon-email::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-top: 4px solid currentColor;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .icon-star {
+            position: relative;
+        }
+        
+        .icon-star::before {
+            content: '★';
+            font-size: 1em;
+            color: currentColor;
+        }
+
+        .icon-building {
+            position: relative;
+        }
+        
+        .icon-building::before {
+            content: '';
+            width: 16px;
+            height: 16px;
+            border: 2px solid currentColor;
+            border-bottom: 4px solid currentColor;
+            position: relative;
+        }
+        
+        .icon-building::after {
+            content: '';
+            position: absolute;
+            width: 8px;
+            height: 8px;
+            border: 1px solid currentColor;
+            top: 2px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .icon-chart {
+            position: relative;
+        }
+        
+        .icon-chart::before {
+            content: '';
+            width: 16px;
+            height: 2px;
+            background: currentColor;
+            position: relative;
+        }
+        
+        .icon-chart::after {
+            content: '';
+            position: absolute;
+            width: 2px;
+            height: 16px;
+            background: currentColor;
+            left: 0;
+            top: -7px;
+        }
+
+        .icon-hardhat {
+            position: relative;
+            width: 40px;
+            height: 40px;
+        }
+        
+        .icon-hardhat::before {
+            content: '';
+            width: 32px;
+            height: 20px;
+            border: 3px solid currentColor;
+            border-bottom: 6px solid currentColor;
+            border-radius: 50% 50% 0 0;
+            position: absolute;
+            top: 0;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .icon-hardhat::after {
+            content: '';
+            position: absolute;
+            width: 40px;
+            height: 4px;
+            background: currentColor;
+            bottom: 0;
+            left: 0;
+            border-radius: 2px;
+        }
+
+        .icon-worker {
+            position: relative;
+            width: 60px;
+            height: 60px;
+        }
+        
+        .icon-worker::before {
+            content: '';
+            width: 20px;
+            height: 20px;
+            border: 3px solid currentColor;
+            border-radius: 50%;
+            position: absolute;
+            top: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+        
+        .icon-worker::after {
+            content: '';
+            position: absolute;
+            width: 30px;
+            height: 25px;
+            border: 3px solid currentColor;
+            border-radius: 15px 15px 5px 5px;
+            bottom: 5px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .icon-trophy {
+            position: relative;
+        }
+        
+        .icon-trophy::before {
+            content: '';
+            width: 16px;
+            height: 12px;
+            border: 2px solid currentColor;
+            border-radius: 2px 2px 8px 8px;
+            position: relative;
+        }
+        
+        .icon-trophy::after {
+            content: '';
+            position: absolute;
+            width: 12px;
+            height: 4px;
+            background: currentColor;
+            bottom: -2px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .icon-location {
+            position: relative;
+        }
+        
+        .icon-location::before {
+            content: '';
+            width: 10px;
+            height: 14px;
+            border: 2px solid currentColor;
+            border-radius: 50% 50% 50% 0;
+            transform: rotate(-45deg);
+            position: relative;
+        }
+        
+        .icon-location::after {
+            content: '';
+            position: absolute;
+            width: 4px;
+            height: 4px;
+            background: currentColor;
+            border-radius: 50%;
+            top: 3px;
+            left: 50%;
+            transform: translateX(-50%);
+        }
+
+        .icon-service {
+            position: relative;
+        }
+        
+        .icon-service::before {
+            content: '';
+            width: 14px;
+            height: 14px;
+            border: 2px solid currentColor;
+            border-radius: 2px;
+            position: relative;
+        }
+        
+        .icon-service::after {
+            content: '';
+            position: absolute;
+            width: 6px;
+            height: 2px;
+            background: currentColor;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+        /* Logo Ticker Section */
+        .logo-ticker-section {
+            background-color: var(--white);
+            padding: 40px 0 30px;
+            overflow: hidden;
+        }
+
+        .logo-ticker-container {
+            position: relative;
+            width: 100%;
+        }
+
+        .logo-ticker {
+            display: flex;
+            gap: 4rem;
+            animation: scroll-logos 40s linear infinite;
+            will-change: transform;
+        }
+
+        .logo-ticker-item {
+            flex-shrink: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            height: 60px;
+            padding: 0 2rem;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
+        }
+
+        .logo-ticker-item img {
+            max-height: 50px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+            transition: all 0.4s ease;
+        }
+
+        .logo-ticker-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-ticker-item:hover::after {
+            content: attr(data-company);
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            white-space: nowrap;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo-ticker-item:hover::before {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid var(--primary-navy);
+            z-index: 11;
+        }
+
+        @keyframes scroll-logos {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-navy);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .services-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .leadership-content {
+                margin-top: 40px;
+            }
+
+            .leadership-profile {
+                margin-bottom: 40px;
+            }
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .hero-title {
+                font-size: 3rem;
+            }
+
+            .floating-decoration {
+                right: 20px;
+                font-size: 40px;
+            }
+
+            .features-grid {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .about-cards {
+                grid-template-columns: 1fr;
+            }
+
+            .services-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .contact-content {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .projects-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Logo ticker mobile optimization */
+            .logo-ticker {
+                gap: 2rem;
+            }
+
+            .logo-ticker-item {
+                padding: 0 1rem;
+            }
+
+            .logo-ticker-item img {
+                max-height: 40px;
+                max-width: 120px;
+            }
+
+            .logo-ticker-item:hover::after {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.8rem;
+                bottom: -30px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Top Bar -->
+    <div class="top-bar">
+        <div class="top-bar-container">
+            <div class="top-bar-left">
+                <span><span class="icon icon-phone"></span> (505) 490-7147</span>
+                <span><span class="icon icon-email"></span> jgranich@granalytich-solutions.com</span>
+            </div>
+            <div class="top-bar-right">
+                <span>LOGIN / REGISTER</span>
+                <button class="discover-btn">DISCOVER</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="#" class="logo">
+                <div class="logo-icon">GS</div>
+                <div class="logo-text">GRANALYTICH</div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="#home">HOME</a></li>
+                <li><a href="#about">ABOUT</a></li>
+                <li><a href="#services">SERVICES</a></li>
+                <li><a href="#projects">PROJECTS</a></li>
+                <li><a href="#leadership">TEAM</a></li>
+                <li><a href="#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <div class="hero-badge">ESTABLISHED 2017</div>
+            <h1 class="hero-title">Project Controls Excellence</h1>
+            <p class="hero-subtitle">Leading project controls consulting with specialized expertise in large-scale infrastructure programs for the DOE, DOT, NASA, and municipal sectors.</p>
+            <button class="hero-btn">CONTACT US</button>
+        </div>
+    </section>
+
+    <!-- Logo Ticker Section -->
+    <section class="logo-ticker-section">
+        <div class="logo-ticker-container">
+            <div class="logo-ticker">
+                <!-- First set of logos -->
+                <div class="logo-ticker-item" data-company="New Mexico Department of Transportation">
+                    <img src="logos/logo_01.png" alt="New Mexico Department of Transportation Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Los Alamos National Laboratory">
+                    <img src="logos/logo_02.png" alt="Los Alamos National Laboratory Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Wilson & Company">
+                    <img src="logos/logo_04.png" alt="Wilson & Company Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="RMF Engineering">
+                    <img src="logos/logo_05.png" alt="RMF Engineering Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="U.S. Department of Energy">
+                    <img src="logos/logo_06.png" alt="U.S. Department of Energy Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Cross Connection Inc.">
+                    <img src="logos/logo_07.png" alt="Cross Connection Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="RED Rochester LLC">
+                    <img src="logos/logo_08.png" alt="RED Rochester LLC Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="NASA">
+                    <img src="logos/logo_09.png" alt="NASA Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Frank Lill & Son Inc.">
+                    <img src="logos/logo_10.png" alt="Frank Lill & Son Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Stantec">
+                    <img src="logos/logo_11.png" alt="Stantec Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Futures Mechanical">
+                    <img src="logos/logo_12.png" alt="Futures Mechanical Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="MWH Global">
+                    <img src="logos/logo_14.png" alt="MWH Global Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="SET Inc.">
+                    <img src="logos/logo_15.png" alt="SET Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="UCLA">
+                    <img src="logos/logo_16.png" alt="UCLA Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Bechtel Corporation">
+                    <img src="logos/logo_17.png" alt="Bechtel Corporation Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="AECOM">
+                    <img src="logos/logo_18.png" alt="AECOM Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="DLS Construction">
+                    <img src="logos/logo_19.png" alt="DLS Construction Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Twenty20 Construction">
+                    <img src="logos/logo_20.png" alt="Twenty20 Construction Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Pueblo Electric Inc.">
+                    <img src="logos/logo_22.png" alt="Pueblo Electric Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Raytheon Company">
+                    <img src="logos/logo_23.png" alt="Raytheon Company Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Colorado Springs Utilities">
+                    <img src="logos/logo_03.png" alt="Colorado Springs Utilities Logo" loading="lazy">
+                </div>
+                
+                <!-- Duplicate set for seamless loop -->
+                <div class="logo-ticker-item" data-company="New Mexico Department of Transportation">
+                    <img src="logos/logo_01.png" alt="New Mexico Department of Transportation Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Los Alamos National Laboratory">
+                    <img src="logos/logo_02.png" alt="Los Alamos National Laboratory Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Wilson & Company">
+                    <img src="logos/logo_04.png" alt="Wilson & Company Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="RMF Engineering">
+                    <img src="logos/logo_05.png" alt="RMF Engineering Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="U.S. Department of Energy">
+                    <img src="logos/logo_06.png" alt="U.S. Department of Energy Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Cross Connection Inc.">
+                    <img src="logos/logo_07.png" alt="Cross Connection Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="RED Rochester LLC">
+                    <img src="logos/logo_08.png" alt="RED Rochester LLC Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="NASA">
+                    <img src="logos/logo_09.png" alt="NASA Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Frank Lill & Son Inc.">
+                    <img src="logos/logo_10.png" alt="Frank Lill & Son Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Stantec">
+                    <img src="logos/logo_11.png" alt="Stantec Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Futures Mechanical">
+                    <img src="logos/logo_12.png" alt="Futures Mechanical Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="MWH Global">
+                    <img src="logos/logo_14.png" alt="MWH Global Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="SET Inc.">
+                    <img src="logos/logo_15.png" alt="SET Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="UCLA">
+                    <img src="logos/logo_16.png" alt="UCLA Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Bechtel Corporation">
+                    <img src="logos/logo_17.png" alt="Bechtel Corporation Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="AECOM">
+                    <img src="logos/logo_18.png" alt="AECOM Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="DLS Construction">
+                    <img src="logos/logo_19.png" alt="DLS Construction Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Twenty20 Construction">
+                    <img src="logos/logo_20.png" alt="Twenty20 Construction Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Pueblo Electric Inc.">
+                    <img src="logos/logo_22.png" alt="Pueblo Electric Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Raytheon Company">
+                    <img src="logos/logo_23.png" alt="Raytheon Company Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Colorado Springs Utilities">
+                    <img src="logos/logo_03.png" alt="Colorado Springs Utilities Logo" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Three Features Section -->
+    <section class="features-section">
+        <div class="features-container">
+            <div class="features-grid">
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span class="icon icon-star"></span>
+                    </div>
+                    <h3 class="feature-title">PROJECT CONTROLS EXCELLENCE</h3>
+                    <p class="feature-text">Advanced scheduling and cost engineering with master baseline development, earned value management, and enterprise systems integration for rigorous project delivery.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span class="icon icon-building"></span>
+                    </div>
+                    <h3 class="feature-title">FEDERAL EXPERTISE</h3>
+                    <p class="feature-text">Specialized knowledge in DOE, NASA, DOT requirements with proven track record delivering complex federal programs meeting the highest compliance standards.</p>
+                </div>
+                
+                <div class="feature-item">
+                    <div class="feature-icon">
+                        <span class="icon icon-chart"></span>
+                    </div>
+                    <h3 class="feature-title">PROVEN RESULTS</h3>
+                    <p class="feature-text">$3.6B in successful project delivery with consistent on-time, under-budget performance across infrastructure, data center, and municipal programs.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- About Section -->
+    <section class="about-section" id="about">
+        <div class="about-container">
+            <h2 class="about-title">ABOUT <span class="highlight">GRANALYTICH</span></h2>
+            <p class="about-subtitle">Over 27 years of project management experience delivering critical infrastructure programs for federal agencies, municipalities, and private sector clients nationwide with unparalleled precision and reliability.</p>
+            
+            <div class="about-cards">
+                <div class="about-card">
+                    <h4>OUR STORY</h4>
+                    <p>Founded in 2017, Granalytich Solutions has established itself as a premier project controls consulting firm with rigorous integration and skilled team members delivering excellence across all program phases.</p>
+                    <a href="#" class="read-more">READ MORE</a>
+                </div>
+                
+                <div class="about-card center">
+                    <span class="icon icon-trophy" style="font-size: 40px; color: white;"></span>
+                    <h4>ABOUT US</h4>
+                    <p>Comprehensive project controls and infrastructure management services for DOE, NASA, DOT, and municipal clients with proven track record of delivering complex programs.</p>
+                </div>
+                
+                <div class="about-card">
+                    <h4>OUR CREDENTIALS</h4>
+                    <p>PMP certified with AACEI membership and OSHA 30 credentials. Specialized expertise in federal contracting requirements and municipal project delivery standards.</p>
+                    <a href="#" class="read-more">READ MORE</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services-section" id="services">
+        <div class="services-container">
+            <div class="services-header">
+                <h2 class="services-title">OUR <span class="highlight">SERVICES</span></h2>
+                <p class="services-text">Comprehensive project controls and infrastructure management services with proven expertise in large-scale federal and municipal programs requiring the highest levels of precision, compliance, and reliability for mission-critical delivery.</p>
+            </div>
+            
+            <div class="services-content">
+                <div class="services-main-image"></div>
+                <div class="services-grid">
+                <div class="service-card construction">
+                    <div class="service-bg"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <div class="service-badge">DETAILS</div>
+                        <h4 class="service-title">PROJECT CONTROLS</h4>
+                    </div>
+                </div>
+                
+                <div class="service-card infrastructure">
+                    <div class="service-bg"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <div class="service-badge">DETAILS</div>
+                        <h4 class="service-title">INFRASTRUCTURE</h4>
+                    </div>
+                </div>
+                
+                <div class="service-card datacenter">
+                    <div class="service-bg"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <div class="service-badge">DETAILS</div>
+                        <h4 class="service-title">DATA CENTERS</h4>
+                    </div>
+                </div>
+                
+                <div class="service-card federal">
+                    <div class="service-bg"></div>
+                    <div class="service-overlay"></div>
+                    <div class="service-content">
+                        <div class="service-badge">DETAILS</div>
+                        <h4 class="service-title">FEDERAL CONTRACTS</h4>
+                    </div>
+                </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects-section" id="projects">
+        <div class="projects-container">
+            <h2 class="section-title">MAJOR <span class="highlight">PROJECTS</span></h2>
+            <p class="section-subtitle">Proven delivery of complex infrastructure projects across federal, municipal, and private sectors with consistent on-time and under-budget performance.</p>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-value">$1.7B</div>
+                    <h4>Alternative Water Supply Program</h4>
+                    <p>Owner's Senior Program Controls Lead for transmission lines, underwater tunnels, pump stations, and storage tanks serving 8 municipalities.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Water Infrastructure</span>
+                        <span class="project-tag">Municipal</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-value">$841M</div>
+                    <h4>Southern Delivery Water System</h4>
+                    <p>Program Controls Schedule Lead for 60 miles of piping, three pump stations, and water treatment plant with 27 work packages.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Water Systems</span>
+                        <span class="project-tag">Treatment Plant</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-value">$254M</div>
+                    <h4>Nuclear Material Safeguards & Security</h4>
+                    <p>Project controls management for critical nuclear facility security enhancements at Los Alamos National Laboratory.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Nuclear Security</span>
+                        <span class="project-tag">DOE</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-value">$52.4M</div>
+                    <h4>Data Center Infrastructure</h4>
+                    <p>Multiple high-tech data center projects including Exascale Computer Cooling, electrical upgrades, and critical infrastructure.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Data Centers</span>
+                        <span class="project-tag">High-Tech</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-value">$170M</div>
+                    <h4>NM Department of Transportation</h4>
+                    <p>Multiple highway improvement projects including I-25, NM528, and major US routes with comprehensive project controls.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Transportation</span>
+                        <span class="project-tag">State Infrastructure</span>
+                    </div>
+                </div>
+
+                <div class="project-card">
+                    <div class="project-value">$396M</div>
+                    <h4>Eastern Wastewater System</h4>
+                    <p>Large-scale wastewater infrastructure program including treatment facilities and environmental compliance.</p>
+                    <div class="project-tags">
+                        <span class="project-tag">Environmental</span>
+                        <span class="project-tag">Municipal</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Leadership Section -->
+    <section class="leadership-section" id="leadership">
+        <div class="leadership-container">
+            <h2 class="section-title" style="color: white;">EXPERT <span class="highlight">LEADERSHIP</span></h2>
+            <div class="leadership-content">
+                <div class="leadership-profile">
+                    <div class="profile-avatar">JG</div>
+                    <h3>Jarett Granich, PMP</h3>
+                    <p class="title">Principal & Founder</p>
+                    <div class="credentials">
+                        <span class="credential">PMP Certified</span>
+                        <span class="credential">AACEI Member</span>
+                        <span class="credential">OSHA 30</span>
+                    </div>
+                </div>
+                
+                <div class="leadership-text">
+                    <h4>Proven Leadership in Complex Infrastructure</h4>
+                    <p>With over 27 years of project management experience, Jarett Granich leads Granalytich Solutions Ltd. with unparalleled expertise in project controls, cost engineering, and large-scale infrastructure delivery.</p>
+                    <p>His experience spans the Department of Energy, Department of Transportation, NASA, and major municipal programs, establishing him as a trusted partner for mission-critical infrastructure projects.</p>
+                    <p>Currently managing over $413 million in active projects, Jarett's leadership has consistently delivered complex programs on time and within budget.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section" id="contact">
+        <div class="contact-container">
+            <h2 class="section-title">GET IN <span class="highlight">TOUCH</span></h2>
+            <p class="section-subtitle">Ready to discuss your next infrastructure project? Let's explore how our project controls expertise can ensure your program's success.</p>
+            
+            <div class="contact-content">
+                <div class="contact-info">
+                    <h4>Contact Information</h4>
+                    <div class="contact-item">
+                        <span class="contact-icon"><span class="icon icon-email"></span></span>
+                        <span><strong>EMAIL:</strong> jgranich@granalytich-solutions.com</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon"><span class="icon icon-phone"></span></span>
+                        <span><strong>PHONE:</strong> (505) 490-7147</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon"><span class="icon icon-location"></span></span>
+                        <span><strong>LOCATION:</strong> Colorado Springs, CO</span>
+                    </div>
+                    <div class="contact-item">
+                        <span class="contact-icon"><span class="icon icon-service"></span></span>
+                        <span><strong>SERVICE:</strong> Serving Federal, Municipal & Private Sectors Nationwide</span>
+                    </div>
+                </div>
+
+                <form class="contact-form">
+                    <h4 style="color: var(--primary-navy); margin-bottom: 30px;">Request Project Consultation</h4>
+                    
+                    <div class="form-group">
+                        <label for="name">Full Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="email">Email Address</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="organization">Organization</label>
+                        <input type="text" id="organization" name="organization" required>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="sector">Project Sector</label>
+                        <select id="sector" name="sector" required>
+                            <option value="">Select Sector</option>
+                            <option value="federal">Federal Government</option>
+                            <option value="municipal">Municipal/State</option>
+                            <option value="private">Private Sector</option>
+                            <option value="infrastructure">Infrastructure</option>
+                            <option value="datacenter">Data Centers</option>
+                        </select>
+                    </div>
+                    
+                    <div class="form-group">
+                        <label for="message">Project Details</label>
+                        <textarea id="message" name="message" placeholder="Tell us about your project requirements..." required></textarea>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">SEND MESSAGE</button>
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Granalytich Solutions Ltd. All rights reserved.</p>
+            <p>Building Trust Through Excellence • Project Controls • Infrastructure Management</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Contact button functionality
+        document.querySelector('.hero-btn').addEventListener('click', function() {
+            document.querySelector('#contact').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Form submission handler
+        document.querySelector('.contact-form').addEventListener('submit', function(e) {
+            e.preventDefault();
+            alert('Thank you for your inquiry. Jarett will contact you within 24 hours to discuss your project controls requirements.');
+        });
+
+        // Discover button functionality
+        document.querySelector('.discover-btn').addEventListener('click', function() {
+            document.querySelector('#about').scrollIntoView({
+                behavior: 'smooth'
+            });
+        });
+
+        // Add scroll effect to navbar
+        window.addEventListener('scroll', function() {
+            const navbar = document.querySelector('.navbar');
+            if (window.scrollY > 100) {
+                navbar.style.backgroundColor = 'rgba(255, 255, 255, 0.95)';
+                navbar.style.backdropFilter = 'blur(10px)';
+            } else {
+                navbar.style.backgroundColor = 'white';
+                navbar.style.backdropFilter = 'none';
+            }
+        });
+
+        // Intersection Observer for animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver(function(entries) {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                }
+            });
+        }, observerOptions);
+
+        // Observe elements for animation
+        document.querySelectorAll('.feature-item, .about-card, .service-card, .project-card').forEach(element => {
+            element.style.opacity = '0';
+            element.style.transform = 'translateY(30px)';
+            element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+            observer.observe(element);
+        });
+    </script>
+</body>
+</html>

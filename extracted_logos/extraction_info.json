@@ -1,0 +1,293 @@
+{
+  "source_image": "client-logos-collection.png",
+  "method": "manual",
+  "total_logos": 22,
+  "logos": [
+    {
+      "filename": "logo_01.png",
+      "coordinates": [
+        45,
+        30,
+        290,
+        120
+      ],
+      "size": [
+        290,
+        120
+      ]
+    },
+    {
+      "filename": "logo_02.png",
+      "coordinates": [
+        370,
+        30,
+        320,
+        120
+      ],
+      "size": [
+        320,
+        120
+      ]
+    },
+    {
+      "filename": "logo_03.png",
+      "coordinates": [
+        720,
+        30,
+        320,
+        120
+      ],
+      "size": [
+        320,
+        120
+      ]
+    },
+    {
+      "filename": "logo_04.png",
+      "coordinates": [
+        45,
+        180,
+        240,
+        80
+      ],
+      "size": [
+        240,
+        80
+      ]
+    },
+    {
+      "filename": "logo_05.png",
+      "coordinates": [
+        320,
+        180,
+        240,
+        80
+      ],
+      "size": [
+        240,
+        80
+      ]
+    },
+    {
+      "filename": "logo_06.png",
+      "coordinates": [
+        680,
+        180,
+        280,
+        80
+      ],
+      "size": [
+        280,
+        80
+      ]
+    },
+    {
+      "filename": "logo_07.png",
+      "coordinates": [
+        45,
+        290,
+        240,
+        120
+      ],
+      "size": [
+        240,
+        120
+      ]
+    },
+    {
+      "filename": "logo_08.png",
+      "coordinates": [
+        320,
+        290,
+        240,
+        120
+      ],
+      "size": [
+        240,
+        120
+      ]
+    },
+    {
+      "filename": "logo_09.png",
+      "coordinates": [
+        580,
+        290,
+        100,
+        100
+      ],
+      "size": [
+        100,
+        100
+      ]
+    },
+    {
+      "filename": "logo_10.png",
+      "coordinates": [
+        720,
+        290,
+        320,
+        120
+      ],
+      "size": [
+        320,
+        120
+      ]
+    },
+    {
+      "filename": "logo_11.png",
+      "coordinates": [
+        45,
+        440,
+        320,
+        120
+      ],
+      "size": [
+        320,
+        120
+      ]
+    },
+    {
+      "filename": "logo_12.png",
+      "coordinates": [
+        400,
+        460,
+        280,
+        80
+      ],
+      "size": [
+        280,
+        80
+      ]
+    },
+    {
+      "filename": "logo_13.png",
+      "coordinates": [
+        400,
+        520,
+        280,
+        60
+      ],
+      "size": [
+        280,
+        60
+      ]
+    },
+    {
+      "filename": "logo_14.png",
+      "coordinates": [
+        45,
+        580,
+        240,
+        120
+      ],
+      "size": [
+        240,
+        120
+      ]
+    },
+    {
+      "filename": "logo_15.png",
+      "coordinates": [
+        320,
+        670,
+        120,
+        80
+      ],
+      "size": [
+        120,
+        80
+      ]
+    },
+    {
+      "filename": "logo_16.png",
+      "coordinates": [
+        480,
+        580,
+        240,
+        120
+      ],
+      "size": [
+        240,
+        120
+      ]
+    },
+    {
+      "filename": "logo_17.png",
+      "coordinates": [
+        760,
+        580,
+        180,
+        120
+      ],
+      "size": [
+        180,
+        120
+      ]
+    },
+    {
+      "filename": "logo_18.png",
+      "coordinates": [
+        45,
+        750,
+        180,
+        120
+      ],
+      "size": [
+        180,
+        120
+      ]
+    },
+    {
+      "filename": "logo_19.png",
+      "coordinates": [
+        240,
+        750,
+        240,
+        120
+      ],
+      "size": [
+        240,
+        120
+      ]
+    },
+    {
+      "filename": "logo_20.png",
+      "coordinates": [
+        480,
+        750,
+        320,
+        120
+      ],
+      "size": [
+        320,
+        120
+      ]
+    },
+    {
+      "filename": "logo_21.png",
+      "coordinates": [
+        820,
+        750,
+        180,
+        120
+      ],
+      "size": [
+        180,
+        120
+      ]
+    },
+    {
+      "filename": "logo_22.png",
+      "coordinates": [
+        45,
+        900,
+        280,
+        80
+      ],
+      "size": [
+        280,
+        80
+      ]
+    }
+  ]
+}

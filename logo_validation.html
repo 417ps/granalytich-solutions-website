@@ -1,0 +1,313 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Logo Extraction Validation</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { position: relative; display: inline-block; }
+        .logo-box { position: absolute; border: 2px solid; cursor: pointer; }
+        .valid { border-color: green; background: rgba(0,255,0,0.1); }
+        .invalid { border-color: red; background: rgba(255,0,0,0.1); }
+        .warning { border-color: orange; background: rgba(255,165,0,0.1); }
+        .info { margin: 20px 0; }
+        .legend { margin: 10px 0; }
+        .legend span { display: inline-block; width: 20px; height: 20px; margin-right: 5px; }
+        table { border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .needs-adjustment { background-color: #ffebee; }
+    </style>
+</head>
+<body>
+    <h1>Logo Extraction Validation Results</h1>
+    <div class="info">
+        <div class="legend">
+            <span style="background-color: rgba(0,255,0,0.3); border: 2px solid green;"></span> Valid extraction
+            <span style="background-color: rgba(255,165,0,0.3); border: 2px solid orange;"></span> Needs review
+            <span style="background-color: rgba(255,0,0,0.3); border: 2px solid red;"></span> Likely encroachment
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="client-logos-collection.png" alt="Logo Collection" style="max-width: 100%;">
+
+        <div class="logo-box valid" 
+             style="left: 50px; top: 45px; width: 320px; height: 120px;"
+             title="✅ Looks good: nm-dot">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 390px; top: 65px; width: 350px; height: 95px;"
+             title="✅ Looks good: los-alamos-national-lab">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 745px; top: 20px; width: 320px; height: 140px;"
+             title="✅ Looks good: colorado-springs-utilities">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 55px; top: 175px; width: 230px; height: 110px;"
+             title="✅ Looks good: wilson-company">
+        </div>
+        <div class="logo-box invalid" 
+             style="left: 330px; top: 215px; width: 290px; height: 80px;"
+             title="⚠️ Color inconsistencies detected: rmf-engineering">
+        </div>
+        <div class="logo-box invalid" 
+             style="left: 710px; top: 215px; width: 220px; height: 80px;"
+             title="⚠️ Color inconsistencies detected: us-doe">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 55px; top: 330px; width: 245px; height: 120px;"
+             title="✅ Looks good: cross-connection-inc">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 250px; top: 310px; width: 290px; height: 140px;"
+             title="✅ Looks good: red-rochester">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 560px; top: 290px; width: 150px; height: 150px;"
+             title="✅ Looks good: nasa">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 720px; top: 340px; width: 340px; height: 110px;"
+             title="✅ Looks good: frank-lill-son">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 75px; top: 475px; width: 315px; height: 110px;"
+             title="✅ Looks good: stantec">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 375px; top: 530px; width: 335px; height: 70px;"
+             title="✅ Looks good: futures-mechanical">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 670px; top: 440px; width: 450px; height: 165px;"
+             title="✅ Looks good: mwh-global">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 65px; top: 595px; width: 245px; height: 175px;"
+             title="✅ Looks good: set-inc">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 310px; top: 670px; width: 165px; height: 95px;"
+             title="✅ Looks good: ucla">
+        </div>
+        <div class="logo-box invalid" 
+             style="left: 540px; top: 640px; width: 170px; height: 65px;"
+             title="⚠️ Color inconsistencies detected: bechtel">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 790px; top: 680px; width: 240px; height: 95px;"
+             title="✅ Looks good: aecom">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 60px; top: 710px; width: 200px; height: 200px;"
+             title="✅ Looks good: dls-construction">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 240px; top: 780px; width: 235px; height: 95px;"
+             title="✅ Looks good: twenty20-construction">
+        </div>
+        <div class="logo-box warning" 
+             style="left: 540px; top: 820px; width: 280px; height: 40px;"
+             title="⚠️ Content near borders: los-alamos-research">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 870px; top: 710px; width: 160px; height: 200px;"
+             title="✅ Looks good: pueblo-electric">
+        </div>
+        <div class="logo-box valid" 
+             style="left: 60px; top: 850px; width: 370px; height: 170px;"
+             title="✅ Looks good: raytheon">
+        </div>
+    </div>
+    
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Coordinates</th>
+            <th>Color Issues</th>
+            <th>Border Content</th>
+            <th>Status</th>
+            <th>Recommendation</th>
+        </tr>
+
+        <tr class="">
+            <td>nm-dot</td>
+            <td>(50, 45, 320, 120)</td>
+            <td>No</td>
+            <td>0/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>los-alamos-national-lab</td>
+            <td>(390, 65, 350, 95)</td>
+            <td>No</td>
+            <td>0/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>colorado-springs-utilities</td>
+            <td>(745, 20, 320, 140)</td>
+            <td>No</td>
+            <td>0/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>wilson-company</td>
+            <td>(55, 175, 230, 110)</td>
+            <td>No</td>
+            <td>0/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="needs-adjustment">
+            <td>rmf-engineering</td>
+            <td>(330, 215, 290, 80)</td>
+            <td>Yes</td>
+            <td>1/4 borders</td>
+            <td>❌ Needs adjustment</td>
+            <td>Reduce extraction area - color scheme inconsistencies detected</td>
+        </tr>
+        <tr class="needs-adjustment">
+            <td>us-doe</td>
+            <td>(710, 215, 220, 80)</td>
+            <td>Yes</td>
+            <td>3/4 borders</td>
+            <td>❌ Needs adjustment</td>
+            <td>Reduce extraction area - color scheme inconsistencies detected</td>
+        </tr>
+        <tr class="">
+            <td>cross-connection-inc</td>
+            <td>(55, 330, 245, 120)</td>
+            <td>No</td>
+            <td>0/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>red-rochester</td>
+            <td>(250, 310, 290, 140)</td>
+            <td>No</td>
+            <td>1/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>nasa</td>
+            <td>(560, 290, 150, 150)</td>
+            <td>No</td>
+            <td>0/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>frank-lill-son</td>
+            <td>(720, 340, 340, 110)</td>
+            <td>No</td>
+            <td>1/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>stantec</td>
+            <td>(75, 475, 315, 110)</td>
+            <td>No</td>
+            <td>0/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>futures-mechanical</td>
+            <td>(375, 530, 335, 70)</td>
+            <td>No</td>
+            <td>0/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>mwh-global</td>
+            <td>(670, 440, 450, 165)</td>
+            <td>No</td>
+            <td>0/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>set-inc</td>
+            <td>(65, 595, 245, 175)</td>
+            <td>No</td>
+            <td>1/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>ucla</td>
+            <td>(310, 670, 165, 95)</td>
+            <td>No</td>
+            <td>2/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="needs-adjustment">
+            <td>bechtel</td>
+            <td>(540, 640, 170, 65)</td>
+            <td>Yes</td>
+            <td>4/4 borders</td>
+            <td>❌ Needs adjustment</td>
+            <td>Reduce extraction area - color scheme inconsistencies detected</td>
+        </tr>
+        <tr class="">
+            <td>aecom</td>
+            <td>(790, 680, 240, 95)</td>
+            <td>No</td>
+            <td>0/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>dls-construction</td>
+            <td>(60, 710, 200, 200)</td>
+            <td>No</td>
+            <td>2/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>twenty20-construction</td>
+            <td>(240, 780, 235, 95)</td>
+            <td>No</td>
+            <td>1/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="needs-adjustment">
+            <td>los-alamos-research</td>
+            <td>(540, 820, 280, 40)</td>
+            <td>No</td>
+            <td>3/4 borders</td>
+            <td>❌ Needs adjustment</td>
+            <td>Expand extraction area - content too close to borders</td>
+        </tr>
+        <tr class="">
+            <td>pueblo-electric</td>
+            <td>(870, 710, 160, 200)</td>
+            <td>No</td>
+            <td>2/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+        <tr class="">
+            <td>raytheon</td>
+            <td>(60, 850, 370, 170)</td>
+            <td>No</td>
+            <td>2/4 borders</td>
+            <td>✅ Valid</td>
+            <td>Extraction looks good</td>
+        </tr>
+    </table>
+</body>
+</html>

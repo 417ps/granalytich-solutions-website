@@ -1,0 +1,571 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Blob Center Detection & Extraction Preview</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { position: relative; display: inline-block; }
+        .center-point { position: absolute; width: 10px; height: 10px; 
+                        background: red; border-radius: 50%; 
+                        transform: translate(-5px, -5px); z-index: 3; }
+        .extraction-box { position: absolute; border: 3px solid blue; 
+                          background: rgba(0,0,255,0.1); z-index: 2; }
+        .label { position: absolute; background: white; padding: 2px 5px; 
+                 font-size: 12px; font-weight: bold; z-index: 4; }
+        .info { margin: 20px 0; }
+        table { border-collapse: collapse; margin-top: 20px; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+    </style>
+</head>
+<body>
+    <h1>Blob Center Detection Results</h1>
+    <div class="info">
+        <p><strong>Red dots</strong> = Detected logo centers</p>
+        <p><strong>Blue boxes</strong> = Proposed extraction areas</p>
+        <p><strong>Labels</strong> = Logo ID numbers</p>
+    </div>
+    
+    <div class="container">
+        <img src="client-logos-collection-v2.png" alt="Logo Collection" style="max-width: 100%;">
+
+        <div class="center-point" style="left: 915px; top: 74px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 803px; top: 36px; width: 226px; height: 77px;">
+        </div>
+        
+        <div class="label" style="left: 925px; top: 64px;">#0</div>
+        
+        <div class="center-point" style="left: 80px; top: 110px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 37px; top: 62px; width: 88px; height: 98px;">
+        </div>
+        
+        <div class="label" style="left: 90px; top: 100px;">#1</div>
+        
+        <div class="center-point" style="left: 201px; top: 131px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 95px; top: 110px; width: 210px; height: 45px;">
+        </div>
+        
+        <div class="label" style="left: 211px; top: 121px;">#2</div>
+        
+        <div class="center-point" style="left: 414px; top: 118px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 372px; top: 76px; width: 86px; height: 85px;">
+        </div>
+        
+        <div class="label" style="left: 424px; top: 108px;">#3</div>
+        
+        <div class="center-point" style="left: 483px; top: 114px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 437px; top: 82px; width: 93px; height: 60px;">
+        </div>
+        
+        <div class="label" style="left: 493px; top: 104px;">#4</div>
+        
+        <div class="center-point" style="left: 555px; top: 113px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 508px; top: 82px; width: 91px; height: 60px;">
+        </div>
+        
+        <div class="label" style="left: 565px; top: 103px;">#5</div>
+        
+        <div class="center-point" style="left: 629px; top: 113px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 572px; top: 87px; width: 112px; height: 55px;">
+        </div>
+        
+        <div class="label" style="left: 639px; top: 103px;">#6</div>
+        
+        <div class="center-point" style="left: 836px; top: 113px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 774px; top: 86px; width: 122px; height: 51px;">
+        </div>
+        
+        <div class="label" style="left: 846px; top: 103px;">#7</div>
+        
+        <div class="center-point" style="left: 1005px; top: 112px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 954px; top: 86px; width: 104px; height: 51px;">
+        </div>
+        
+        <div class="label" style="left: 1015px; top: 102px;">#8</div>
+        
+        <div class="center-point" style="left: 142px; top: 278px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 47px; top: 252px; width: 188px; height: 55px;">
+        </div>
+        
+        <div class="label" style="left: 152px; top: 268px;">#9</div>
+        
+        <div class="center-point" style="left: 374px; top: 298px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 316px; top: 262px; width: 120px; height: 71px;">
+        </div>
+        
+        <div class="label" style="left: 384px; top: 288px;">#10</div>
+        
+        <div class="center-point" style="left: 535px; top: 299px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 468px; top: 273px; width: 145px; height: 59px;">
+        </div>
+        
+        <div class="label" style="left: 545px; top: 289px;">#11</div>
+        
+        <div class="center-point" style="left: 897px; top: 287px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 827px; top: 267px; width: 145px; height: 42px;">
+        </div>
+        
+        <div class="label" style="left: 907px; top: 277px;">#12</div>
+        
+        <div class="center-point" style="left: 129px; top: 305px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 47px; top: 279px; width: 182px; height: 54px;">
+        </div>
+        
+        <div class="label" style="left: 139px; top: 295px;">#13</div>
+        
+        <div class="center-point" style="left: 772px; top: 301px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 731px; top: 259px; width: 85px; height: 85px;">
+        </div>
+        
+        <div class="label" style="left: 782px; top: 291px;">#14</div>
+        
+        <div class="center-point" style="left: 111px; top: 453px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 60px; top: 404px; width: 103px; height: 86px;">
+        </div>
+        
+        <div class="label" style="left: 121px; top: 443px;">#15</div>
+        
+        <div class="center-point" style="left: 183px; top: 443px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 117px; top: 403px; width: 156px; height: 84px;">
+        </div>
+        
+        <div class="label" style="left: 193px; top: 433px;">#16</div>
+        
+        <div class="center-point" style="left: 424px; top: 477px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 343px; top: 457px; width: 171px; height: 43px;">
+        </div>
+        
+        <div class="label" style="left: 434px; top: 467px;">#17</div>
+        
+        <div class="center-point" style="left: 438px; top: 438px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 343px; top: 385px; width: 179px; height: 99px;">
+        </div>
+        
+        <div class="label" style="left: 448px; top: 428px;">#18</div>
+        
+        <div class="center-point" style="left: 702px; top: 432px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 635px; top: 367px; width: 134px; height: 132px;">
+        </div>
+        
+        <div class="label" style="left: 712px; top: 422px;">#19</div>
+        
+        <div class="center-point" style="left: 218px; top: 593px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 40px; top: 551px; width: 364px; height: 95px;">
+        </div>
+        
+        <div class="label" style="left: 228px; top: 583px;">#20</div>
+        
+        <div class="center-point" style="left: 511px; top: 581px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 464px; top: 534px; width: 97px; height: 97px;">
+        </div>
+        
+        <div class="label" style="left: 521px; top: 571px;">#21</div>
+        
+        <div class="center-point" style="left: 676px; top: 586px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 617px; top: 554px; width: 124px; height: 62px;">
+        </div>
+        
+        <div class="label" style="left: 686px; top: 576px;">#22</div>
+        
+        <div class="center-point" style="left: 966px; top: 618px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 845px; top: 587px; width: 251px; height: 58px;">
+        </div>
+        
+        <div class="label" style="left: 976px; top: 608px;">#23</div>
+        
+        <div class="center-point" style="left: 633px; top: 762px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 535px; top: 724px; width: 189px; height: 81px;">
+        </div>
+        
+        <div class="label" style="left: 643px; top: 752px;">#24</div>
+        
+        <div class="center-point" style="left: 232px; top: 811px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 49px; top: 739px; width: 368px; height: 146px;">
+        </div>
+        
+        <div class="label" style="left: 242px; top: 801px;">#25</div>
+        
+        <div class="center-point" style="left: 564px; top: 808px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 514px; top: 784px; width: 113px; height: 52px;">
+        </div>
+        
+        <div class="label" style="left: 574px; top: 798px;">#26</div>
+        
+        <div class="center-point" style="left: 656px; top: 809px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 611px; top: 783px; width: 105px; height: 53px;">
+        </div>
+        
+        <div class="label" style="left: 666px; top: 799px;">#27</div>
+        
+        <div class="center-point" style="left: 937px; top: 838px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 852px; top: 792px; width: 172px; height: 93px;">
+        </div>
+        
+        <div class="label" style="left: 947px; top: 828px;">#28</div>
+        
+        <div class="center-point" style="left: 162px; top: 1033px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 37px; top: 952px; width: 251px; height: 163px;">
+        </div>
+        
+        <div class="label" style="left: 172px; top: 1023px;">#29</div>
+        
+        <div class="center-point" style="left: 499px; top: 1069px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 396px; top: 1034px; width: 199px; height: 70px;">
+        </div>
+        
+        <div class="label" style="left: 509px; top: 1059px;">#30</div>
+        
+        <div class="center-point" style="left: 752px; top: 1058px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 675px; top: 993px; width: 139px; height: 117px;">
+        </div>
+        
+        <div class="label" style="left: 762px; top: 1048px;">#31</div>
+        
+        <div class="center-point" style="left: 1063px; top: 1070px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 916px; top: 1006px; width: 224px; height: 108px;">
+        </div>
+        
+        <div class="label" style="left: 1073px; top: 1060px;">#32</div>
+        
+        <div class="center-point" style="left: 546px; top: 1236px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 455px; top: 1192px; width: 178px; height: 92px;">
+        </div>
+        
+        <div class="label" style="left: 556px; top: 1226px;">#33</div>
+        
+        <div class="center-point" style="left: 843px; top: 1243px;"></div>
+        
+        <div class="extraction-box" 
+             style="left: 723px; top: 1210px; width: 249px; height: 73px;">
+        </div>
+        
+        <div class="label" style="left: 853px; top: 1233px;">#34</div>
+        
+    </div>
+    
+    <table>
+        <tr>
+            <th>ID</th>
+            <th>Center (x, y)</th>
+            <th>Extraction Box (x, y, w, h)</th>
+            <th>Area</th>
+            <th>Aspect Ratio</th>
+        </tr>
+
+        <tr>
+            <td>#0</td>
+            <td>(915, 74)</td>
+            <td>(803, 36, 226, 77)</td>
+            <td>4975</td>
+            <td>4.17</td>
+        </tr>
+        <tr>
+            <td>#1</td>
+            <td>(80, 110)</td>
+            <td>(37, 62, 88, 98)</td>
+            <td>3034</td>
+            <td>0.85</td>
+        </tr>
+        <tr>
+            <td>#2</td>
+            <td>(201, 131)</td>
+            <td>(95, 110, 210, 45)</td>
+            <td>2074</td>
+            <td>12.00</td>
+        </tr>
+        <tr>
+            <td>#3</td>
+            <td>(414, 118)</td>
+            <td>(372, 76, 86, 85)</td>
+            <td>2397</td>
+            <td>1.02</td>
+        </tr>
+        <tr>
+            <td>#4</td>
+            <td>(483, 114)</td>
+            <td>(437, 82, 93, 60)</td>
+            <td>1102</td>
+            <td>2.10</td>
+        </tr>
+        <tr>
+            <td>#5</td>
+            <td>(555, 113)</td>
+            <td>(508, 82, 91, 60)</td>
+            <td>1094</td>
+            <td>2.03</td>
+        </tr>
+        <tr>
+            <td>#6</td>
+            <td>(629, 113)</td>
+            <td>(572, 87, 112, 55)</td>
+            <td>1364</td>
+            <td>3.28</td>
+        </tr>
+        <tr>
+            <td>#7</td>
+            <td>(836, 113)</td>
+            <td>(774, 86, 122, 51)</td>
+            <td>1146</td>
+            <td>4.38</td>
+        </tr>
+        <tr>
+            <td>#8</td>
+            <td>(1005, 112)</td>
+            <td>(954, 86, 104, 51)</td>
+            <td>1027</td>
+            <td>3.52</td>
+        </tr>
+        <tr>
+            <td>#9</td>
+            <td>(142, 278)</td>
+            <td>(47, 252, 188, 55)</td>
+            <td>3268</td>
+            <td>6.32</td>
+        </tr>
+        <tr>
+            <td>#10</td>
+            <td>(374, 298)</td>
+            <td>(316, 262, 120, 71)</td>
+            <td>1755</td>
+            <td>2.20</td>
+        </tr>
+        <tr>
+            <td>#11</td>
+            <td>(535, 299)</td>
+            <td>(468, 273, 145, 59)</td>
+            <td>1572</td>
+            <td>3.97</td>
+        </tr>
+        <tr>
+            <td>#12</td>
+            <td>(897, 287)</td>
+            <td>(827, 267, 145, 42)</td>
+            <td>1146</td>
+            <td>9.58</td>
+        </tr>
+        <tr>
+            <td>#13</td>
+            <td>(129, 305)</td>
+            <td>(47, 279, 182, 54)</td>
+            <td>2024</td>
+            <td>6.33</td>
+        </tr>
+        <tr>
+            <td>#14</td>
+            <td>(772, 301)</td>
+            <td>(731, 259, 85, 85)</td>
+            <td>2252</td>
+            <td>1.00</td>
+        </tr>
+        <tr>
+            <td>#15</td>
+            <td>(111, 453)</td>
+            <td>(60, 404, 103, 86)</td>
+            <td>1888</td>
+            <td>1.30</td>
+        </tr>
+        <tr>
+            <td>#16</td>
+            <td>(183, 443)</td>
+            <td>(117, 403, 156, 84)</td>
+            <td>2502</td>
+            <td>2.33</td>
+        </tr>
+        <tr>
+            <td>#17</td>
+            <td>(424, 477)</td>
+            <td>(343, 457, 171, 43)</td>
+            <td>1154</td>
+            <td>10.85</td>
+        </tr>
+        <tr>
+            <td>#18</td>
+            <td>(438, 438)</td>
+            <td>(343, 385, 179, 99)</td>
+            <td>7338</td>
+            <td>2.16</td>
+        </tr>
+        <tr>
+            <td>#19</td>
+            <td>(702, 432)</td>
+            <td>(635, 367, 134, 132)</td>
+            <td>7894</td>
+            <td>1.02</td>
+        </tr>
+        <tr>
+            <td>#20</td>
+            <td>(218, 593)</td>
+            <td>(40, 551, 364, 95)</td>
+            <td>6623</td>
+            <td>5.14</td>
+        </tr>
+        <tr>
+            <td>#21</td>
+            <td>(511, 581)</td>
+            <td>(464, 534, 97, 97)</td>
+            <td>3503</td>
+            <td>1.00</td>
+        </tr>
+        <tr>
+            <td>#22</td>
+            <td>(676, 586)</td>
+            <td>(617, 554, 124, 62)</td>
+            <td>1670</td>
+            <td>2.94</td>
+        </tr>
+        <tr>
+            <td>#23</td>
+            <td>(966, 618)</td>
+            <td>(845, 587, 251, 58)</td>
+            <td>2930</td>
+            <td>7.89</td>
+        </tr>
+        <tr>
+            <td>#24</td>
+            <td>(633, 762)</td>
+            <td>(535, 724, 189, 81)</td>
+            <td>2636</td>
+            <td>3.12</td>
+        </tr>
+        <tr>
+            <td>#25</td>
+            <td>(232, 811)</td>
+            <td>(49, 739, 368, 146)</td>
+            <td>38755</td>
+            <td>2.91</td>
+        </tr>
+        <tr>
+            <td>#26</td>
+            <td>(564, 808)</td>
+            <td>(514, 784, 113, 52)</td>
+            <td>1275</td>
+            <td>3.77</td>
+        </tr>
+        <tr>
+            <td>#27</td>
+            <td>(656, 809)</td>
+            <td>(611, 783, 105, 53)</td>
+            <td>1010</td>
+            <td>3.26</td>
+        </tr>
+        <tr>
+            <td>#28</td>
+            <td>(937, 838)</td>
+            <td>(852, 792, 172, 93)</td>
+            <td>8742</td>
+            <td>2.25</td>
+        </tr>
+        <tr>
+            <td>#29</td>
+            <td>(162, 1033)</td>
+            <td>(37, 952, 251, 163)</td>
+            <td>29040</td>
+            <td>1.66</td>
+        </tr>
+        <tr>
+            <td>#30</td>
+            <td>(499, 1069)</td>
+            <td>(396, 1034, 199, 70)</td>
+            <td>4918</td>
+            <td>4.22</td>
+        </tr>
+        <tr>
+            <td>#31</td>
+            <td>(752, 1058)</td>
+            <td>(675, 993, 139, 117)</td>
+            <td>3836</td>
+            <td>1.25</td>
+        </tr>
+        <tr>
+            <td>#32</td>
+            <td>(1063, 1070)</td>
+            <td>(916, 1006, 224, 108)</td>
+            <td>5972</td>
+            <td>2.49</td>
+        </tr>
+        <tr>
+            <td>#33</td>
+            <td>(546, 1236)</td>
+            <td>(455, 1192, 178, 92)</td>
+            <td>5876</td>
+            <td>2.39</td>
+        </tr>
+        <tr>
+            <td>#34</td>
+            <td>(843, 1243)</td>
+            <td>(723, 1210, 249, 73)</td>
+            <td>5748</td>
+            <td>5.09</td>
+        </tr>
+    </table>
+</body>
+</html>

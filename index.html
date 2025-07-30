@@ -419,61 +419,6 @@
             font-size: 1.1rem;
         }
 
-        /* Client Logos Section */
-        .logos-section {
-            background-color: var(--white);
-            padding: 80px 0;
-        }
-
-        .logos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-            gap: 3rem;
-            margin-top: 3rem;
-            align-items: center;
-        }
-
-        .logo-item {
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            height: 80px;
-            padding: 1rem;
-            filter: grayscale(100%) contrast(200%) brightness(0) invert(0.3);
-            opacity: 0.7;
-            transition: all 0.3s ease;
-            position: relative;
-        }
-
-        .logo-item:hover {
-            filter: grayscale(0%);
-            opacity: 1;
-            transform: scale(1.05);
-        }
-
-        .logo-item img {
-            max-width: 100%;
-            max-height: 100%;
-            object-fit: contain;
-        }
-
-        .logo-item span {
-            font-size: 1.2rem;
-            font-weight: 700;
-            color: var(--text-dark);
-            text-align: center;
-            line-height: 1.2;
-        }
-
-        /* Logo separators */
-        .logos-grid::after {
-            content: '';
-            position: absolute;
-            width: 100%;
-            height: 1px;
-            background: var(--border-color);
-            opacity: 0.3;
-        }
 
         /* Logo Ticker Section */
         .logo-ticker-section {
@@ -492,7 +437,9 @@
             display: flex;
             gap: 4rem;
             animation: scroll-logos 40s linear infinite;
+            will-change: transform;
         }
+
 
         .logo-ticker-item {
             flex-shrink: 0;
@@ -501,16 +448,52 @@
             justify-content: center;
             height: 60px;
             padding: 0 2rem;
-            filter: grayscale(100%) contrast(150%) brightness(0) invert(0.4);
-            opacity: 0.6;
+            transition: all 0.4s ease;
+            cursor: pointer;
+            position: relative;
         }
 
-        .logo-ticker-item span {
-            font-size: 1.1rem;
+        .logo-ticker-item img {
+            max-height: 50px;
+            width: auto;
+            max-width: 150px;
+            object-fit: contain;
+            transition: all 0.4s ease;
+        }
+
+        .logo-ticker-item:hover img {
+            transform: scale(1.05);
+        }
+
+        .logo-ticker-item:hover::after {
+            content: attr(data-company);
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-navy);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 4px;
+            font-size: 0.8rem;
             font-weight: 600;
-            color: var(--text-dark);
-            text-align: center;
             white-space: nowrap;
+            z-index: 10;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
+        }
+
+        .logo-ticker-item:hover::before {
+            content: '';
+            position: absolute;
+            bottom: -25px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 5px solid transparent;
+            border-right: 5px solid transparent;
+            border-bottom: 5px solid var(--primary-navy);
+            z-index: 11;
         }
 
         @keyframes scroll-logos {
@@ -520,6 +503,196 @@
             100% {
                 transform: translateX(-50%);
             }
+        }
+
+        /* Data Center Section */
+        .datacenter-stats {
+            display: flex;
+            justify-content: center;
+            gap: 3rem;
+            margin: 3rem 0;
+            flex-wrap: wrap;
+        }
+
+        .datacenter-stat {
+            text-align: center;
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            border-left: 5px solid var(--accent-gold);
+            min-width: 150px;
+        }
+
+        .stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1rem;
+            color: var(--accent-gray);
+            font-weight: 600;
+        }
+
+        .datacenter-projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(450px, 1fr));
+            gap: 2rem;
+            margin: 3rem 0;
+        }
+
+        .datacenter-project {
+            background: var(--white);
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            padding: 2rem;
+            transition: transform 0.3s ease;
+            border-left: 5px solid var(--accent-gold);
+        }
+
+        .datacenter-project:hover {
+            transform: translateY(-5px);
+        }
+
+        .datacenter-project.featured {
+            border-left: 5px solid var(--success-green);
+            background: linear-gradient(135deg, var(--white) 0%, rgba(212, 175, 55, 0.05) 100%);
+        }
+
+        .project-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 1rem;
+        }
+
+        .project-value {
+            font-size: 1.8rem;
+            font-weight: 700;
+            color: var(--primary-navy);
+        }
+
+        .project-award {
+            background: var(--success-green);
+            color: var(--white);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .project-achievement {
+            background: var(--accent-gold);
+            color: var(--primary-navy);
+            padding: 0.5rem 1rem;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .datacenter-project h4 {
+            color: var(--primary-navy);
+            font-size: 1.4rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .datacenter-project p {
+            color: var(--text-dark);
+            line-height: 1.6;
+            margin-bottom: 1.5rem;
+        }
+
+        .project-achievements {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .achievement {
+            background: var(--success-green);
+            color: var(--white);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .tech-specs {
+            display: flex;
+            gap: 0.5rem;
+            flex-wrap: wrap;
+        }
+
+        .spec {
+            background: rgba(212, 175, 55, 0.1);
+            color: var(--secondary-blue);
+            padding: 0.3rem 0.8rem;
+            border-radius: 15px;
+            font-size: 0.8rem;
+            font-weight: 600;
+        }
+
+        .datacenter-capabilities {
+            margin-top: 4rem;
+            text-align: center;
+        }
+
+        .datacenter-capabilities h3 {
+            color: var(--primary-navy);
+            font-size: 2.2rem;
+            margin-bottom: 2rem;
+            font-weight: 700;
+        }
+
+        .capabilities-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-top: 2rem;
+        }
+
+        .capability {
+            background: var(--white);
+            padding: 2rem;
+            border-radius: 10px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+
+        .capability:hover {
+            transform: translateY(-5px);
+        }
+
+        .capability-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: var(--accent-gold);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .capability-icon svg {
+            width: 48px;
+            height: 48px;
+        }
+
+        .capability h4 {
+            color: var(--primary-navy);
+            font-size: 1.3rem;
+            margin-bottom: 1rem;
+            font-weight: 700;
+        }
+
+        .capability p {
+            color: var(--accent-gray);
+            line-height: 1.6;
         }
 
         /* Contact Section */
@@ -673,9 +846,45 @@
                 max-width: none;
             }
 
-            .logos-grid {
-                grid-template-columns: repeat(2, 1fr);
+
+            .datacenter-stats {
+                flex-direction: column;
+                gap: 1rem;
+                align-items: center;
+            }
+
+            .datacenter-projects {
+                grid-template-columns: 1fr;
+            }
+
+            .project-header {
+                flex-direction: column;
+                gap: 1rem;
+                text-align: center;
+            }
+
+            .capabilities-grid {
+                grid-template-columns: 1fr;
+            }
+
+            /* Logo ticker mobile optimization */
+            .logo-ticker {
                 gap: 2rem;
+            }
+
+            .logo-ticker-item {
+                padding: 0 1rem;
+            }
+
+            .logo-ticker-item img {
+                max-height: 40px;
+                max-width: 120px;
+            }
+
+            .logo-ticker-item:hover::after {
+                font-size: 0.7rem;
+                padding: 0.3rem 0.8rem;
+                bottom: -30px;
             }
         }
     </style>
@@ -695,6 +904,7 @@
                 <li><a href="#home">Home</a></li>
                 <li><a href="#expertise">Expertise</a></li>
                 <li><a href="#projects">Projects</a></li>
+                <li><a href="#datacenters">Data Centers</a></li>
                 <li><a href="#leadership">Leadership</a></li>
                 <li><a href="#contact">Contact</a></li>
             </ul>
@@ -725,7 +935,7 @@
 
             <div class="cta-buttons">
                 <a href="#contact" class="cta-button cta-primary">Request Consultation</a>
-                <a href="#projects" class="cta-button cta-secondary">View Major Projects</a>
+                <a href="#datacenters" class="cta-button cta-secondary">Data Center Projects</a>
             </div>
         </div>
     </section>
@@ -735,43 +945,131 @@
         <div class="logo-ticker-container">
             <div class="logo-ticker">
                 <!-- First set of logos -->
-                <div class="logo-ticker-item"><span>US DOE</span></div>
-                <div class="logo-ticker-item"><span>NASA</span></div>
-                <div class="logo-ticker-item"><span>Los Alamos National Lab</span></div>
-                <div class="logo-ticker-item"><span>NM DOT</span></div>
-                <div class="logo-ticker-item"><span>Colorado Springs Utilities</span></div>
-                <div class="logo-ticker-item"><span>Stantec</span></div>
-                <div class="logo-ticker-item"><span>MWH Global</span></div>
-                <div class="logo-ticker-item"><span>Bechtel</span></div>
-                <div class="logo-ticker-item"><span>AECOM</span></div>
-                <div class="logo-ticker-item"><span>Wilson & Company</span></div>
-                <div class="logo-ticker-item"><span>RMF Engineering</span></div>
-                <div class="logo-ticker-item"><span>UCLA</span></div>
-                <div class="logo-ticker-item"><span>Raytheon</span></div>
-                <div class="logo-ticker-item"><span>SET Inc.</span></div>
-                <div class="logo-ticker-item"><span>Cross Connection Inc.</span></div>
-                <div class="logo-ticker-item"><span>RED Rochester</span></div>
-                <div class="logo-ticker-item"><span>Frank Lill & Son</span></div>
-                <div class="logo-ticker-item"><span>Twenty20 Construction</span></div>
+                <div class="logo-ticker-item" data-company="New Mexico Department of Transportation">
+                    <img src="logos/logo_01.png" alt="New Mexico Department of Transportation Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Los Alamos National Laboratory">
+                    <img src="logos/logo_02.png" alt="Los Alamos National Laboratory Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Wilson & Company">
+                    <img src="logos/logo_04.png" alt="Wilson & Company Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="RMF Engineering">
+                    <img src="logos/logo_05.png" alt="RMF Engineering Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="U.S. Department of Energy">
+                    <img src="logos/logo_06.png" alt="U.S. Department of Energy Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Cross Connection Inc.">
+                    <img src="logos/logo_07.png" alt="Cross Connection Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="RED Rochester LLC">
+                    <img src="logos/logo_08.png" alt="RED Rochester LLC Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="NASA">
+                    <img src="logos/logo_09.png" alt="NASA Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Frank Lill & Son Inc.">
+                    <img src="logos/logo_10.png" alt="Frank Lill & Son Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Stantec">
+                    <img src="logos/logo_11.png" alt="Stantec Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Futures Mechanical">
+                    <img src="logos/logo_12.png" alt="Futures Mechanical Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="MWH Global">
+                    <img src="logos/logo_14.png" alt="MWH Global Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="SET Inc.">
+                    <img src="logos/logo_15.png" alt="SET Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="UCLA">
+                    <img src="logos/logo_16.png" alt="UCLA Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Bechtel Corporation">
+                    <img src="logos/logo_17.png" alt="Bechtel Corporation Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="AECOM">
+                    <img src="logos/logo_18.png" alt="AECOM Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="DLS Construction">
+                    <img src="logos/logo_19.png" alt="DLS Construction Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Twenty20 Construction">
+                    <img src="logos/logo_20.png" alt="Twenty20 Construction Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Pueblo Electric Inc.">
+                    <img src="logos/logo_22.png" alt="Pueblo Electric Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Raytheon Company">
+                    <img src="logos/logo_23.png" alt="Raytheon Company Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Colorado Springs Utilities">
+                    <img src="logos/logo_03.png" alt="Colorado Springs Utilities Logo" loading="lazy">
+                </div>
+                
                 <!-- Duplicate set for seamless loop -->
-                <div class="logo-ticker-item"><span>US DOE</span></div>
-                <div class="logo-ticker-item"><span>NASA</span></div>
-                <div class="logo-ticker-item"><span>Los Alamos National Lab</span></div>
-                <div class="logo-ticker-item"><span>NM DOT</span></div>
-                <div class="logo-ticker-item"><span>Colorado Springs Utilities</span></div>
-                <div class="logo-ticker-item"><span>Stantec</span></div>
-                <div class="logo-ticker-item"><span>MWH Global</span></div>
-                <div class="logo-ticker-item"><span>Bechtel</span></div>
-                <div class="logo-ticker-item"><span>AECOM</span></div>
-                <div class="logo-ticker-item"><span>Wilson & Company</span></div>
-                <div class="logo-ticker-item"><span>RMF Engineering</span></div>
-                <div class="logo-ticker-item"><span>UCLA</span></div>
-                <div class="logo-ticker-item"><span>Raytheon</span></div>
-                <div class="logo-ticker-item"><span>SET Inc.</span></div>
-                <div class="logo-ticker-item"><span>Cross Connection Inc.</span></div>
-                <div class="logo-ticker-item"><span>RED Rochester</span></div>
-                <div class="logo-ticker-item"><span>Frank Lill & Son</span></div>
-                <div class="logo-ticker-item"><span>Twenty20 Construction</span></div>
+                <div class="logo-ticker-item" data-company="New Mexico Department of Transportation">
+                    <img src="logos/logo_01.png" alt="New Mexico Department of Transportation Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Los Alamos National Laboratory">
+                    <img src="logos/logo_02.png" alt="Los Alamos National Laboratory Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Wilson & Company">
+                    <img src="logos/logo_04.png" alt="Wilson & Company Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="RMF Engineering">
+                    <img src="logos/logo_05.png" alt="RMF Engineering Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="U.S. Department of Energy">
+                    <img src="logos/logo_06.png" alt="U.S. Department of Energy Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Cross Connection Inc.">
+                    <img src="logos/logo_07.png" alt="Cross Connection Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="RED Rochester LLC">
+                    <img src="logos/logo_08.png" alt="RED Rochester LLC Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="NASA">
+                    <img src="logos/logo_09.png" alt="NASA Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Frank Lill & Son Inc.">
+                    <img src="logos/logo_10.png" alt="Frank Lill & Son Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Stantec">
+                    <img src="logos/logo_11.png" alt="Stantec Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Futures Mechanical">
+                    <img src="logos/logo_12.png" alt="Futures Mechanical Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="MWH Global">
+                    <img src="logos/logo_14.png" alt="MWH Global Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="SET Inc.">
+                    <img src="logos/logo_15.png" alt="SET Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="UCLA">
+                    <img src="logos/logo_16.png" alt="UCLA Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Bechtel Corporation">
+                    <img src="logos/logo_17.png" alt="Bechtel Corporation Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="AECOM">
+                    <img src="logos/logo_18.png" alt="AECOM Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="DLS Construction">
+                    <img src="logos/logo_19.png" alt="DLS Construction Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Twenty20 Construction">
+                    <img src="logos/logo_20.png" alt="Twenty20 Construction Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Pueblo Electric Inc.">
+                    <img src="logos/logo_22.png" alt="Pueblo Electric Inc. Logo" loading="lazy">
+                </div>
+                <div class="logo-ticker-item" data-company="Raytheon Company">
+                    <img src="logos/logo_23.png" alt="Raytheon Company Logo" loading="lazy">
+                </div>
             </div>
         </div>
     </section>
@@ -986,6 +1284,162 @@
         </div>
     </section>
 
+    <!-- Data Center Projects Section -->
+    <section id="datacenters" class="section">
+        <div class="container">
+            <h2 class="section-title">Data Center & High-Performance Computing</h2>
+            <p class="section-subtitle">Critical infrastructure expertise for mission-critical computing environments supporting national security and advanced research</p>
+            
+            <div class="datacenter-stats">
+                <div class="datacenter-stat">
+                    <span class="stat-number">70MW</span>
+                    <span class="stat-label">Power Capacity</span>
+                </div>
+                <div class="datacenter-stat">
+                    <span class="stat-number">33.2MW</span>
+                    <span class="stat-label">Cooling Capacity</span>
+                </div>
+                <div class="datacenter-stat">
+                    <span class="stat-number">1.14</span>
+                    <span class="stat-label">PUE Achievement</span>
+                </div>
+                <div class="datacenter-stat">
+                    <span class="stat-number">5,200</span>
+                    <span class="stat-label">Tons of Cooling</span>
+                </div>
+            </div>
+
+            <div class="datacenter-projects">
+                <div class="datacenter-project featured">
+                    <div class="project-header">
+                        <div class="project-award">DOE Secretary's Achievement Award</div>
+                    </div>
+                    <div class="project-details">
+                        <h4>Exascale Class Computer Cooling Equipment</h4>
+                        <p>Award-winning cooling infrastructure project completed 10 months ahead of schedule and significantly under budget. Installed 5,200 tons of cooling capacity supporting the world's most powerful supercomputers at Los Alamos National Laboratory.</p>
+                        <div class="project-achievements">
+                            <span class="achievement">10 Months Ahead</span>
+                            <span class="achievement">Under Budget</span>
+                            <span class="achievement">Annual Savings Achieved</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="datacenter-project">
+                    <div class="project-header">
+                        <div class="project-achievement">ATS-3 Exascale System</div>
+                    </div>
+                    <div class="project-details">
+                        <h4>Crossroads Supercomputer Installation</h4>
+                        <p>Installation of ATS-3 (Advanced Technology System) Crossroads supercomputer infrastructure at Strategic Computing Complex. Integration with power, cooling, and fiber optic networks for exascale computing capabilities.</p>
+                        <div class="tech-specs">
+                            <span class="spec">4x-8x Performance Increase</span>
+                            <span class="spec">HPE Integration</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="datacenter-project">
+                    <div class="project-header">
+                        <div class="project-achievement">6x Power Expansion</div>
+                    </div>
+                    <div class="project-details">
+                        <h4>Strategic Computing Complex Electrical Upgrade</h4>
+                        <p>Major electrical infrastructure expansion from 11MW to 70MW capacity with advanced distribution systems. Supports current supercomputing loads plus future AI and exascale computing requirements.</p>
+                        <div class="tech-specs">
+                            <span class="spec">11MW → 70MW Capacity</span>
+                            <span class="spec">15kV Distribution</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="datacenter-project">
+                    <div class="project-header">
+                        <div class="project-achievement">Modular Architecture</div>
+                    </div>
+                    <div class="project-details">
+                        <h4>Electrical Bus Duct Distribution System</h4>
+                        <p>Prefabricated electrical distribution system with modular bus bars for efficient, scalable power delivery to computing equipment. Designed for mission-critical reliability and easy reconfiguration.</p>
+                        <div class="tech-specs">
+                            <span class="spec">Modular Design</span>
+                            <span class="spec">High-Density Distribution</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="datacenter-project">
+                    <div class="project-header">
+                        <div class="project-achievement">Sustainable Innovation</div>
+                    </div>
+                    <div class="project-details">
+                        <h4>Chilled Water Loop Integration</h4>
+                        <p>Advanced cooling system integration utilizing recycled water from LANL's Sanitary Effluent Reclamation Facility. Innovative approach addressing high silica groundwater challenges while supporting multiple supercomputers.</p>
+                        <div class="tech-specs">
+                            <span class="spec">Water Recycling</span>
+                            <span class="spec">Multi-System Support</span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="datacenter-project">
+                    <div class="project-header">
+                        <div class="project-achievement">24/7 Reliability</div>
+                    </div>
+                    <div class="project-details">
+                        <h4>UPS Design & Installation</h4>
+                        <p>Critical uninterruptible power supply systems for data center consolidation, ensuring 24/7 availability for mission-critical national security computing operations and nuclear weapons simulation.</p>
+                        <div class="tech-specs">
+                            <span class="spec">Mission-Critical Reliability</span>
+                            <span class="spec">Data Center Consolidation</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="datacenter-capabilities">
+                <h3>Data Center Expertise</h3>
+                <div class="capabilities-grid">
+                    <div class="capability">
+                        <div class="capability-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M15.67 4H14V2h-4v2H8.33C7.6 4 7 4.6 7 5.33v15.33C7 21.4 7.6 22 8.33 22h7.33c.74 0 1.34-.6 1.34-1.33V5.33C17 4.6 16.4 4 15.67 4zM11 20v-5.5H9L13 8v5.5h2L11 20z"/>
+                            </svg>
+                        </div>
+                        <h4>Power Infrastructure</h4>
+                        <p>Electrical distribution, UPS systems, and power capacity planning for high-density computing loads</p>
+                    </div>
+                    <div class="capability">
+                        <div class="capability-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12 2c1.1 0 2 .9 2 2 0 .74-.4 1.38-1 1.72v2.56l1.76 1.76c.64-.16 1.31-.04 1.86.47.63.58.68 1.51.13 2.19-.52.64-1.47.68-2.13.13-.52-.43-.64-1.23-.47-1.86L12.38 8.2c-.24.04-.48.04-.76 0L9.85 9.97c.17.63.05 1.43-.47 1.86-.66.55-1.61.51-2.13-.13-.55-.68-.5-1.61.13-2.19.55-.51 1.22-.63 1.86-.47L10.76 7.28V4.72c-.6-.34-1-.98-1-1.72 0-1.1.9-2 2-2zm0 15c-2.67 0-8 1.34-8 4v2h16v-2c0-2.66-5.33-4-8-4z"/>
+                            </svg>
+                        </div>
+                        <h4>Advanced Cooling</h4>
+                        <p>Exascale cooling systems, water recycling, and innovative thermal management solutions</p>
+                    </div>
+                    <div class="capability">
+                        <div class="capability-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M20,18c1.1,0,2-0.9,2-2V6c0-1.1-0.9-2-2-2H4C2.9,4,2,4.9,2,6v10c0,1.1,0.9,2,2,2H0v2h24v-2H20z M4,6h16v10H4V6z"/>
+                            </svg>
+                        </div>
+                        <h4>HPC Integration</h4>
+                        <p>Supercomputer installation, infrastructure integration, and performance optimization</p>
+                    </div>
+                    <div class="capability">
+                        <div class="capability-icon">
+                            <svg width="48" height="48" viewBox="0 0 24 24" fill="currentColor">
+                                <path d="M12,1L3,5V11C3,16.55 6.84,21.74 12,23C17.16,21.74 21,16.55 21,11V5L12,1M10,17L6,13L7.41,11.59L10,14.17L16.59,7.58L18,9L10,17Z"/>
+                            </svg>
+                        </div>
+                        <h4>Mission-Critical Reliability</h4>
+                        <p>National security applications, 24/7 availability, and fault-tolerant design</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
     <!-- Leadership Section -->
     <section id="leadership" class="section leadership-section">
         <div class="container">
@@ -1012,75 +1466,6 @@
         </div>
     </section>
 
-    <!-- Client Logos Section -->
-    <section class="section logos-section">
-        <div class="container">
-            <h2 class="section-title">Our Trusted Partners</h2>
-            <p class="section-subtitle">Proudly serving federal agencies, municipalities, and industry leaders</p>
-            
-            <div class="logos-grid">
-                <!-- Government & Federal -->
-                <div class="logo-item">
-                    <span>NM DOT</span>
-                </div>
-                <div class="logo-item">
-                    <span>Los Alamos<br>National Lab</span>
-                </div>
-                <div class="logo-item">
-                    <span>US DOE</span>
-                </div>
-                <div class="logo-item">
-                    <span>NASA</span>
-                </div>
-                <div class="logo-item">
-                    <span>Colorado Springs<br>Utilities</span>
-                </div>
-                
-                <!-- Engineering & Construction -->
-                <div class="logo-item">
-                    <span>Wilson &<br>Company</span>
-                </div>
-                <div class="logo-item">
-                    <span>RMF<br>Engineering</span>
-                </div>
-                <div class="logo-item">
-                    <span>Stantec</span>
-                </div>
-                <div class="logo-item">
-                    <span>MWH Global</span>
-                </div>
-                <div class="logo-item">
-                    <span>Bechtel</span>
-                </div>
-                <div class="logo-item">
-                    <span>AECOM</span>
-                </div>
-                <div class="logo-item">
-                    <span>UCLA</span>
-                </div>
-                
-                <!-- Additional Partners -->
-                <div class="logo-item">
-                    <span>Cross<br>Connection Inc.</span>
-                </div>
-                <div class="logo-item">
-                    <span>RED<br>Rochester</span>
-                </div>
-                <div class="logo-item">
-                    <span>Frank Lill<br>& Son</span>
-                </div>
-                <div class="logo-item">
-                    <span>SET Inc.</span>
-                </div>
-                <div class="logo-item">
-                    <span>Raytheon</span>
-                </div>
-                <div class="logo-item">
-                    <span>Twenty20<br>Construction</span>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Contact Section -->
     <section id="contact" class="section contact-section">

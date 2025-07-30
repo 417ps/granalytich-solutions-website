@@ -1,0 +1,730 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granalytic Solutions - Data Center Construction Excellence</title>
+    <style>
+        /* Anti-flash navigation protection - loads before any JS */
+        .global-nav,
+        .navbar,
+        nav {
+            background: rgba(10, 10, 10, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+        }
+        .global-nav *,
+        .navbar *,
+        nav * {
+            color: #b8b8b8 !important;
+            background: transparent !important;
+        }
+        .global-nav .nav-link:hover,
+        .global-nav .nav-link.active,
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active,
+        nav .nav-link:hover,
+        nav .nav-link.active {
+            color: #d4af37 !important;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+        }
+
+        /* Header */
+        .header {
+            background: #2c2c2c;
+            color: white;
+            padding: 15px 0;
+            position: relative;
+            z-index: 1000;
+        }
+
+        .header-top {
+            background: #1a1a1a;
+            padding: 8px 0;
+            font-size: 14px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .header-top-content {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        .contact-info {
+            display: flex;
+            gap: 30px;
+        }
+
+        .contact-info span {
+            color: #b8b8b8;
+        }
+
+        .phone-highlight {
+            color: #d4af37;
+            font-weight: bold;
+        }
+
+        .main-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .logo-icon {
+            width: 40px;
+            height: 40px;
+            background: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-weight: bold;
+            color: #1a1a1a;
+        }
+
+        .logo-text {
+            font-size: 24px;
+            font-weight: bold;
+            color: #d4af37;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 30px;
+        }
+
+        .nav-menu a {
+            color: #b8b8b8;
+            text-decoration: none;
+            font-weight: 500;
+            transition: color 0.3s;
+        }
+
+        .nav-menu a:hover {
+            color: #d4af37;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 600"><rect fill="%23654321" width="1200" height="600"/><circle fill="%238B4513" cx="200" cy="300" r="50"/><rect fill="%23A0522D" x="800" y="200" width="200" height="150"/><polygon fill="%238B7355" points="400,100 500,50 600,100 600,200 400,200"/></svg>');
+            background-size: cover;
+            background-position: center;
+            height: 600px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            color: white;
+            position: relative;
+        }
+
+        .hero-content h1 {
+            font-size: 48px;
+            font-weight: bold;
+            margin-bottom: 20px;
+            color: #d4af37;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+        }
+
+        .hero-content p {
+            font-size: 18px;
+            margin-bottom: 30px;
+            max-width: 600px;
+            color: #e0e0e0;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 20px;
+            justify-content: center;
+        }
+
+        .btn {
+            padding: 15px 30px;
+            border: none;
+            border-radius: 5px;
+            font-size: 16px;
+            font-weight: bold;
+            text-decoration: none;
+            transition: all 0.3s;
+            cursor: pointer;
+            display: inline-block;
+        }
+
+        .btn-primary {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+
+        .btn-primary:hover {
+            background: #b8941f;
+            transform: translateY(-2px);
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #d4af37;
+        }
+
+        .btn-secondary:hover {
+            background: #d4af37;
+            color: #1a1a1a;
+        }
+
+        /* Features Section */
+        .features {
+            background: #f5f5f5;
+            padding: 80px 0;
+        }
+
+        .features-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 40px;
+            margin-top: 50px;
+        }
+
+        .feature-card {
+            text-align: center;
+            padding: 30px;
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+        }
+
+        .feature-icon {
+            width: 80px;
+            height: 80px;
+            background: #d4af37;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin: 0 auto 20px;
+            font-size: 30px;
+            color: #1a1a1a;
+        }
+
+        .feature-card h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2c2c2c;
+        }
+
+        .feature-card p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Services Section */
+        .services {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #2c2c2c;
+        }
+
+        .section-subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 50px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .services-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .service-card {
+            position: relative;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .service-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .service-image {
+            height: 250px;
+            background: linear-gradient(45deg, #8B4513, #A0522D);
+            position: relative;
+        }
+
+        .service-content {
+            padding: 30px;
+            background: white;
+        }
+
+        .service-content h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2c2c2c;
+        }
+
+        .service-content p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Stats Section */
+        .stats {
+            background: #2c2c2c;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+            gap: 40px;
+            text-align: center;
+        }
+
+        .stat-item h3 {
+            font-size: 48px;
+            color: #d4af37;
+            margin-bottom: 10px;
+            font-weight: bold;
+        }
+
+        .stat-item p {
+            font-size: 14px;
+            color: #b8b8b8;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Projects Section */
+        .projects {
+            padding: 80px 0;
+            background: #f5f5f5;
+        }
+
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+            gap: 30px;
+            margin-top: 50px;
+        }
+
+        .project-card {
+            background: white;
+            border-radius: 10px;
+            overflow: hidden;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            transition: transform 0.3s;
+        }
+
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+
+        .project-image {
+            height: 250px;
+            background: linear-gradient(135deg, #654321, #8B4513);
+            position: relative;
+        }
+
+        .project-info {
+            padding: 30px;
+        }
+
+        .project-info h3 {
+            font-size: 22px;
+            margin-bottom: 15px;
+            color: #2c2c2c;
+        }
+
+        .project-info p {
+            color: #666;
+            line-height: 1.6;
+        }
+
+        /* Consultation Section */
+        .consultation {
+            background: #2c2c2c;
+            color: white;
+            padding: 80px 0;
+        }
+
+        .consultation-content {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 60px;
+            align-items: center;
+        }
+
+        .consultation-text h2 {
+            font-size: 36px;
+            margin-bottom: 20px;
+            color: #d4af37;
+        }
+
+        .consultation-text p {
+            color: #b8b8b8;
+            margin-bottom: 30px;
+            line-height: 1.6;
+        }
+
+        .consultation-form {
+            background: white;
+            padding: 40px;
+            border-radius: 10px;
+        }
+
+        .form-group {
+            margin-bottom: 20px;
+        }
+
+        .form-group input,
+        .form-group select,
+        .form-group textarea {
+            width: 100%;
+            padding: 15px;
+            border: 1px solid #ddd;
+            border-radius: 5px;
+            font-size: 16px;
+        }
+
+        /* Footer */
+        .footer {
+            background: #1a1a1a;
+            color: #b8b8b8;
+            padding: 60px 0 30px;
+        }
+
+        .footer-content {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 40px;
+            margin-bottom: 40px;
+        }
+
+        .footer-section h3 {
+            color: white;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        .footer-section p,
+        .footer-section a {
+            color: #b8b8b8;
+            text-decoration: none;
+            line-height: 1.8;
+        }
+
+        .footer-section a:hover {
+            color: #d4af37;
+        }
+
+        .footer-bottom {
+            border-top: 1px solid #333;
+            padding-top: 30px;
+            text-align: center;
+            font-size: 14px;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 36px;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+            
+            .consultation-content {
+                grid-template-columns: 1fr;
+            }
+            
+            .nav-menu {
+                display: none;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-top">
+            <div class="container">
+                <div class="header-top-content">
+                    <div class="contact-info">
+                        <span>📧 contact@granalyticsolutions.com</span>
+                        <span>📍 Los Alamos National Laboratory, New Mexico</span>
+                    </div>
+                    <div class="phone-highlight">
+                        📞 FREE CONSULTATION: 505-XXX-XXXX
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <div class="container">
+            <div class="main-header">
+                <div class="logo">
+                    <div class="logo-icon">GS</div>
+                    <div class="logo-text">GRANALYTIC</div>
+                </div>
+                
+                <nav>
+                    <ul class="nav-menu">
+                        <li><a href="#home">HOME</a></li>
+                        <li><a href="#projects">PROJECTS</a></li>
+                        <li><a href="#services">SERVICES</a></li>
+                        <li><a href="#about">ABOUT US</a></li>
+                        <li><a href="#pages">PAGES</a></li>
+                        <li><a href="#contact">CONTACT</a></li>
+                    </ul>
+                </nav>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero" id="home">
+        <div class="hero-content">
+            <h1>Data Center Construction</h1>
+            <p>Mission-critical infrastructure specialists delivering high-performance data centers for national laboratories and government facilities. Over $400M in projects completed with 100% on-time delivery.</p>
+            <div class="cta-buttons">
+                <a href="#services" class="btn btn-primary">LEARN MORE</a>
+                <a href="#contact" class="btn btn-secondary">GET A QUOTE</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <div class="container">
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🏥</div>
+                    <h3>Mission-Critical Infrastructure</h3>
+                    <p>Specialized expertise in mission-critical facilities requiring 99.99% uptime, including national laboratories, government facilities, and supercomputing centers.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">⚙️</div>
+                    <h3>25+ Years Experience</h3>
+                    <p>Michael Sanchez brings over 25 years of data center construction expertise, having entered his first data center at age 16 and growing Cross Connection from $4M to $30M annually.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <div class="feature-icon">🔧</div>
+                    <h3>Advanced Technology Integration</h3>
+                    <p>Cutting-edge immersion cooling technology and high-density power solutions, delivering 350kW per rack versus traditional 40kW systems for maximum efficiency.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Services Section -->
+    <section class="services" id="services">
+        <div class="container">
+            <h2 class="section-title">What We Offer</h2>
+            <p class="section-subtitle">Comprehensive data center construction and infrastructure services for mission-critical environments</p>
+            
+            <div class="services-grid">
+                <div class="service-card">
+                    <div class="service-image"></div>
+                    <div class="service-content">
+                        <h3>Data Center Construction</h3>
+                        <p>Complete design-build services for mission-critical data centers, from 5MW to 200MW capacity. Specialized in government and national laboratory facilities requiring the highest security and reliability standards.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image"></div>
+                    <div class="service-content">
+                        <h3>Electrical Infrastructure</h3>
+                        <p>High-voltage electrical systems, power distribution, and backup power solutions. Currently managing the $5M Exascale Supercomputing Center electrical infrastructure project at Los Alamos National Laboratory.</p>
+                    </div>
+                </div>
+                
+                <div class="service-card">
+                    <div class="service-image"></div>
+                    <div class="service-content">
+                        <h3>Mission-Critical Design</h3>
+                        <p>Specialized design services for facilities requiring 99.99% uptime. Our team has delivered over 55 megawatts of data center capacity to LANL's supercomputing facility with zero downtime incidents.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stat-item">
+                    <h3>$400M+</h3>
+                    <p>TOTAL PROJECTS MANAGED</p>
+                </div>
+                
+                <div class="stat-item">
+                    <h3>55+</h3>
+                    <p>MEGAWATTS DELIVERED</p>
+                </div>
+                
+                <div class="stat-item">
+                    <h3>100%</h3>
+                    <p>ON-TIME COMPLETION</p>
+                </div>
+                
+                <div class="stat-item">
+                    <h3>25+</h3>
+                    <p>YEARS EXPERIENCE</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Projects Section -->
+    <section class="projects" id="projects">
+        <div class="container">
+            <h2 class="section-title">Our Latest Projects</h2>
+            
+            <div class="projects-grid">
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-info">
+                        <h3>SIGMA Facility - LANL</h3>
+                        <p>$15M-$30M multi-phase program at Los Alamos National Laboratory. MTI is managing 2 of 3 design-build projects in this critical infrastructure development.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-info">
+                        <h3>Exascale Supercomputing Center</h3>
+                        <p>$5M electrical infrastructure project supporting the world's most advanced supercomputing facility at Los Alamos National Laboratory.</p>
+                    </div>
+                </div>
+                
+                <div class="project-card">
+                    <div class="project-image"></div>
+                    <div class="project-info">
+                        <h3>TruePath Data Centers</h3>
+                        <p>200MW data center development on Albuquerque Westside Campus. $2.6 billion private equity project featuring advanced immersion cooling technology.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Consultation Section -->
+    <section class="consultation" id="contact">
+        <div class="container">
+            <div class="consultation-content">
+                <div class="consultation-text">
+                    <h2>Free Consultation</h2>
+                    <p>Ready to discuss your mission-critical infrastructure project? Our team of data center construction experts is here to help you plan and execute your next facility.</p>
+                    <p>With over $400 million in successfully completed projects and 25+ years of specialized experience, we deliver the reliability and expertise your critical infrastructure demands.</p>
+                </div>
+                
+                <div class="consultation-form">
+                    <form>
+                        <div class="form-group">
+                            <input type="text" placeholder="Name" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="email" placeholder="Email" required>
+                        </div>
+                        <div class="form-group">
+                            <input type="tel" placeholder="Phone" required>
+                        </div>
+                        <div class="form-group">
+                            <select required>
+                                <option value="">Type of work needed</option>
+                                <option value="data-center">Data Center Construction</option>
+                                <option value="electrical">Electrical Infrastructure</option>
+                                <option value="mission-critical">Mission-Critical Design</option>
+                                <option value="consultation">Project Consultation</option>
+                            </select>
+                        </div>
+                        <div class="form-group">
+                            <textarea rows="4" placeholder="Project details..."></textarea>
+                        </div>
+                        <button type="submit" class="btn btn-primary" style="width: 100%;">SUBMIT</button>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <div class="footer-section">
+                    <div class="logo">
+                        <div class="logo-icon">GS</div>
+                        <div class="logo-text">GRANALYTIC</div>
+                    </div>
+                    <p style="margin-top: 20px;">Mission-critical data center construction specialists serving national laboratories and government facilities across the United States.</p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>OUR SERVICES</h3>
+                    <p><a href="#services">Data Center Construction</a></p>
+                    <p><a href="#services">Electrical Infrastructure</a></p>
+                    <p><a href="#services">Mission-Critical Design</a></p>
+                    <p><a href="#services">Project Management</a></p>
+                </div>
+                
+                <div class="footer-section">
+                    <h3>CONTACT US</h3>
+                    <p>📞 Phone: 505-XXX-XXXX</p>
+                    <p>📧 Email: contact@granalyticsolutions.com</p>
+                    <p>📍 Address: Los Alamos National Laboratory<br>New Mexico, USA</p>
+                </div>
+            </div>
+            
+            <div class="footer-bottom">
+                <p>&copy; 2025 Granalytic Solutions. All rights reserved. | Privacy Policy | Terms of Service</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

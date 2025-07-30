@@ -1,0 +1,26 @@
+{
+  "name": "granalytic-solutions-site",
+  "version": "1.0.0",
+  "description": "Professional website for Granalytich Solutions Ltd., a specialized project controls and infrastructure management consulting firm.",
+  "main": "index.js",
+  "directories": {
+    "test": "tests"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/417ps/granalytich-solutions-website.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/417ps/granalytich-solutions-website/issues"
+  },
+  "homepage": "https://github.com/417ps/granalytich-solutions-website#readme",
+  "dependencies": {
+    "puppeteer": "^24.15.0"
+  }
+}
