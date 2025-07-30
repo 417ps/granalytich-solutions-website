@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Granalytich Solutions Ltd. - We Build The Trust</title>
+    <title>Granalytich Solutions - Project Controls & Infrastructure Management</title>
     <style>
         * {
             margin: 0;
@@ -29,51 +29,7 @@
             --border-color: #dee2e6;
         }
 
-        /* Top Bar - Exact Match */
-        .top-bar {
-            background-color: var(--primary-navy);
-            color: white;
-            padding: 8px 0;
-            font-size: 13px;
-            font-weight: 400;
-        }
 
-        .top-bar-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            padding: 0 20px;
-        }
-
-        .top-bar-left {
-            display: flex;
-            gap: 30px;
-        }
-
-        .top-bar-right {
-            display: flex;
-            gap: 20px;
-            align-items: center;
-        }
-
-        .discover-btn {
-            background-color: var(--accent-gold);
-            color: white;
-            padding: 6px 16px;
-            border: none;
-            border-radius: 3px;
-            font-size: 12px;
-            font-weight: 600;
-            text-transform: uppercase;
-            cursor: pointer;
-            transition: all 0.3s ease;
-        }
-
-        .discover-btn:hover {
-            background-color: #b8860b;
-        }
 
         /* Navigation - Exact Match */
         .navbar {
@@ -1098,18 +1054,6 @@
 </head>
 <body>
     <!-- Top Bar -->
-    <div class="top-bar">
-        <div class="top-bar-container">
-            <div class="top-bar-left">
-                <span><span class="icon icon-phone"></span> (505) 490-7147</span>
-                <span><span class="icon icon-email"></span> jgranich@granalytich-solutions.com</span>
-            </div>
-            <div class="top-bar-right">
-                <span>LOGIN / REGISTER</span>
-                <button class="discover-btn">DISCOVER</button>
-            </div>
-        </div>
-    </div>
 
     <!-- Navigation -->
     <nav class="navbar">
@@ -1537,11 +1481,6 @@
         });
 
         // Discover button functionality
-        document.querySelector('.discover-btn').addEventListener('click', function() {
-            document.querySelector('#about').scrollIntoView({
-                behavior: 'smooth'
-            });
-        });
 
         // Add scroll effect to navbar
         window.addEventListener('scroll', function() {
