@@ -379,181 +379,6 @@
             display: block;
         }
 
-        /* Services Section - Exact Match */
-        .services-section {
-            padding: 100px 0;
-            background-color: var(--white);
-        }
-
-        .services-container {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 0 20px;
-        }
-
-        .services-header {
-            text-align: center;
-            margin-bottom: 60px;
-        }
-
-        .services-content {
-            display: grid;
-            grid-template-columns: 300px 1fr;
-            gap: 60px;
-            align-items: center;
-        }
-
-        .services-main-image {
-            width: 100%;
-            height: 400px;
-            background-image: url('/Users/personal/Library/CloudStorage/GoogleDrive-dylan@417propertysolutions.com/My Drive/Data Center/TPDC - Contractor Builder Information/Website Creation/MTI NM/MTI Picture Files - png/1. Best Photos/Chamber 15 Metal Building.pdf.png');
-            background-size: cover;
-            background-position: center;
-            border-radius: 8px;
-        }
-
-        .services-worker {
-            width: 280px;
-            height: 350px;
-            background: linear-gradient(45deg, var(--primary-navy), var(--secondary-blue));
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-size: 4rem;
-            margin-bottom: 30px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
-            clip-path: polygon(0 0, 85% 0, 100% 100%, 0 100%);
-        }
-
-        .services-title {
-            font-size: 36px;
-            font-weight: 300;
-            color: var(--primary-navy);
-            margin-bottom: 20px;
-        }
-
-        .services-title .highlight {
-            color: var(--accent-gold);
-            font-weight: 700;
-        }
-
-        .services-text {
-            font-size: 16px;
-            color: #666;
-            line-height: 1.6;
-            max-width: 800px;
-            margin: 0 auto;
-        }
-
-        .services-grid {
-            display: flex;
-            flex-wrap: nowrap;
-            gap: 15px;
-            justify-content: space-evenly;
-            margin-bottom: 120px;
-            padding: 40px 0;
-            overflow-x: visible;
-            width: 100%;
-        }
-
-        .service-card {
-            width: 200px;
-            height: 240px;
-            position: relative;
-            cursor: pointer;
-            transition: all 0.3s ease;
-            clip-path: polygon(0% 0%, 85% 0%, 100% 100%, 15% 100%);
-            flex-shrink: 0;
-        }
-
-        .service-card:hover {
-            transform: translateY(-5px);
-        }
-
-        .service-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            right: 0;
-            bottom: 0;
-            background-size: cover;
-            background-position: center;
-        }
-
-        .service-card.construction .service-bg {
-            background: linear-gradient(135deg, #8b4513, #a0522d);
-        }
-
-        .service-card.infrastructure .service-bg {
-            background: linear-gradient(135deg, var(--primary-navy), var(--secondary-blue));
-        }
-
-        .service-card.datacenter .service-bg {
-            background: linear-gradient(135deg, #2c3e50, #34495e);
-        }
-
-        .service-card.federal .service-bg {
-            background: linear-gradient(135deg, var(--accent-gray), #5a6268);
-        }
-
-        .service-overlay {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            right: 0;
-            height: 30px;
-            background: var(--accent-gold);
-            z-index: 2;
-            transform: translateY(-50%);
-            opacity: 0;
-            transition: opacity 0.3s ease;
-        }
-
-        .service-card:hover .service-overlay {
-            opacity: 1;
-        }
-
-        .service-content {
-            position: absolute;
-            bottom: -40px;
-            left: 0;
-            right: 0;
-            z-index: 3;
-            text-align: center;
-            color: var(--primary-navy);
-            opacity: 1;
-        }
-
-        .service-card:hover .service-content {
-            opacity: 1;
-        }
-
-        .service-badge {
-            background-color: transparent;
-            color: white;
-            padding: 2px 8px;
-            font-size: 10px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            margin-bottom: 5px;
-            display: none;
-        }
-
-        .service-card:hover .service-badge {
-            display: block;
-        }
-
-        .service-title {
-            font-size: 14px;
-            font-weight: 700;
-            text-transform: uppercase;
-            letter-spacing: 1px;
-            color: var(--primary-navy);
-            text-shadow: none;
-            margin-top: 12px;
-        }
 
         /* Projects Section */
         .projects-section {
@@ -1200,10 +1025,6 @@
 
         /* Responsive Design */
         @media (max-width: 1024px) {
-            .services-content {
-                grid-template-columns: 1fr;
-                gap: 40px;
-            }
 
             .leadership-content {
                 margin-top: 40px;
@@ -1514,56 +1335,6 @@
         </div>
     </section>
 
-    <!-- Services Section -->
-    <section class="services-section" id="services">
-        <div class="services-container">
-            <div class="services-header">
-                <h2 class="services-title">OUR <span class="highlight">SERVICES</span></h2>
-                <p class="services-text">Comprehensive project controls and infrastructure management services with proven expertise in large-scale federal and municipal programs requiring the highest levels of precision, compliance, and reliability for mission-critical delivery.</p>
-            </div>
-            
-            <div class="services-content">
-                <div class="services-main-image"></div>
-                <div class="services-grid">
-                <div class="service-card construction">
-                    <div class="service-bg"></div>
-                    <div class="service-overlay"></div>
-                    <div class="service-content">
-                        <div class="service-badge">DETAILS</div>
-                        <h4 class="service-title">PROJECT CONTROLS</h4>
-                    </div>
-                </div>
-                
-                <div class="service-card infrastructure">
-                    <div class="service-bg"></div>
-                    <div class="service-overlay"></div>
-                    <div class="service-content">
-                        <div class="service-badge">DETAILS</div>
-                        <h4 class="service-title">INFRASTRUCTURE</h4>
-                    </div>
-                </div>
-                
-                <div class="service-card datacenter">
-                    <div class="service-bg"></div>
-                    <div class="service-overlay"></div>
-                    <div class="service-content">
-                        <div class="service-badge">DETAILS</div>
-                        <h4 class="service-title">DATA CENTERS</h4>
-                    </div>
-                </div>
-                
-                <div class="service-card federal">
-                    <div class="service-bg"></div>
-                    <div class="service-overlay"></div>
-                    <div class="service-content">
-                        <div class="service-badge">DETAILS</div>
-                        <h4 class="service-title">FEDERAL CONTRACTS</h4>
-                    </div>
-                </div>
-                </div>
-            </div>
-        </div>
-    </section>
 
     <!-- Projects Section -->
     <section class="projects-section" id="projects">
@@ -1800,7 +1571,7 @@
         }, observerOptions);
 
         // Observe elements for animation
-        document.querySelectorAll('.feature-item, .about-card, .service-card, .project-card').forEach(element => {
+        document.querySelectorAll('.feature-item, .about-card, .project-card').forEach(element => {
             element.style.opacity = '0';
             element.style.transform = 'translateY(30px)';
             element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';

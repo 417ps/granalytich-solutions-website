@@ -2,38 +2,221 @@
 <!DOCTYPE html>
 <html>
 <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Clustered Logo Extraction Preview</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 20px; }
-        .container { position: relative; display: inline-block; }
-        .center-point { position: absolute; width: 16px; height: 16px; 
-                        background: red; border: 3px solid white; border-radius: 50%; 
-                        transform: translate(-8px, -8px); z-index: 3; }
-        .extraction-box { position: absolute; border: 4px solid blue; 
-                          background: rgba(0,0,255,0.1); z-index: 2; }
-        .label { position: absolute; background: white; padding: 3px 8px; 
-                 font-size: 14px; font-weight: bold; border: 2px solid blue;
-                 z-index: 4; }
-        .info { margin: 20px 0; }
-        .legend { margin: 10px 0; font-size: 16px; }
-        .legend span { display: inline-block; width: 20px; height: 20px; margin-right: 8px; }
-        table { border-collapse: collapse; margin-top: 20px; width: 100%; }
-        th, td { border: 1px solid #ddd; padding: 10px; text-align: left; }
-        th { background-color: #f2f2f2; }
-        .multi-blob { background-color: #e8f5e8; }
+        * { box-sizing: border-box; }
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif; 
+            margin: 0; 
+            padding: 15px; 
+            background: #f8f9fa;
+            line-height: 1.6;
+        }
+        
+        .header {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        h1 { 
+            margin: 0 0 15px 0; 
+            color: #2c3e50;
+            font-size: clamp(1.5rem, 4vw, 2.5rem);
+        }
+        
+        .container { 
+            position: relative; 
+            display: block; 
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+        
+        .container img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto;
+            border-radius: 8px;
+        }
+        
+        .center-point { 
+            position: absolute; 
+            width: clamp(8px, 2vw, 16px); 
+            height: clamp(8px, 2vw, 16px); 
+            background: #e74c3c; 
+            border: 2px solid white; 
+            border-radius: 50%; 
+            transform: translate(-50%, -50%); 
+            z-index: 3;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.3);
+        }
+        
+        .extraction-box { 
+            position: absolute; 
+            border: 2px solid #3498db; 
+            background: rgba(52, 152, 219, 0.1); 
+            z-index: 2;
+            border-radius: 4px;
+        }
+        
+        .label { 
+            position: absolute; 
+            background: white; 
+            padding: 2px 6px; 
+            font-size: clamp(10px, 2vw, 14px); 
+            font-weight: bold; 
+            border: 2px solid #3498db;
+            z-index: 4;
+            border-radius: 4px;
+            color: #2c3e50;
+            box-shadow: 0 2px 6px rgba(0,0,0,0.2);
+        }
+        
+        .info { 
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-bottom: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        .legend { 
+            margin: 15px 0; 
+            font-size: clamp(14px, 3vw, 16px); 
+        }
+        
+        .legend p {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+        
+        .legend span { 
+            display: inline-block; 
+            width: 20px; 
+            height: 20px; 
+            margin-right: 12px; 
+            flex-shrink: 0;
+        }
+        
+        .table-container {
+            background: white;
+            border-radius: 12px;
+            padding: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            overflow-x: auto;
+        }
+        
+        table { 
+            border-collapse: collapse; 
+            width: 100%; 
+            min-width: 600px;
+        }
+        
+        th, td { 
+            border: 1px solid #dee2e6; 
+            padding: 12px 8px; 
+            text-align: left; 
+            font-size: clamp(12px, 2.5vw, 14px);
+        }
+        
+        th { 
+            background: #f8f9fa; 
+            font-weight: 600;
+            color: #495057;
+            position: sticky;
+            top: 0;
+        }
+        
+        .multi-blob { 
+            background: #d4edda; 
+        }
+        
+        .stats {
+            background: white;
+            padding: 20px;
+            border-radius: 12px;
+            margin-top: 20px;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        }
+        
+        /* Mobile optimizations */
+        @media (max-width: 768px) {
+            body { padding: 10px; }
+            
+            .header, .container, .info, .table-container, .stats {
+                margin-bottom: 15px;
+                padding: 15px;
+            }
+            
+            .container {
+                overflow-x: auto;
+                -webkit-overflow-scrolling: touch;
+            }
+            
+            .legend p {
+                font-size: 14px;
+            }
+            
+            th, td {
+                padding: 8px 6px;
+                font-size: 12px;
+            }
+            
+            /* Scale overlay elements proportionally on mobile */
+            .center-point {
+                width: 12px;
+                height: 12px;
+            }
+            
+            .label {
+                font-size: 11px;
+                padding: 1px 4px;
+            }
+            
+            .extraction-box {
+                border-width: 1px;
+            }
+        }
+        
+        @media (max-width: 480px) {
+            .center-point {
+                width: 10px;
+                height: 10px;
+            }
+            
+            .label {
+                font-size: 10px;
+                padding: 1px 3px;
+            }
+        }
     </style>
 </head>
 <body>
-    <h1>Clustered Logo Detection Results</h1>
+    <div class="header">
+        <h1>Clustered Logo Detection Results</h1>
+        <p>Advanced computer vision tool extracting 18 individual logos from composite images using DBSCAN clustering and connectivity analysis.</p>
+    </div>
+    
     <div class="info">
         <div class="legend">
-            <p><span style="background: red; border: 3px solid white; border-radius: 50%;"></span> 
+            <p><span style="background: #e74c3c; border: 2px solid white; border-radius: 50%;"></span> 
                <strong>Red dots</strong> = Clustered logo centers</p>
-            <p><span style="background: rgba(0,0,255,0.3); border: 4px solid blue;"></span> 
+            <p><span style="background: rgba(52, 152, 219, 0.3); border: 2px solid #3498db;"></span> 
                <strong>Blue boxes</strong> = Extraction areas (with padding)</p>
             <p><strong>Labels</strong> = Final logo ID numbers</p>
         </div>
         <p><strong>Clustering Parameters:</strong> Minimum distance between logos = 120 pixels</p>
+        <p><strong>Algorithm:</strong> DBSCAN clustering + connectivity analysis prevents text/graphic splitting</p>
     </div>
     
     <div class="container">
@@ -185,7 +368,9 @@
         
     </div>
     
-    <table>
+    <div class="table-container">
+        <h2 style="margin-top: 0; color: #2c3e50;">Extraction Details</h2>
+        <table>
         <tr>
             <th>ID</th>
             <th>Center (x, y)</th>
@@ -339,11 +524,23 @@
             <td>1</td>
             <td>Single blob</td>
         </tr>
-    </table>
+        </table>
+    </div>
     
-    <div style="margin-top: 20px;">
-        <p><strong>Green rows</strong> = Logos composed of multiple parts (text + graphics)</p>
-        <p><strong>White rows</strong> = Simple single-blob logos</p>
+    <div class="stats">
+        <h2 style="margin-top: 0; color: #2c3e50;">Results Summary</h2>
+        <p><strong>✅ Successfully extracted:</strong> 18 complete logos</p>
+        <p><strong>🔍 Individual blobs detected:</strong> 52 colored regions</p>
+        <p><strong>🧠 Clustering algorithm:</strong> DBSCAN with connectivity analysis</p>
+        <p><strong>🎯 Key improvement:</strong> Prevented text/graphic splitting (e.g., Los Alamos logo)</p>
+        
+        <div style="margin-top: 15px; padding: 15px; background: #f8f9fa; border-radius: 8px; border-left: 4px solid #28a745;">
+            <p style="margin: 0;"><strong>Legend:</strong></p>
+            <p style="margin: 5px 0 0 0; font-size: 14px;">
+                <span style="background: #d4edda; padding: 2px 6px; border-radius: 4px; margin-right: 10px;">Green rows</span> = Multi-part logos (text + graphics)<br>
+                <span style="background: white; padding: 2px 6px; border-radius: 4px; border: 1px solid #ddd; margin-right: 10px;">White rows</span> = Single-blob logos
+            </p>
+        </div>
     </div>
 </body>
 </html>
