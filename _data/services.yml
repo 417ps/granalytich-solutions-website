@@ -1,0 +1,12 @@
+title: "Our Services"
+description: "Comprehensive project controls and infrastructure management solutions"
+items:
+  - name: "Project Controls"
+    description: "Cost management, scheduling, and risk assessment for complex infrastructure projects"
+    icon: "fa-cogs"
+  - name: "Federal Contracting"
+    description: "Specialized expertise in government contracts and compliance requirements"
+    icon: "fa-building"
+  - name: "Infrastructure Management"
+    description: "End-to-end management of critical infrastructure and utility projects"
+    icon: "fa-network-wired"
