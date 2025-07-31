@@ -9,5 +9,23 @@
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
+  
+  <!-- Auth0 Configuration -->
+  <script>
+    if (typeof netlifyIdentity !== "undefined") {
+      window.netlifyIdentity = netlifyIdentity;
+    }
+    
+    // Configure Auth0 for CMS
+    window.CMS_CONFIG = {
+      backend: {
+        name: 'github',
+        repo: '417ps/granalytich-solutions-website',
+        branch: 'main',
+        auth_type: 'pkce',
+        base_url: 'https://granalytich-solutions.netlify.app'
+      }
+    };
+  </script>
 </body>
 </html>
