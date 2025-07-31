@@ -9,17 +9,5 @@
 <body>
   <!-- Include the script that builds the page and powers Decap CMS -->
   <script src="https://unpkg.com/decap-cms@^3.0.0/dist/decap-cms.js"></script>
-  
-  <!-- Auth0 Integration Script -->
-  <script src="https://cdn.auth0.com/js/auth0-spa-js/2.0/auth0-spa-js.production.js"></script>
-  
-  <script>
-    // Initialize Auth0 for CMS
-    window.addEventListener('DOMContentLoaded', function() {
-      if (window.CMS) {
-        window.CMS.registerPreviewStyle('/admin/preview.css');
-      }
-    });
-  </script>
 </body>
 </html>
