@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Granalytich Solutions - Project Controls & Infrastructure Management</title>
+    <title>Granalytich Solutions Ltd. - Project Controls & Infrastructure Management</title>
     <style>
         * {
             margin: 0;
@@ -949,87 +949,130 @@
             transform: translate(-50%, -50%);
         }
 
-        /* Logo Ticker Section */
-        .logo-ticker-section {
+        /* Client Logos Masonry Section */
+        .client-logos-section {
             background-color: var(--white);
-            padding: 40px 0 30px;
-            overflow: hidden;
+            padding: 60px 0;
         }
 
-        .logo-ticker-container {
-            position: relative;
-            width: 100%;
+        .client-logos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
         }
 
-        .logo-ticker {
-            display: flex;
-            gap: 4rem;
-            animation: scroll-logos 40s linear infinite;
-            will-change: transform;
+        .section-title-logos {
+            font-size: 28px;
+            font-weight: 300;
+            color: var(--primary-navy);
+            margin-bottom: 50px;
+            text-align: center;
         }
 
-        .logo-ticker-item {
-            flex-shrink: 0;
+        .section-title-logos .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .client-logos-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 30px;
+            justify-items: center;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .client-logo {
             display: flex;
             align-items: center;
             justify-content: center;
-            height: 60px;
-            padding: 0 2rem;
-            transition: all 0.4s ease;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
             cursor: pointer;
             position: relative;
+            background: rgba(248, 249, 250, 0.3);
+            border: 1px solid rgba(0,0,0,0.03);
+            width: 100%;
+            height: 100%;
+            min-height: 80px;
         }
 
-        .logo-ticker-item img {
-            max-height: 50px;
-            width: auto;
-            max-width: 150px;
+        .client-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            background: white;
+        }
+
+        .client-logo img {
+            width: 100%;
+            height: auto;
             object-fit: contain;
-            transition: all 0.4s ease;
+            filter: grayscale(1) opacity(0.6);
+            transition: all 0.3s ease;
         }
 
-        .logo-ticker-item:hover img {
-            transform: scale(1.05);
+        .client-logo:hover img {
+            filter: grayscale(0) opacity(1);
         }
 
-        .logo-ticker-item:hover::after {
+        /* Tier 1 - Premium clients (NASA, DOE, LANL, Stantec, Bechtel) */
+        .client-logo.tier-1 {
+            grid-column: span 2;
+            padding: 25px;
+            min-height: 100px;
+        }
+
+        .client-logo.tier-1 img {
+            max-height: 70px;
+            max-width: 180px;
+        }
+
+        /* Tier 2 - Major partners */
+        .client-logo.tier-2 img {
+            max-height: 55px;  
+            max-width: 140px;
+        }
+
+        /* Tier 3 - Regional/specialty clients */
+        .client-logo.tier-3 img {
+            max-height: 45px;
+            max-width: 120px;
+        }
+
+        /* Tooltip */
+        .client-logo:hover::after {
             content: attr(data-company);
+            position: absolute;
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-navy);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            white-space: nowrap;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .client-logo:hover::before {
+            content: '';
             position: absolute;
             bottom: -35px;
             left: 50%;
             transform: translateX(-50%);
-            background: var(--primary-navy);
-            color: var(--white);
-            padding: 0.5rem 1rem;
-            border-radius: 4px;
-            font-size: 0.8rem;
-            font-weight: 600;
-            white-space: nowrap;
-            z-index: 10;
-            box-shadow: 0 2px 10px rgba(0,0,0,0.2);
-        }
-
-        .logo-ticker-item:hover::before {
-            content: '';
-            position: absolute;
-            bottom: -25px;
-            left: 50%;
-            transform: translateX(-50%);
             width: 0;
             height: 0;
-            border-left: 5px solid transparent;
-            border-right: 5px solid transparent;
-            border-bottom: 5px solid var(--primary-navy);
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid var(--primary-navy);
             z-index: 11;
-        }
-
-        @keyframes scroll-logos {
-            0% {
-                transform: translateX(0);
-            }
-            100% {
-                transform: translateX(-50%);
-            }
         }
 
         /* Footer */
@@ -1060,6 +1103,16 @@
             }
             .projects-grid {
                 grid-template-columns: 1fr;
+            }
+
+            /* Client logos tablet optimization */
+            .client-logos-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+            }
+            
+            .client-logo.tier-1 {
+                grid-column: span 2;
             }
         }
 
@@ -1099,24 +1152,20 @@
                 grid-template-columns: 1fr;
             }
 
-            /* Logo ticker mobile optimization */
-            .logo-ticker {
-                gap: 2rem;
+            /* Client logos mobile optimization */
+            .client-logos-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
             }
-
-            .logo-ticker-item {
-                padding: 0 1rem;
+            
+            .client-logo.tier-1 {
+                grid-column: span 1;
+                padding: 20px;
             }
-
-            .logo-ticker-item img {
-                max-height: 40px;
-                max-width: 120px;
-            }
-
-            .logo-ticker-item:hover::after {
-                font-size: 0.7rem;
-                padding: 0.3rem 0.8rem;
-                bottom: -30px;
+            
+            .client-logo {
+                padding: 15px;
+                min-height: 70px;
             }
         }
     </style>
@@ -1128,7 +1177,7 @@
     <nav class="navbar">
         <div class="nav-container">
             <a href="#" class="logo">
-                <div class="logo-text">GRANALYTICH SOLUTIONS</div>
+                <div class="logo-text">GRANALYTICH SOLUTIONS LTD.</div>
             </a>
             <ul class="nav-menu">
                 <li><a href="#home">HOME</a></li>
@@ -1151,138 +1200,81 @@
         </div>
     </section>
 
-    <!-- Logo Ticker Section -->
-    <section class="logo-ticker-section">
-        <div class="logo-ticker-container">
-            <div class="logo-ticker">
-                <!-- First set of logos -->
-                <div class="logo-ticker-item" data-company="New Mexico Department of Transportation">
-                    <img src="logos/logo_01.png" alt="New Mexico Department of Transportation Logo" loading="lazy">
+    <!-- Client Logos Section -->
+    <section class="client-logos-section">
+        <div class="client-logos-container">
+            <h2 class="section-title-logos">TRUSTED BY <span class="highlight">INDUSTRY LEADERS</span></h2>
+            <div class="client-logos-grid">
+                <!-- TIER 1 - Premium Clients (spans 2 columns) -->
+                <div class="client-logo tier-1" data-company="National Aeronautics and Space Administration">
+                    <img src="logos/logo-nasa.png" alt="NASA Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="Los Alamos National Laboratory">
-                    <img src="logos/logo_02.png" alt="Los Alamos National Laboratory Logo" loading="lazy">
+                <div class="client-logo tier-1" data-company="U.S. Department of Energy">
+                    <img src="logos/logo-us-doe.png" alt="U.S. Department of Energy Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="Wilson & Company">
-                    <img src="logos/logo_04.png" alt="Wilson & Company Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="RMF Engineering">
-                    <img src="logos/logo_05.png" alt="RMF Engineering Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="U.S. Department of Energy">
-                    <img src="logos/logo_06.png" alt="U.S. Department of Energy Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="Cross Connection Inc.">
-                    <img src="logos/logo_07.png" alt="Cross Connection Inc. Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="RED Rochester LLC">
-                    <img src="logos/logo_08.png" alt="RED Rochester LLC Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="NASA">
-                    <img src="logos/logo_09.png" alt="NASA Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="Frank Lill & Son Inc.">
-                    <img src="logos/logo_10.png" alt="Frank Lill & Son Inc. Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="Stantec">
-                    <img src="logos/logo_11.png" alt="Stantec Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="Futures Mechanical">
-                    <img src="logos/logo_12.png" alt="Futures Mechanical Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="MWH Global">
-                    <img src="logos/logo_14.png" alt="MWH Global Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="SET Inc.">
-                    <img src="logos/logo_15.png" alt="SET Inc. Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="UCLA">
-                    <img src="logos/logo_16.png" alt="UCLA Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="Bechtel Corporation">
-                    <img src="logos/logo_17.png" alt="Bechtel Corporation Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="AECOM">
-                    <img src="logos/logo_18.png" alt="AECOM Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="DLS Construction">
-                    <img src="logos/logo_19.png" alt="DLS Construction Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="Twenty20 Construction">
-                    <img src="logos/logo_20.png" alt="Twenty20 Construction Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="Pueblo Electric Inc.">
-                    <img src="logos/logo_22.png" alt="Pueblo Electric Inc. Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="Raytheon Company">
-                    <img src="logos/logo_23.png" alt="Raytheon Company Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="Colorado Springs Utilities">
-                    <img src="logos/logo_03.png" alt="Colorado Springs Utilities Logo" loading="lazy">
+                <div class="client-logo tier-1" data-company="Los Alamos National Laboratory">
+                    <img src="logos/logo-los-alamos-national-lab.png" alt="Los Alamos National Laboratory Logo" loading="lazy">
                 </div>
                 
-                <!-- Duplicate set for seamless loop -->
-                <div class="logo-ticker-item" data-company="New Mexico Department of Transportation">
-                    <img src="logos/logo_01.png" alt="New Mexico Department of Transportation Logo" loading="lazy">
+                <!-- TIER 2 - Major Partners -->
+                <div class="client-logo tier-2" data-company="Stantec">
+                    <img src="logos/logo-stantec.png" alt="Stantec Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="Los Alamos National Laboratory">
-                    <img src="logos/logo_02.png" alt="Los Alamos National Laboratory Logo" loading="lazy">
+                <div class="client-logo tier-2" data-company="Bechtel Corporation">
+                    <img src="logos/logo-bechtel.png" alt="Bechtel Corporation Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="Wilson & Company">
-                    <img src="logos/logo_04.png" alt="Wilson & Company Logo" loading="lazy">
+                <div class="client-logo tier-2" data-company="New Mexico Department of Transportation">
+                    <img src="logos/logo-nm-dot.png" alt="New Mexico Department of Transportation Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="RMF Engineering">
-                    <img src="logos/logo_05.png" alt="RMF Engineering Logo" loading="lazy">
+                <div class="client-logo tier-2" data-company="AECOM">
+                    <img src="logos/logo-aecom.png" alt="AECOM Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="U.S. Department of Energy">
-                    <img src="logos/logo_06.png" alt="U.S. Department of Energy Logo" loading="lazy">
+                <div class="client-logo tier-2" data-company="Raytheon Company">
+                    <img src="logos/logo-raytheon.png" alt="Raytheon Company Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="Cross Connection Inc.">
-                    <img src="logos/logo_07.png" alt="Cross Connection Inc. Logo" loading="lazy">
+                <div class="client-logo tier-2" data-company="MWH Global">
+                    <img src="logos/logo-mwh-global.png" alt="MWH Global Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="RED Rochester LLC">
-                    <img src="logos/logo_08.png" alt="RED Rochester LLC Logo" loading="lazy">
+                <div class="client-logo tier-2" data-company="Wilson & Company">
+                    <img src="logos/logo-wilson-company.png" alt="Wilson & Company Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="NASA">
-                    <img src="logos/logo_09.png" alt="NASA Logo" loading="lazy">
+                <div class="client-logo tier-2" data-company="RMF Engineering">
+                    <img src="logos/logo-rmf-engineering.png" alt="RMF Engineering Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="Frank Lill & Son Inc.">
-                    <img src="logos/logo_10.png" alt="Frank Lill & Son Inc. Logo" loading="lazy">
+                
+                <!-- TIER 3 - Regional/Specialty Clients -->
+                <div class="client-logo tier-3" data-company="University of California, Los Angeles">
+                    <img src="logos/logo-ucla.png" alt="UCLA Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="Stantec">
-                    <img src="logos/logo_11.png" alt="Stantec Logo" loading="lazy">
+                <div class="client-logo tier-3" data-company="Colorado Springs Utilities">
+                    <img src="logos/logo-colorado-springs-utilities.png" alt="Colorado Springs Utilities Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="Futures Mechanical">
-                    <img src="logos/logo_12.png" alt="Futures Mechanical Logo" loading="lazy">
+                <div class="client-logo tier-3" data-company="Cross Connection Inc.">
+                    <img src="logos/logo-cross-connection-inc.png" alt="Cross Connection Inc. Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="MWH Global">
-                    <img src="logos/logo_14.png" alt="MWH Global Logo" loading="lazy">
+                <div class="client-logo tier-3" data-company="RED Rochester LLC">
+                    <img src="logos/logo-red-rochester.png" alt="RED Rochester LLC Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="SET Inc.">
-                    <img src="logos/logo_15.png" alt="SET Inc. Logo" loading="lazy">
+                <div class="client-logo tier-3" data-company="Frank Lill & Son Inc.">
+                    <img src="logos/logo-frank-lill-son.png" alt="Frank Lill & Son Inc. Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="UCLA">
-                    <img src="logos/logo_16.png" alt="UCLA Logo" loading="lazy">
+                <div class="client-logo tier-3" data-company="Futures Mechanical">
+                    <img src="logos/logo-futures-mechanical.png" alt="Futures Mechanical Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="Bechtel Corporation">
-                    <img src="logos/logo_17.png" alt="Bechtel Corporation Logo" loading="lazy">
+                <div class="client-logo tier-3" data-company="SET Inc.">
+                    <img src="logos/logo-set-inc.png" alt="SET Inc. Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="AECOM">
-                    <img src="logos/logo_18.png" alt="AECOM Logo" loading="lazy">
+                <div class="client-logo tier-3" data-company="DLS Construction">
+                    <img src="logos/logo-dls-construction.png" alt="DLS Construction Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="DLS Construction">
-                    <img src="logos/logo_19.png" alt="DLS Construction Logo" loading="lazy">
+                <div class="client-logo tier-3" data-company="Twenty20 Construction">
+                    <img src="logos/logo-twenty20-construction.png" alt="Twenty20 Construction Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="Twenty20 Construction">
-                    <img src="logos/logo_20.png" alt="Twenty20 Construction Logo" loading="lazy">
+                <div class="client-logo tier-3" data-company="Los Alamos Research Division">
+                    <img src="logos/logo-los-alamos-research.png" alt="Los Alamos Research Division Logo" loading="lazy">
                 </div>
-                <div class="logo-ticker-item" data-company="Pueblo Electric Inc.">
-                    <img src="logos/logo_22.png" alt="Pueblo Electric Inc. Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="Raytheon Company">
-                    <img src="logos/logo_23.png" alt="Raytheon Company Logo" loading="lazy">
-                </div>
-                <div class="logo-ticker-item" data-company="Colorado Springs Utilities">
-                    <img src="logos/logo_03.png" alt="Colorado Springs Utilities Logo" loading="lazy">
+                <div class="client-logo tier-3" data-company="Pueblo Electric Inc.">
+                    <img src="logos/logo-pueblo-electric.png" alt="Pueblo Electric Inc. Logo" loading="lazy">
                 </div>
             </div>
         </div>
@@ -1322,13 +1314,13 @@
     <!-- About Section -->
     <section class="about-section" id="about">
         <div class="about-container">
-            <h2 class="about-title">ABOUT <span class="highlight">GRANALYTICH</span></h2>
+            <h2 class="about-title">ABOUT <span class="highlight">US</span></h2>
             <p class="about-subtitle">Delivering critical infrastructure programs for federal agencies, municipalities, and private sector clients nationwide with unparalleled precision and reliability.</p>
             
             <div class="content-grid">
                 <div class="mission-box">
                     <h2 class="box-title">Our Mission</h2>
-                    <p class="mission-text">Granalytich Solutions delivers specialized project controls expertise for mission-critical infrastructure programs across federal, municipal, and private sectors.</p>
+                    <p class="mission-text">Granalytich Solutions Ltd. delivers specialized project controls expertise for mission-critical infrastructure programs across federal, municipal, and private sectors.</p>
                     <p class="mission-text">We ensure complex programs are delivered on schedule, within budget, and to the highest quality standards through systematic project controls and proven methodologies.</p>
                 </div>
                 
@@ -1438,9 +1430,8 @@
                     <span class="leadership-text-inline">Proven Leadership in Complex Infrastructure</span>
                 </div>
                 
-                <p class="bio">Jarett Granich founded Granalytich Solutions to deliver specialized project controls expertise for mission-critical infrastructure programs. His comprehensive background spans federal agencies, municipal utilities, and private sector developments across the nation.</p>
-                <p class="bio">As Principal and PMP-certified project manager, Jarett brings deep expertise in cost engineering, advanced scheduling, and large-scale program management. His client portfolio includes the Department of Energy, NASA, Department of Transportation, and major municipal water authorities.</p>
-                <p class="bio">From billion-dollar water supply programs to nuclear facility upgrades and data center infrastructure, Jarett's systematic approach to project controls has consistently delivered complex programs on schedule and within budget, establishing Granalytich Solutions as the trusted partner for infrastructure excellence.</p>
+                <p class="bio">Leading Granalytich Solutions with 27 years of specialized experience in high-stakes, mission-critical infrastructure, Jarett Granich has established himself as the go-to expert for projects where failure is not an option. His portfolio spans Department of Energy security facilities, NASA installations, and critical municipal infrastructure serving millions of residents.</p>
+                <p class="bio">From managing exascale supercomputer cooling systems to overseeing high-explosive bunker demolitions, Jarett's expertise covers the most complex and sensitive projects in the industry. With over $4 billion in successfully delivered projects and $413 million currently under management, he ensures every program meets the strictest standards for security, safety, and performance.</p>
             </div>
         </div>
     </section>
@@ -1472,7 +1463,7 @@
                     </div>
                     
                     <div class="contact-logo">
-                        <div class="contact-logo-text">GRANALYTICH SOLUTIONS</div>
+                        <div class="contact-logo-text">GRANALYTICH SOLUTIONS LTD.</div>
                     </div>
                 </div>
 

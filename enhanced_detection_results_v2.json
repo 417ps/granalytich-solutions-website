@@ -1,0 +1,492 @@
+{
+  "source_image": "client-logos-collection-v2.png",
+  "detection_method": "Enhanced V2",
+  "total_detections": 22,
+  "valid_extractions": 22,
+  "logos": [
+    {
+      "filename": "logo_01.png",
+      "company": "New Mexico Department of Transportation",
+      "short_name": "new-mexico-department-of-transportation",
+      "coordinates": {
+        "x": "42",
+        "y": "68",
+        "width": "257",
+        "height": "89",
+        "area": "22873"
+      },
+      "alt": "New Mexico Department of Transportation Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.2946268526209942,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_02.png",
+      "company": "Los Alamos National Laboratory",
+      "short_name": "los-alamos-national-laboratory",
+      "coordinates": {
+        "x": "377",
+        "y": "82",
+        "width": "300",
+        "height": "73",
+        "area": "21900"
+      },
+      "alt": "Los Alamos National Laboratory Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.3161187214611872,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_03.png",
+      "company": "Colorado Springs Utilities",
+      "short_name": "colorado-springs-utilities",
+      "coordinates": {
+        "x": "779",
+        "y": "42",
+        "width": "273",
+        "height": "111",
+        "area": "30303"
+      },
+      "alt": "Colorado Springs Utilities Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.30924330924330923,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_04.png",
+      "company": "Wilson & Company",
+      "short_name": "wilson-and-company",
+      "coordinates": {
+        "x": "47",
+        "y": "258",
+        "width": "187",
+        "height": "79",
+        "area": "14773"
+      },
+      "alt": "Wilson & Company Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.3710823800175997,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_05.png",
+      "company": "RMF Engineering",
+      "short_name": "rmf-engineering",
+      "coordinates": {
+        "x": "321",
+        "y": "270",
+        "width": "108",
+        "height": "57",
+        "area": "6156"
+      },
+      "alt": "RMF Engineering Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.3117283950617284,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_06.png",
+      "company": "U.S. Department of Energy",
+      "short_name": "us-department-of-energy",
+      "coordinates": {
+        "x": "420",
+        "y": "279",
+        "width": "219",
+        "height": "50",
+        "area": "10950"
+      },
+      "alt": "U.S. Department of Energy Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.2654794520547945,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_07.png",
+      "company": "Cross Connection Inc.",
+      "short_name": "cross-connection-inc",
+      "coordinates": {
+        "x": "737",
+        "y": "267",
+        "width": "229",
+        "height": "71",
+        "area": "16259"
+      },
+      "alt": "Cross Connection Inc. Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.3449166615413002,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_08.png",
+      "company": "RED Rochester LLC",
+      "short_name": "red-rochester-llc",
+      "coordinates": {
+        "x": "64",
+        "y": "410",
+        "width": "203",
+        "height": "88",
+        "area": "17864"
+      },
+      "alt": "RED Rochester LLC Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.316166592028661,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_09.png",
+      "company": "NASA",
+      "short_name": "nasa",
+      "coordinates": {
+        "x": "348",
+        "y": "392",
+        "width": "209",
+        "height": "102",
+        "area": "21318"
+      },
+      "alt": "NASA Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.3548175250961629,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_10.png",
+      "company": "Frank Lill & Son Inc.",
+      "short_name": "frank-lill-and-son-inc",
+      "coordinates": {
+        "x": "640",
+        "y": "375",
+        "width": "123",
+        "height": "118",
+        "area": "14514"
+      },
+      "alt": "Frank Lill & Son Inc. Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.5297643654402646,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_11.png",
+      "company": "Stantec",
+      "short_name": "stantec",
+      "coordinates": {
+        "x": "46",
+        "y": "556",
+        "width": "352",
+        "height": "84",
+        "area": "29568"
+      },
+      "alt": "Stantec Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.2362012987012987,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_12.png",
+      "company": "Futures Mechanical",
+      "short_name": "futures-mechanical",
+      "coordinates": {
+        "x": "469",
+        "y": "540",
+        "width": "85",
+        "height": "85",
+        "area": "7225"
+      },
+      "alt": "Futures Mechanical Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.323598615916955,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_13.png",
+      "company": "MWH Global",
+      "short_name": "mwh-global",
+      "coordinates": {
+        "x": "550",
+        "y": "557",
+        "width": "185",
+        "height": "53",
+        "area": "9805"
+      },
+      "alt": "MWH Global Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.31279959204487506,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_14.png",
+      "company": "SET Inc.",
+      "short_name": "set-inc",
+      "coordinates": {
+        "x": "54",
+        "y": "745",
+        "width": "357",
+        "height": "134",
+        "area": "47838"
+      },
+      "alt": "SET Inc. Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "False",
+        "good_aspect": "True",
+        "content_density": 0.6371503825410761,
+        "edge_content": false
+      },
+      "score": 75,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_15.png",
+      "company": "UCLA",
+      "short_name": "ucla",
+      "coordinates": {
+        "x": "519",
+        "y": "790",
+        "width": "191",
+        "height": "40",
+        "area": "7640"
+      },
+      "alt": "UCLA Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.31204188481675393,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_16.png",
+      "company": "Bechtel Corporation",
+      "short_name": "bechtel-corporation",
+      "coordinates": {
+        "x": "539",
+        "y": "730",
+        "width": "178",
+        "height": "72",
+        "area": "12816"
+      },
+      "alt": "Bechtel Corporation Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.25319912609238454,
+        "edge_content": true
+      },
+      "score": 90,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_17.png",
+      "company": "AECOM",
+      "short_name": "aecom",
+      "coordinates": {
+        "x": "857",
+        "y": "798",
+        "width": "161",
+        "height": "81",
+        "area": "13041"
+      },
+      "alt": "AECOM Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.5806303197607545,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_18.png",
+      "company": "DLS Construction",
+      "short_name": "dls-construction",
+      "coordinates": {
+        "x": "42",
+        "y": "958",
+        "width": "240",
+        "height": "151",
+        "area": "36240"
+      },
+      "alt": "DLS Construction Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.7630242825607064,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_19.png",
+      "company": "Twenty20 Construction",
+      "short_name": "twenty20-construction",
+      "coordinates": {
+        "x": "401",
+        "y": "1041",
+        "width": "188",
+        "height": "57",
+        "area": "10716"
+      },
+      "alt": "Twenty20 Construction Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.43486375513251213,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_20.png",
+      "company": "Los Alamos National Laboratory",
+      "short_name": "los-alamos-national-laboratory",
+      "coordinates": {
+        "x": "668",
+        "y": "999",
+        "width": "152",
+        "height": "105",
+        "area": "15960"
+      },
+      "alt": "Los Alamos National Laboratory Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.2719298245614035,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_21.png",
+      "company": "Pueblo Electric Inc.",
+      "short_name": "pueblo-electric-inc",
+      "coordinates": {
+        "x": "921",
+        "y": "1012",
+        "width": "213",
+        "height": "96",
+        "area": "20448"
+      },
+      "alt": "Pueblo Electric Inc. Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.29821987480438183,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    },
+    {
+      "filename": "logo_22.png",
+      "company": "Raytheon Company",
+      "short_name": "raytheon-company",
+      "coordinates": {
+        "x": "57",
+        "y": "1196",
+        "width": "311",
+        "height": "76",
+        "area": "23636"
+      },
+      "alt": "Raytheon Company Logo",
+      "validation": {
+        "has_content": "True",
+        "good_size": "True",
+        "good_aspect": "True",
+        "content_density": 0.20464545608393975,
+        "edge_content": false
+      },
+      "score": 100,
+      "is_valid": true
+    }
+  ]
+}

@@ -1,0 +1,506 @@
+
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enhanced Logo Detection V2 - Preview</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 20px; }
+        .container { position: relative; display: inline-block; margin-bottom: 20px; }
+        .logo-box { position: absolute; border: 3px solid; cursor: pointer; }
+        .valid { border-color: #4CAF50; background: rgba(76, 175, 80, 0.1); }
+        .invalid { border-color: #f44336; background: rgba(244, 67, 54, 0.1); }
+        .warning { border-color: #ff9800; background: rgba(255, 152, 0, 0.1); }
+        .info { margin: 20px 0; }
+        .legend { margin: 10px 0; }
+        .legend span { display: inline-block; width: 20px; height: 20px; margin-right: 5px; }
+        table { border-collapse: collapse; margin-top: 20px; width: 100%; }
+        th, td { border: 1px solid #ddd; padding: 8px; text-align: left; }
+        th { background-color: #f2f2f2; }
+        .score-high { background-color: #e8f5e8; }
+        .score-medium { background-color: #fff3cd; }
+        .score-low { background-color: #f8d7da; }
+        .tooltip { position: relative; display: inline-block; }
+        .tooltip .tooltiptext {
+            visibility: hidden;
+            width: 300px;
+            background-color: #333;
+            color: #fff;
+            text-align: left;
+            border-radius: 6px;
+            padding: 10px;
+            position: absolute;
+            z-index: 1;
+            bottom: 125%;
+            left: 50%;
+            margin-left: -150px;
+            opacity: 0;
+            transition: opacity 0.3s;
+            font-size: 12px;
+            line-height: 1.4;
+        }
+        .tooltip:hover .tooltiptext {
+            visibility: visible;
+            opacity: 1;
+        }
+    </style>
+</head>
+<body>
+    <h1>Enhanced Logo Detection V2 Results</h1>
+    <div class="info">
+        <p><strong>Image:</strong> client-logos-collection-v2.png</p>
+        <p><strong>Total Detections:</strong> 22</p>
+        <p><strong>Valid Extractions:</strong> 22</p>
+        <div class="legend">
+            <span style="background-color: rgba(76, 175, 80, 0.3); border: 3px solid #4CAF50;"></span> Valid (Score ≥ 70)
+            <span style="background-color: rgba(255, 152, 0, 0.3); border: 3px solid #ff9800;"></span> Needs Review (Score 50-69)
+            <span style="background-color: rgba(244, 67, 54, 0.3); border: 3px solid #f44336;"></span> Invalid (Score < 50)
+        </div>
+    </div>
+    
+    <div class="container">
+        <img src="client-logos-collection-v2.png" alt="Logo Collection" style="max-width: 100%;">
+
+        <div class="logo-box valid tooltip" 
+             style="left: 42px; top: 68px; width: 257px; height: 89px;">
+            <span class="tooltiptext">Company: New Mexico Department of Transportation
+Score: 100/100
+Size: 257x89 px
+Content Density: 29.5%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 377px; top: 82px; width: 300px; height: 73px;">
+            <span class="tooltiptext">Company: Los Alamos National Laboratory
+Score: 100/100
+Size: 300x73 px
+Content Density: 31.6%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 779px; top: 42px; width: 273px; height: 111px;">
+            <span class="tooltiptext">Company: Colorado Springs Utilities
+Score: 100/100
+Size: 273x111 px
+Content Density: 30.9%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 47px; top: 258px; width: 187px; height: 79px;">
+            <span class="tooltiptext">Company: Wilson & Company
+Score: 100/100
+Size: 187x79 px
+Content Density: 37.1%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 321px; top: 270px; width: 108px; height: 57px;">
+            <span class="tooltiptext">Company: RMF Engineering
+Score: 100/100
+Size: 108x57 px
+Content Density: 31.2%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 420px; top: 279px; width: 219px; height: 50px;">
+            <span class="tooltiptext">Company: U.S. Department of Energy
+Score: 100/100
+Size: 219x50 px
+Content Density: 26.5%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 737px; top: 267px; width: 229px; height: 71px;">
+            <span class="tooltiptext">Company: Cross Connection Inc.
+Score: 100/100
+Size: 229x71 px
+Content Density: 34.5%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 64px; top: 410px; width: 203px; height: 88px;">
+            <span class="tooltiptext">Company: RED Rochester LLC
+Score: 100/100
+Size: 203x88 px
+Content Density: 31.6%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 348px; top: 392px; width: 209px; height: 102px;">
+            <span class="tooltiptext">Company: NASA
+Score: 100/100
+Size: 209x102 px
+Content Density: 35.5%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 640px; top: 375px; width: 123px; height: 118px;">
+            <span class="tooltiptext">Company: Frank Lill & Son Inc.
+Score: 100/100
+Size: 123x118 px
+Content Density: 53.0%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 46px; top: 556px; width: 352px; height: 84px;">
+            <span class="tooltiptext">Company: Stantec
+Score: 100/100
+Size: 352x84 px
+Content Density: 23.6%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 469px; top: 540px; width: 85px; height: 85px;">
+            <span class="tooltiptext">Company: Futures Mechanical
+Score: 100/100
+Size: 85x85 px
+Content Density: 32.4%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 550px; top: 557px; width: 185px; height: 53px;">
+            <span class="tooltiptext">Company: MWH Global
+Score: 100/100
+Size: 185x53 px
+Content Density: 31.3%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 54px; top: 745px; width: 357px; height: 134px;">
+            <span class="tooltiptext">Company: SET Inc.
+Score: 75/100
+Size: 357x134 px
+Content Density: 63.7%
+Has Content: ✅
+Good Size: ❌
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 519px; top: 790px; width: 191px; height: 40px;">
+            <span class="tooltiptext">Company: UCLA
+Score: 100/100
+Size: 191x40 px
+Content Density: 31.2%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 539px; top: 730px; width: 178px; height: 72px;">
+            <span class="tooltiptext">Company: Bechtel Corporation
+Score: 90/100
+Size: 178x72 px
+Content Density: 25.3%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ⚠️</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 857px; top: 798px; width: 161px; height: 81px;">
+            <span class="tooltiptext">Company: AECOM
+Score: 100/100
+Size: 161x81 px
+Content Density: 58.1%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 42px; top: 958px; width: 240px; height: 151px;">
+            <span class="tooltiptext">Company: DLS Construction
+Score: 100/100
+Size: 240x151 px
+Content Density: 76.3%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 401px; top: 1041px; width: 188px; height: 57px;">
+            <span class="tooltiptext">Company: Twenty20 Construction
+Score: 100/100
+Size: 188x57 px
+Content Density: 43.5%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 668px; top: 999px; width: 152px; height: 105px;">
+            <span class="tooltiptext">Company: Los Alamos National Laboratory
+Score: 100/100
+Size: 152x105 px
+Content Density: 27.2%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 921px; top: 1012px; width: 213px; height: 96px;">
+            <span class="tooltiptext">Company: Pueblo Electric Inc.
+Score: 100/100
+Size: 213x96 px
+Content Density: 29.8%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+        <div class="logo-box valid tooltip" 
+             style="left: 57px; top: 1196px; width: 311px; height: 76px;">
+            <span class="tooltiptext">Company: Raytheon Company
+Score: 100/100
+Size: 311x76 px
+Content Density: 20.5%
+Has Content: ✅
+Good Size: ✅
+Good Aspect: ✅
+Edge Content: ✅</span>
+        </div>
+    </div>
+    
+    <table>
+        <tr>
+            <th>Company</th>
+            <th>Filename</th>
+            <th>Coordinates</th>
+            <th>Score</th>
+            <th>Status</th>
+            <th>Issues</th>
+        </tr>
+
+        <tr class="score-high">
+            <td>New Mexico Department of Transportation</td>
+            <td>logo_01.png</td>
+            <td>42, 68 (257×89)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Los Alamos National Laboratory</td>
+            <td>logo_02.png</td>
+            <td>377, 82 (300×73)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Colorado Springs Utilities</td>
+            <td>logo_03.png</td>
+            <td>779, 42 (273×111)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Wilson & Company</td>
+            <td>logo_04.png</td>
+            <td>47, 258 (187×79)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>RMF Engineering</td>
+            <td>logo_05.png</td>
+            <td>321, 270 (108×57)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>U.S. Department of Energy</td>
+            <td>logo_06.png</td>
+            <td>420, 279 (219×50)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Cross Connection Inc.</td>
+            <td>logo_07.png</td>
+            <td>737, 267 (229×71)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>RED Rochester LLC</td>
+            <td>logo_08.png</td>
+            <td>64, 410 (203×88)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>NASA</td>
+            <td>logo_09.png</td>
+            <td>348, 392 (209×102)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Frank Lill & Son Inc.</td>
+            <td>logo_10.png</td>
+            <td>640, 375 (123×118)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Stantec</td>
+            <td>logo_11.png</td>
+            <td>46, 556 (352×84)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Futures Mechanical</td>
+            <td>logo_12.png</td>
+            <td>469, 540 (85×85)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>MWH Global</td>
+            <td>logo_13.png</td>
+            <td>550, 557 (185×53)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>SET Inc.</td>
+            <td>logo_14.png</td>
+            <td>54, 745 (357×134)</td>
+            <td>75/100</td>
+            <td>✅ Valid</td>
+            <td>Bad size</td>
+        </tr>
+        <tr class="score-high">
+            <td>UCLA</td>
+            <td>logo_15.png</td>
+            <td>519, 790 (191×40)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Bechtel Corporation</td>
+            <td>logo_16.png</td>
+            <td>539, 730 (178×72)</td>
+            <td>90/100</td>
+            <td>✅ Valid</td>
+            <td>Edge content</td>
+        </tr>
+        <tr class="score-high">
+            <td>AECOM</td>
+            <td>logo_17.png</td>
+            <td>857, 798 (161×81)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>DLS Construction</td>
+            <td>logo_18.png</td>
+            <td>42, 958 (240×151)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Twenty20 Construction</td>
+            <td>logo_19.png</td>
+            <td>401, 1041 (188×57)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Los Alamos National Laboratory</td>
+            <td>logo_20.png</td>
+            <td>668, 999 (152×105)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Pueblo Electric Inc.</td>
+            <td>logo_21.png</td>
+            <td>921, 1012 (213×96)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+        <tr class="score-high">
+            <td>Raytheon Company</td>
+            <td>logo_22.png</td>
+            <td>57, 1196 (311×76)</td>
+            <td>100/100</td>
+            <td>✅ Valid</td>
+            <td>None</td>
+        </tr>
+    </table>
+    
+    <script>
+        // Add click functionality to logo boxes
+        document.querySelectorAll('.logo-box').forEach(box => {
+            box.addEventListener('click', function() {
+                const rect = this.getBoundingClientRect();
+                const tooltip = this.querySelector('.tooltiptext').textContent;
+                alert(tooltip);
+            });
+        });
+    </script>
+</body>
+</html>

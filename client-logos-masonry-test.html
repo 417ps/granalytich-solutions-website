@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Client Logos Masonry Test - Granalytich Solutions</title>
+    <style>
+        /* Anti-flash navigation protection */
+        .global-nav,
+        .navbar,
+        nav {
+            background: rgba(10, 10, 10, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+        }
+        .global-nav *,
+        .navbar *,
+        nav * {
+            color: #b8b8b8 !important;
+            background: transparent !important;
+        }
+        .global-nav .nav-link:hover,
+        .global-nav .nav-link.active,
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active,
+        nav .nav-link:hover,
+        nav .nav-link.active {
+            color: #d4af37 !important;
+        }
+        
+        /* Granalytich Color Scheme */
+        :root {
+            --primary-navy: #1e3a5f;
+            --secondary-blue: #2e5a8a;
+            --accent-gold: #d4af37;
+            --accent-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --border-color: #dee2e6;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-navy);
+            margin-bottom: 10px;
+            font-size: 2.5rem;
+            font-weight: 300;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: var(--accent-gray);
+            margin-bottom: 50px;
+            font-size: 1.1rem;
+        }
+
+        /* Client Logos Masonry Section */
+        .client-logos-section {
+            background-color: var(--white);
+            padding: 60px 40px;
+            border-radius: 12px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .section-title-logos {
+            font-size: 28px;
+            font-weight: 300;
+            color: var(--primary-navy);
+            margin-bottom: 50px;
+            text-align: center;
+        }
+
+        .section-title-logos .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .client-logos-grid {
+            display: grid;
+            grid-template-columns: repeat(6, 1fr);
+            gap: 30px;
+            justify-items: center;
+            align-items: center;
+            max-width: 1100px;
+            margin: 0 auto;
+        }
+
+        .client-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            background: rgba(248, 249, 250, 0.3);
+            border: 1px solid rgba(0,0,0,0.03);
+            width: 100%;
+            height: 100%;
+            min-height: 80px;
+        }
+
+        .client-logo:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 25px rgba(0,0,0,0.15);
+            background: white;
+        }
+
+        .client-logo img {
+            width: 100%;
+            height: auto;
+            object-fit: contain;
+            filter: grayscale(1) opacity(0.6);
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover img {
+            filter: grayscale(0) opacity(1);
+        }
+
+        /* Tier 1 - Premium clients (NASA, DOE, LANL, Stantec, Bechtel) */
+        .client-logo.tier-1 {
+            grid-column: span 2;
+            padding: 25px;
+            min-height: 100px;
+        }
+
+        .client-logo.tier-1 img {
+            max-height: 70px;
+            max-width: 180px;
+        }
+
+        /* Tier 2 - Major partners */
+        .client-logo.tier-2 img {
+            max-height: 55px;  
+            max-width: 140px;
+        }
+
+        /* Tier 3 - Regional/specialty clients */
+        .client-logo.tier-3 img {
+            max-height: 45px;
+            max-width: 120px;
+        }
+
+        /* Tooltip */
+        .client-logo:hover::after {
+            content: attr(data-company);
+            position: absolute;
+            bottom: -45px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-navy);
+            color: white;
+            padding: 8px 12px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-weight: 500;
+            white-space: nowrap;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .client-logo:hover::before {
+            content: '';
+            position: absolute;
+            bottom: -35px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid var(--primary-navy);
+            z-index: 11;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .client-logos-grid {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 25px;
+            }
+            
+            .client-logo.tier-1 {
+                grid-column: span 2;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .client-logos-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 20px;
+            }
+            
+            .client-logo.tier-1 {
+                grid-column: span 1;
+                padding: 20px;
+            }
+            
+            .client-logo {
+                padding: 15px;
+                min-height: 70px;
+            }
+        }
+
+        .info-box {
+            background: var(--light-gray);
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .tier-legend {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            margin-top: 40px;
+            font-size: 0.9rem;
+        }
+
+        .tier-legend-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .tier-color {
+            width: 20px;
+            height: 20px;
+            border-radius: 4px;
+        }
+
+        .tier-1-color { background: linear-gradient(135deg, var(--accent-gold), #f4d03f); }
+        .tier-2-color { background: linear-gradient(135deg, var(--primary-navy), var(--secondary-blue)); }
+        .tier-3-color { background: var(--accent-gray); }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>CLIENT LOGOS MASONRY TEST</h1>
+        <p class="subtitle">Centered Masonry + Tiered Layout - All 23 Logos Visible</p>
+        
+        <div class="info-box">
+            <strong>Layout Features:</strong>
+            <ul>
+                <li><strong>Tier 1:</strong> Premium clients (NASA, DOE, LANL, Stantec, Bechtel) - Largest size, spans 2 columns</li>
+                <li><strong>Tier 2:</strong> Major partners (NMDOT, AECOM, Raytheon, etc.) - Medium size</li>
+                <li><strong>Tier 3:</strong> Regional/specialty clients - Standard size</li>
+                <li><strong>All 23 logos visible simultaneously</strong> - No scrolling needed</li>
+                <li><strong>Hover effects:</strong> Color restoration + company name tooltip</li>
+                <li><strong>Responsive:</strong> Adapts to tablet (4 cols) and mobile (3 cols)</li>
+            </ul>
+        </div>
+
+        <section class="client-logos-section">
+            <div class="client-logos-grid">
+                <!-- TIER 1 - Premium Clients (spans 2 columns) -->
+                <div class="client-logo tier-1" data-company="National Aeronautics and Space Administration">
+                    <img src="logos/logo-nasa.png" alt="NASA Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-1" data-company="U.S. Department of Energy">
+                    <img src="logos/logo-us-doe.png" alt="U.S. Department of Energy Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-1" data-company="Los Alamos National Laboratory">
+                    <img src="logos/logo-los-alamos-national-lab.png" alt="Los Alamos National Laboratory Logo" loading="lazy">
+                </div>
+                
+                <!-- TIER 2 - Major Partners -->
+                <div class="client-logo tier-2" data-company="Stantec">
+                    <img src="logos/logo-stantec.png" alt="Stantec Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="Bechtel Corporation">
+                    <img src="logos/logo-bechtel.png" alt="Bechtel Corporation Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="New Mexico Department of Transportation">
+                    <img src="logos/logo-nm-dot.png" alt="New Mexico Department of Transportation Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="AECOM">
+                    <img src="logos/logo-aecom.png" alt="AECOM Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="Raytheon Company">
+                    <img src="logos/logo-raytheon.png" alt="Raytheon Company Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="MWH Global">
+                    <img src="logos/logo-mwh-global.png" alt="MWH Global Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="Wilson & Company">
+                    <img src="logos/logo-wilson-company.png" alt="Wilson & Company Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="RMF Engineering">
+                    <img src="logos/logo-rmf-engineering.png" alt="RMF Engineering Logo" loading="lazy">
+                </div>
+                
+                <!-- TIER 3 - Regional/Specialty Clients -->
+                <div class="client-logo tier-3" data-company="University of California, Los Angeles">
+                    <img src="logos/logo-ucla.png" alt="UCLA Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Colorado Springs Utilities">
+                    <img src="logos/logo-colorado-springs-utilities.png" alt="Colorado Springs Utilities Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Cross Connection Inc.">
+                    <img src="logos/logo-cross-connection-inc.png" alt="Cross Connection Inc. Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="RED Rochester LLC">
+                    <img src="logos/logo-red-rochester.png" alt="RED Rochester LLC Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Frank Lill & Son Inc.">
+                    <img src="logos/logo-frank-lill-son.png" alt="Frank Lill & Son Inc. Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Futures Mechanical">
+                    <img src="logos/logo-futures-mechanical.png" alt="Futures Mechanical Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="SET Inc.">
+                    <img src="logos/logo-set-inc.png" alt="SET Inc. Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="DLS Construction">
+                    <img src="logos/logo-dls-construction.png" alt="DLS Construction Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Twenty20 Construction">
+                    <img src="logos/logo-twenty20-construction.png" alt="Twenty20 Construction Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Los Alamos Research Division">
+                    <img src="logos/logo-los-alamos-research.png" alt="Los Alamos Research Division Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Pueblo Electric Inc.">
+                    <img src="logos/logo-pueblo-electric.png" alt="Pueblo Electric Inc. Logo" loading="lazy">
+                </div>
+            </div>
+            
+            <div class="tier-legend">
+                <div class="tier-legend-item">
+                    <div class="tier-color tier-1-color"></div>
+                    <span>Tier 1: Premium Clients</span>
+                </div>
+                <div class="tier-legend-item">
+                    <div class="tier-color tier-2-color"></div>
+                    <span>Tier 2: Major Partners</span>
+                </div>
+                <div class="tier-legend-item">
+                    <div class="tier-color tier-3-color"></div>
+                    <span>Tier 3: Regional/Specialty</span>
+                </div>
+            </div>
+        </section>
+    </div>
+</body>
+</html>

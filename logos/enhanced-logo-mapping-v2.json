@@ -1,0 +1,184 @@
+{
+  "source": "client-logos-collection-v2.png",
+  "detection_method": "Enhanced Logo Detector V2",
+  "extraction_date": "2025-07-31",
+  "total_logos": 22,
+  "logos": [
+    {
+      "filename": "logo_01.png",
+      "company": "New Mexico Department of Transportation",
+      "short_name": "NM DOT",
+      "alt": "New Mexico Department of Transportation Logo",
+      "sector": "government",
+      "type": "state_agency"
+    },
+    {
+      "filename": "logo_02.png",
+      "company": "Los Alamos National Laboratory",
+      "short_name": "Los Alamos National Lab",
+      "alt": "Los Alamos National Laboratory Logo",
+      "sector": "federal",
+      "type": "national_lab"
+    },
+    {
+      "filename": "logo_03.png",
+      "company": "Colorado Springs Utilities",
+      "short_name": "Colorado Springs Utilities",
+      "alt": "Colorado Springs Utilities Logo",
+      "sector": "municipal",
+      "type": "utility"
+    },
+    {
+      "filename": "logo_04.png",
+      "company": "Wilson & Company",
+      "short_name": "Wilson & Company",
+      "alt": "Wilson & Company Logo",
+      "sector": "private",
+      "type": "engineering"
+    },
+    {
+      "filename": "logo_05.png",
+      "company": "RMF Engineering",
+      "short_name": "RMF Engineering",
+      "alt": "RMF Engineering Logo",
+      "sector": "private",
+      "type": "engineering"
+    },
+    {
+      "filename": "logo_06.png",
+      "company": "U.S. Department of Energy",
+      "short_name": "US DOE",
+      "alt": "U.S. Department of Energy Logo",
+      "sector": "federal",
+      "type": "department"
+    },
+    {
+      "filename": "logo_07.png",
+      "company": "Cross Connection Inc.",
+      "short_name": "Cross Connection Inc.",
+      "alt": "Cross Connection Inc. Logo",
+      "sector": "private",
+      "type": "contractor"
+    },
+    {
+      "filename": "logo_08.png",
+      "company": "RED Rochester LLC",
+      "short_name": "RED Rochester",
+      "alt": "RED Rochester LLC Logo",
+      "sector": "private",
+      "type": "contractor"
+    },
+    {
+      "filename": "logo_09.png",
+      "company": "NASA",
+      "short_name": "NASA",
+      "alt": "NASA Logo",
+      "sector": "federal",
+      "type": "agency"
+    },
+    {
+      "filename": "logo_10.png",
+      "company": "Frank Lill & Son Inc.",
+      "short_name": "Frank Lill & Son",
+      "alt": "Frank Lill & Son Inc. Logo",
+      "sector": "private",
+      "type": "contractor"
+    },
+    {
+      "filename": "logo_11.png",
+      "company": "Stantec",
+      "short_name": "Stantec",
+      "alt": "Stantec Logo",
+      "sector": "private",
+      "type": "engineering"
+    },
+    {
+      "filename": "logo_12.png",
+      "company": "Futures Mechanical",
+      "short_name": "Futures Mechanical",
+      "alt": "Futures Mechanical Logo",
+      "sector": "private",
+      "type": "contractor"
+    },
+    {
+      "filename": "logo_13.png",
+      "company": "MWH Global",
+      "short_name": "MWH Global",
+      "alt": "MWH Global Logo",
+      "sector": "private",
+      "type": "engineering"
+    },
+    {
+      "filename": "logo_14.png",
+      "company": "SET Inc.",
+      "short_name": "SET Inc.",
+      "alt": "SET Inc. Logo",
+      "sector": "private",
+      "type": "contractor"
+    },
+    {
+      "filename": "logo_15.png",
+      "company": "UCLA",
+      "short_name": "UCLA",
+      "alt": "UCLA Logo",
+      "sector": "academic",
+      "type": "university"
+    },
+    {
+      "filename": "logo_16.png",
+      "company": "Bechtel Corporation",
+      "short_name": "Bechtel",
+      "alt": "Bechtel Corporation Logo",
+      "sector": "private",
+      "type": "engineering"
+    },
+    {
+      "filename": "logo_17.png",
+      "company": "AECOM",
+      "short_name": "AECOM",
+      "alt": "AECOM Logo",
+      "sector": "private",
+      "type": "engineering"
+    },
+    {
+      "filename": "logo_18.png",
+      "company": "DLS Construction",
+      "short_name": "DLS Construction",
+      "alt": "DLS Construction Logo",
+      "sector": "private",
+      "type": "contractor"
+    },
+    {
+      "filename": "logo_19.png",
+      "company": "Twenty20 Construction",
+      "short_name": "Twenty20 Construction",
+      "alt": "Twenty20 Construction Logo",
+      "sector": "private",
+      "type": "contractor"
+    },
+    {
+      "filename": "logo_20.png",
+      "company": "Los Alamos National Laboratory",
+      "short_name": "Los Alamos Research",
+      "alt": "Los Alamos National Laboratory Research Division Logo",
+      "sector": "federal",
+      "type": "national_lab"
+    },
+    {
+      "filename": "logo_21.png",
+      "company": "Pueblo Electric Inc.",
+      "short_name": "Pueblo Electric",
+      "alt": "Pueblo Electric Inc. Logo",
+      "sector": "private",
+      "type": "contractor"
+    },
+    {
+      "filename": "logo_22.png",
+      "company": "Raytheon Company",
+      "short_name": "Raytheon",
+      "alt": "Raytheon Company Logo",
+      "sector": "private",
+      "type": "defense_contractor"
+    }
+  ]
+}
