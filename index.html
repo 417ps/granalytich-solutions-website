@@ -1205,6 +1205,7 @@
             }
         }
     </style>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 </head>
 <body>
     <!-- Top Bar -->
@@ -1624,6 +1625,18 @@
             element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(element);
         });
+    </script>
+    
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", user => {
+          if (!user) {
+            window.netlifyIdentity.on("login", () => {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
     </script>
 </body>
 </html>
