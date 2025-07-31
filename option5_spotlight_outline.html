@@ -1,0 +1,543 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option 5: Spotlight with Blue Outline - Granalytich Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        :root {
+            --primary-navy: #1e3a5f;
+            --secondary-blue: #2e5a8a;
+            --accent-gold: #d4af37;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #dee2e6;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--primary-navy);
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .layout-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Spotlight Layout with Blue Outline */
+        .spotlight-grid {
+            display: grid;
+            grid-template-columns: repeat(8, 1fr);
+            gap: 25px;
+            align-items: start;
+            margin-top: 60px;
+        }
+
+        .spotlight-featured {
+            grid-column: span 4;
+            grid-row: span 2;
+            background: white;
+            border: 3px solid var(--secondary-blue);
+            color: var(--primary-navy);
+            padding: 50px;
+            border-radius: 16px;
+            text-align: center;
+            box-shadow: 0 10px 30px rgba(46, 90, 138, 0.15);
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight-featured::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 4px;
+            background: linear-gradient(90deg, var(--accent-gold) 0%, var(--secondary-blue) 50%, var(--accent-gold) 100%);
+        }
+
+        .spotlight-featured:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 50px rgba(46, 90, 138, 0.25);
+            border-color: var(--accent-gold);
+        }
+
+        .spotlight-title {
+            font-size: 1.9rem;
+            margin-bottom: 20px;
+            color: var(--primary-navy);
+            font-weight: 600;
+        }
+
+        .spotlight-subtitle {
+            font-size: 1.1rem;
+            margin-bottom: 35px;
+            color: #666;
+            line-height: 1.6;
+        }
+
+        .spotlight-logos {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 25px;
+        }
+
+        .spotlight-logo {
+            background: var(--light-gray);
+            border: 2px solid var(--secondary-blue);
+            padding: 25px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 90px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .spotlight-logo::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: -100%;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(90deg, transparent, rgba(212, 175, 55, 0.1), transparent);
+            transition: left 0.5s ease;
+        }
+
+        .spotlight-logo:hover {
+            background: white;
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.2);
+        }
+
+        .spotlight-logo:hover::before {
+            left: 100%;
+        }
+
+        .spotlight-logo img {
+            max-height: 55px;
+            max-width: 130px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            filter: grayscale(0.2) opacity(0.85);
+        }
+
+        .spotlight-logo:hover img {
+            filter: grayscale(0) opacity(1);
+            transform: scale(1.08);
+        }
+
+        .spotlight-regular {
+            background: white;
+            border: 2px solid transparent;
+            padding: 25px;
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.08);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 90px;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            cursor: pointer;
+        }
+
+        .spotlight-regular::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 2px solid var(--secondary-blue);
+            border-radius: 12px;
+            opacity: 0;
+            transition: opacity 0.3s ease;
+        }
+
+        .spotlight-regular:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 35px rgba(0,0,0,0.15);
+            border-color: var(--secondary-blue);
+        }
+
+        .spotlight-regular:hover::before {
+            opacity: 1;
+        }
+
+        .spotlight-regular img {
+            max-height: 45px;
+            max-width: 110px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            filter: grayscale(0.4) opacity(0.75);
+        }
+
+        .spotlight-regular:hover img {
+            filter: grayscale(0) opacity(1);
+            transform: scale(1.1);
+        }
+
+        /* Premium badge for featured section */
+        .premium-badge {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            background: var(--accent-gold);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Stats section */
+        .stats-section {
+            background: var(--light-gray);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minMax(200px, 1fr));
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stats-item {
+            background: white;
+            border: 2px solid var(--secondary-blue);
+            padding: 30px 20px;
+            border-radius: 12px;
+            transition: all 0.3s ease;
+        }
+
+        .stats-item:hover {
+            border-color: var(--accent-gold);
+            transform: translateY(-5px);
+            box-shadow: 0 8px 25px rgba(212, 175, 55, 0.15);
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .stats-label {
+            color: var(--primary-navy);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Tooltip */
+        .spotlight-regular::after {
+            content: attr(data-company);
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-navy);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .spotlight-regular:hover::after {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .spotlight-grid {
+                grid-template-columns: repeat(6, 1fr);
+                gap: 20px;
+            }
+            
+            .spotlight-featured {
+                grid-column: span 6;
+                grid-row: span 1;
+            }
+            
+            .spotlight-logos {
+                grid-template-columns: repeat(4, 1fr);
+                gap: 15px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .spotlight-grid {
+                grid-template-columns: repeat(3, 1fr);
+                gap: 15px;
+            }
+            
+            .spotlight-featured {
+                grid-column: span 3;
+                padding: 30px;
+            }
+            
+            .spotlight-logos {
+                grid-template-columns: repeat(2, 1fr);
+            }
+            
+            .spotlight-title {
+                font-size: 1.5rem;
+            }
+            
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .spotlight-grid {
+                grid-template-columns: 1fr;
+                gap: 20px;
+            }
+            
+            .spotlight-featured {
+                grid-column: span 1;
+                padding: 25px;
+            }
+            
+            .spotlight-logos {
+                grid-template-columns: 1fr;
+            }
+            
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>TRUSTED BY <span class="highlight">INDUSTRY LEADERS</span></h1>
+        <p>Strategic partnerships with premier federal agencies and leading engineering firms</p>
+    </div>
+
+    <section class="layout-section">
+        <div class="container">
+            <h2 class="section-title">Option 5: Spotlight with Blue Outline</h2>
+            <p class="section-description">Featured premium clients with elegant blue outline design and enhanced visual hierarchy</p>
+            
+            <div class="spotlight-grid">
+                <div class="spotlight-featured">
+                    <div class="premium-badge">Premier</div>
+                    <h3 class="spotlight-title">Federal Excellence Partners</h3>
+                    <p class="spotlight-subtitle">Mission-critical partnerships with the nation's most prestigious agencies, delivering complex infrastructure projects that protect national interests.</p>
+                    <div class="spotlight-logos">
+                        <div class="spotlight-logo">
+                            <img src="logos/logo_09.png" alt="NASA Logo" loading="lazy">
+                        </div>
+                        <div class="spotlight-logo">
+                            <img src="logos/logo_06.png" alt="U.S. Department of Energy Logo" loading="lazy">
+                        </div>
+                        <div class="spotlight-logo">
+                            <img src="logos/logo_02.png" alt="Los Alamos National Laboratory Logo" loading="lazy">
+                        </div>
+                        <div class="spotlight-logo">
+                            <img src="logos/logo_22.png" alt="Raytheon Company Logo" loading="lazy">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="spotlight-regular" data-company="Bechtel Corporation">
+                    <img src="logos/logo_16.png" alt="Bechtel Corporation Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="AECOM">
+                    <img src="logos/logo_17.png" alt="AECOM Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="Stantec">
+                    <img src="logos/logo_11.png" alt="Stantec Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="MWH Global">
+                    <img src="logos/logo_13.png" alt="MWH Global Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="New Mexico Department of Transportation">
+                    <img src="logos/logo_01.png" alt="New Mexico Department of Transportation Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="Colorado Springs Utilities">
+                    <img src="logos/logo_03.png" alt="Colorado Springs Utilities Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="Wilson & Company">
+                    <img src="logos/logo_04.png" alt="Wilson & Company Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="RMF Engineering">
+                    <img src="logos/logo_05.png" alt="RMF Engineering Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="Cross Connection Inc.">
+                    <img src="logos/logo_07.png" alt="Cross Connection Inc. Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="RED Rochester LLC">
+                    <img src="logos/logo_08.png" alt="RED Rochester LLC Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="Frank Lill & Son Inc.">
+                    <img src="logos/logo_10.png" alt="Frank Lill & Son Inc. Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="Futures Mechanical">
+                    <img src="logos/logo_12.png" alt="Futures Mechanical Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="SET Inc.">
+                    <img src="logos/logo_14.png" alt="SET Inc. Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="University of California, Los Angeles">
+                    <img src="logos/logo_15.png" alt="UCLA Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="DLS Construction">
+                    <img src="logos/logo_18.png" alt="DLS Construction Logo" loading="lazy">
+                </div>
+                <div class="spotlight-regular" data-company="Twenty20 Construction">
+                    <img src="logos/logo_19.png" alt="Twenty20 Construction Logo" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stats-item">
+                    <div class="stats-number">22</div>
+                    <div class="stats-label">Premier Clients</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">$3.6B</div>
+                    <div class="stats-label">Projects Delivered</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">27</div>
+                    <div class="stats-label">Years Experience</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">100%</div>
+                    <div class="stats-label">On-Time Delivery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add click functionality for regular logos
+        document.querySelectorAll('.spotlight-regular').forEach(logo => {
+            logo.addEventListener('click', function() {
+                const company = this.getAttribute('data-company');
+                console.log('Clicked:', company);
+                
+                // Add temporary highlight effect
+                this.style.borderColor = 'var(--accent-gold)';
+                this.style.transform = 'translateY(-12px) scale(1.05)';
+                
+                setTimeout(() => {
+                    this.style.borderColor = '';
+                    this.style.transform = '';
+                }, 400);
+            });
+        });
+
+        // Add floating animation to featured section
+        const featured = document.querySelector('.spotlight-featured');
+        let isHovering = false;
+        
+        featured.addEventListener('mouseenter', () => {
+            isHovering = true;
+        });
+        
+        featured.addEventListener('mouseleave', () => {
+            isHovering = false;
+        });
+
+        // Subtle parallax effect on scroll
+        window.addEventListener('scroll', () => {
+            if (!isHovering) {
+                const scrolled = window.pageYOffset;
+                const rate = scrolled * -0.1;
+                featured.style.transform = `translateY(${rate}px)`;
+            }
+        });
+    </script>
+</body>
+</html>

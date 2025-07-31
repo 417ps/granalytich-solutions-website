@@ -38,12 +38,12 @@ Developed and deployed a professional website for **Granalytich Solutions Ltd.**
 
 ### Deployment Stack
 - **Repository**: GitHub (https://github.com/417ps/granalytich-solutions-website) 
-- **Hosting**: Vercel with Git integration for continuous deployment
-- **Domain**: https://granalytic-solutions-website.vercel.app
-- **Latest Deployment**: https://granalytich-solutions-website-2y5uoc2g6.vercel.app
-- **Project Name**: granalytich-solutions-website (corrected from granalytic)
-- **Access Control**: Can be configured for authentication via Vercel Dashboard
-- **Files**: index.html, README.md, vercel.json, .gitignore
+- **Hosting**: Netlify with Git integration for continuous deployment
+- **Live Site**: https://granalytich-solutions.netlify.app/
+- **Status**: Active deployment
+- **Project Name**: granalytich-solutions-website
+- **Access Control**: Can be configured for authentication via Netlify Dashboard
+- **Files**: index.html, README.md, netlify.toml, .gitignore
 
 ## Key Features Implemented
 1. **Project Controls Focus**: Emphasized scheduling, cost engineering, earned value management
@@ -78,7 +78,7 @@ Transformed from a generic "analytics" site to a professional showcase that posi
 ---
 
 **Project Completed**: July 16, 2025  
-**Technologies Used**: HTML5, CSS3, JavaScript, Git, GitHub, Vercel  
+**Technologies Used**: HTML5, CSS3, JavaScript, Git, GitHub, Netlify  
 **Development Time**: Single session (comprehensive research, design, development, and deployment)
 
 This project demonstrates the importance of thorough discovery and proper positioning for professional services firms, especially in the highly specialized government contracting sector.

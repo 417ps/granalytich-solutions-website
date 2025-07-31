@@ -1,0 +1,458 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Option 3: Modern Hexagonal Layout - Granalytich Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        :root {
+            --primary-navy: #1e3a5f;
+            --secondary-blue: #2e5a8a;
+            --accent-gold: #d4af37;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #dee2e6;
+        }
+
+        .header {
+            text-align: center;
+            padding: 40px 20px;
+            background: var(--primary-navy);
+            color: white;
+        }
+
+        .header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+            font-weight: 300;
+        }
+
+        .header .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        .layout-section {
+            background: white;
+            padding: 80px 0;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 2.2rem;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            font-weight: 300;
+        }
+
+        .section-description {
+            text-align: center;
+            color: #666;
+            margin-bottom: 60px;
+            font-size: 1.1rem;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Hexagonal Layout */
+        .hex-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 25px;
+            padding: 60px 0;
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .hex-logo {
+            width: 140px;
+            height: 140px;
+            background: white;
+            position: relative;
+            margin: 25px 10px;
+            border-radius: 16px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 8px 25px rgba(0,0,0,0.12);
+            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+            transform: rotate(0deg) scale(1);
+            border: 2px solid transparent;
+            cursor: pointer;
+        }
+
+        .hex-logo:hover {
+            transform: rotate(-8deg) scale(1.15);
+            box-shadow: 0 15px 40px rgba(0,0,0,0.25);
+            border-color: var(--accent-gold);
+            background: linear-gradient(135deg, white 0%, #fafafa 100%);
+        }
+
+        .hex-logo img {
+            max-height: 70px;
+            max-width: 100px;
+            object-fit: contain;
+            transition: all 0.3s ease;
+            filter: grayscale(0.3) opacity(0.8);
+        }
+
+        .hex-logo:hover img {
+            filter: grayscale(0) opacity(1);
+            transform: scale(1.05);
+        }
+
+        /* Add subtle animation to make it more dynamic */
+        .hex-logo:nth-child(odd) {
+            animation: float 6s ease-in-out infinite;
+        }
+
+        .hex-logo:nth-child(even) {
+            animation: float 6s ease-in-out infinite reverse;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0px) rotate(0deg);
+            }
+            50% {
+                transform: translateY(-10px) rotate(2deg);
+            }
+        }
+
+        /* Pause animation on hover */
+        .hex-logo:hover {
+            animation-play-state: paused;
+        }
+
+        /* Premium client highlighting */
+        .hex-logo.premium {
+            width: 160px;
+            height: 160px;
+            border: 3px solid var(--accent-gold);
+            background: linear-gradient(135deg, white 0%, #fffbf0 100%);
+        }
+
+        .hex-logo.premium img {
+            max-height: 80px;
+            max-width: 120px;
+        }
+
+        .hex-logo.premium:hover {
+            transform: rotate(-10deg) scale(1.2);
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+        }
+
+        /* Tooltip */
+        .hex-logo::after {
+            content: attr(data-company);
+            position: absolute;
+            bottom: -50px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: var(--primary-navy);
+            color: white;
+            padding: 8px 16px;
+            border-radius: 6px;
+            font-size: 0.85rem;
+            font-weight: 500;
+            white-space: nowrap;
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 10;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+        }
+
+        .hex-logo::before {
+            content: '';
+            position: absolute;
+            bottom: -40px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 6px solid transparent;
+            border-right: 6px solid transparent;
+            border-bottom: 6px solid var(--primary-navy);
+            opacity: 0;
+            visibility: hidden;
+            transition: all 0.3s ease;
+            z-index: 11;
+        }
+
+        .hex-logo:hover::after,
+        .hex-logo:hover::before {
+            opacity: 1;
+            visibility: visible;
+        }
+
+        /* Stats section */
+        .stats-section {
+            background: var(--light-gray);
+            padding: 60px 0;
+            text-align: center;
+        }
+
+        .stats-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minMax(200px, 1fr));
+            gap: 40px;
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .stats-item {
+            background: white;
+            padding: 30px 20px;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.08);
+        }
+
+        .stats-number {
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: var(--accent-gold);
+            margin-bottom: 10px;
+        }
+
+        .stats-label {
+            color: var(--primary-navy);
+            font-weight: 600;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .header h1 {
+                font-size: 2rem;
+            }
+
+            .hex-container {
+                gap: 15px;
+                padding: 40px 0;
+            }
+
+            .hex-logo {
+                width: 110px;
+                height: 110px;
+                margin: 15px 5px;
+            }
+
+            .hex-logo.premium {
+                width: 130px;
+                height: 130px;
+            }
+
+            .hex-logo img {
+                max-height: 55px;
+                max-width: 80px;
+            }
+
+            .hex-logo.premium img {
+                max-height: 65px;
+                max-width: 95px;
+            }
+
+            .hex-logo:hover {
+                transform: rotate(-5deg) scale(1.1);
+            }
+
+            .hex-logo.premium:hover {
+                transform: rotate(-7deg) scale(1.15);
+            }
+
+            .stats-grid {
+                grid-template-columns: repeat(2, 1fr);
+                gap: 20px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .hex-container {
+                gap: 10px;
+            }
+
+            .hex-logo {
+                width: 90px;
+                height: 90px;
+                margin: 10px 5px;
+            }
+
+            .hex-logo.premium {
+                width: 110px;
+                height: 110px;
+            }
+
+            .stats-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <h1>TRUSTED BY <span class="highlight">INDUSTRY LEADERS</span></h1>
+        <p>Modern hexagonal layout showcasing 27 years of prestigious partnerships</p>
+    </div>
+
+    <section class="layout-section">
+        <div class="container">
+            <h2 class="section-title">Option 3: Modern Hexagonal Layout</h2>
+            <p class="section-description">Contemporary geometric presentation with interactive hover effects and premium client highlighting</p>
+            
+            <div class="hex-container">
+                <!-- Premium Federal Clients -->
+                <div class="hex-logo premium" data-company="National Aeronautics and Space Administration">
+                    <img src="logos/logo_09.png" alt="NASA Logo" loading="lazy">
+                </div>
+                <div class="hex-logo premium" data-company="U.S. Department of Energy">
+                    <img src="logos/logo_06.png" alt="U.S. Department of Energy Logo" loading="lazy">
+                </div>
+                <div class="hex-logo premium" data-company="Los Alamos National Laboratory">
+                    <img src="logos/logo_02.png" alt="Los Alamos National Laboratory Logo" loading="lazy">
+                </div>
+                
+                <!-- Major Engineering Firms -->
+                <div class="hex-logo" data-company="Bechtel Corporation">
+                    <img src="logos/logo_16.png" alt="Bechtel Corporation Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="AECOM">
+                    <img src="logos/logo_17.png" alt="AECOM Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="Stantec">
+                    <img src="logos/logo_11.png" alt="Stantec Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="MWH Global">
+                    <img src="logos/logo_13.png" alt="MWH Global Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="Raytheon Company">
+                    <img src="logos/logo_22.png" alt="Raytheon Company Logo" loading="lazy">
+                </div>
+                
+                <!-- Government & Transportation -->
+                <div class="hex-logo" data-company="New Mexico Department of Transportation">
+                    <img src="logos/logo_01.png" alt="New Mexico Department of Transportation Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="Colorado Springs Utilities">
+                    <img src="logos/logo_03.png" alt="Colorado Springs Utilities Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="Wilson & Company">
+                    <img src="logos/logo_04.png" alt="Wilson & Company Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="RMF Engineering">
+                    <img src="logos/logo_05.png" alt="RMF Engineering Logo" loading="lazy">
+                </div>
+                
+                <!-- Construction & Specialty -->
+                <div class="hex-logo" data-company="Cross Connection Inc.">
+                    <img src="logos/logo_07.png" alt="Cross Connection Inc. Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="RED Rochester LLC">
+                    <img src="logos/logo_08.png" alt="RED Rochester LLC Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="Frank Lill & Son Inc.">
+                    <img src="logos/logo_10.png" alt="Frank Lill & Son Inc. Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="Futures Mechanical">
+                    <img src="logos/logo_12.png" alt="Futures Mechanical Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="SET Inc.">
+                    <img src="logos/logo_14.png" alt="SET Inc. Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="University of California, Los Angeles">
+                    <img src="logos/logo_15.png" alt="UCLA Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="DLS Construction">
+                    <img src="logos/logo_18.png" alt="DLS Construction Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="Twenty20 Construction">
+                    <img src="logos/logo_19.png" alt="Twenty20 Construction Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="Los Alamos Research Division">
+                    <img src="logos/logo_20.png" alt="Los Alamos Research Division Logo" loading="lazy">
+                </div>
+                <div class="hex-logo" data-company="Pueblo Electric Inc.">
+                    <img src="logos/logo_21.png" alt="Pueblo Electric Inc. Logo" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <section class="stats-section">
+        <div class="container">
+            <div class="stats-grid">
+                <div class="stats-item">
+                    <div class="stats-number">22</div>
+                    <div class="stats-label">Premier Clients</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">$3.6B</div>
+                    <div class="stats-label">Projects Delivered</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">27</div>
+                    <div class="stats-label">Years Experience</div>
+                </div>
+                <div class="stats-item">
+                    <div class="stats-number">4</div>
+                    <div class="stats-label">Key Sectors</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script>
+        // Add click functionality
+        document.querySelectorAll('.hex-logo').forEach(logo => {
+            logo.addEventListener('click', function() {
+                const company = this.getAttribute('data-company');
+                console.log('Clicked:', company);
+                // Could integrate with modal or detailed view
+            });
+        });
+
+        // Enhanced interaction: Temporary highlight on click
+        document.querySelectorAll('.hex-logo').forEach(logo => {
+            logo.addEventListener('click', function() {
+                this.style.transform = 'rotate(-15deg) scale(1.25)';
+                this.style.borderColor = 'var(--accent-gold)';
+                this.style.borderWidth = '4px';
+                
+                setTimeout(() => {
+                    this.style.transform = '';
+                    this.style.borderColor = '';
+                    this.style.borderWidth = '';
+                }, 300);
+            });
+        });
+    </script>
+</body>
+</html>

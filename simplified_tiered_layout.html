@@ -1,0 +1,367 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Simplified Tiered Layout - Granalytich Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        :root {
+            --primary-navy: #1e3a5f;
+            --secondary-blue: #2e5a8a;
+            --accent-gold: #d4af37;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --border-color: #dee2e6;
+        }
+
+
+        /* Client Logos Section */
+        .client-logos-section {
+            background-color: var(--white);
+            padding: 80px 0;
+        }
+
+        .client-logos-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            text-align: center;
+        }
+
+        .section-title-logos {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--primary-navy);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-title-logos .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 1.1rem;
+            color: #666;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+        }
+
+        /* Tier Row Layout */
+        .tier-row {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 25px;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tier-1-row {
+            margin-bottom: 25px;
+        }
+
+        .tier-2-row {
+            margin-bottom: 20px;
+        }
+
+        .client-logo {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            border-radius: 8px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            position: relative;
+            background: transparent;
+            border: none;
+            min-height: 80px;
+            flex: 0 0 auto;
+        }
+
+        .client-logo:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 12px 30px rgba(0,0,0,0.15);
+            background: white;
+        }
+
+        .client-logo img {
+            width: 100%;
+            height: 100%;
+            object-fit: contain;
+            filter: grayscale(0.3) opacity(0.8);
+            transition: all 0.3s ease;
+        }
+
+        .client-logo:hover img {
+            filter: grayscale(0) opacity(1);
+            transform: scale(1.05);
+        }
+
+        /* Tier 1 - Premium Federal Clients */
+        .client-logo.tier-1 {
+            padding: 10px;
+            height: 120px;
+            border: 3px solid var(--accent-gold);
+            background: transparent;
+            width: 200px;
+        }
+
+        .client-logo.tier-1 img {
+            filter: grayscale(0) opacity(0.9);
+        }
+
+        .client-logo.tier-1:hover {
+            box-shadow: 0 20px 50px rgba(212, 175, 55, 0.3);
+            transform: translateY(-12px);
+        }
+
+        /* Tier 2 - Major Engineering Firms */
+        .client-logo.tier-2 {
+            padding: 8px;
+            height: 90px;
+            width: 150px;
+        }
+
+
+        /* Tier 3 - Regional/Specialty Clients */
+        .client-logo.tier-3 {
+            padding: 6px;
+            height: 80px;
+            width: 130px;
+        }
+
+
+
+
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .tier-row {
+                gap: 20px;
+            }
+            
+            .client-logo.tier-1 {
+                width: 170px;
+                height: 100px;
+                padding: 10px;
+            }
+            
+            .client-logo.tier-2 {
+                width: 130px;
+                height: 80px;
+                padding: 8px;
+            }
+            
+            .client-logo.tier-3 {
+                width: 110px;
+                height: 70px;
+                padding: 6px;
+            }
+        }
+
+        @media (max-width: 768px) {
+
+            .tier-row {
+                gap: 15px;
+                margin-bottom: 12px;
+            }
+            
+            .tier-1-row {
+                margin-bottom: 17px;
+            }
+            
+            .tier-2-row {
+                margin-bottom: 15px;
+            }
+            
+            .client-logo.tier-1 {
+                width: 150px;
+                height: 90px;
+                padding: 8px;
+            }
+            
+            
+            .client-logo.tier-2 {
+                width: 120px;
+                height: 75px;
+                padding: 8px;
+            }
+            
+            
+            .client-logo.tier-3 {
+                width: 100px;
+                height: 65px;
+                padding: 5px;
+            }
+            
+
+        }
+
+        @media (max-width: 480px) {
+            .tier-row {
+                gap: 10px;
+                margin-bottom: 10px;
+            }
+            
+            .client-logo.tier-1 {
+                width: 130px;
+                height: 80px;
+                padding: 6px;
+            }
+            
+            .client-logo.tier-2 {
+                width: 110px;
+                height: 70px;
+                padding: 6px;
+            }
+            
+            .client-logo.tier-3 {
+                width: 90px;
+                height: 60px;
+                padding: 4px;
+            }
+
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Client Logos Section -->
+    <section class="client-logos-section">
+        <div class="client-logos-container">
+            <h2 class="section-title-logos">DELIVERING <span class="highlight">EXCELLENCE</span> FOR</h2>
+            
+            <!-- TIER 1 - Premium Federal Clients (Top Row) -->
+            <div class="tier-row tier-1-row">
+                <div class="client-logo tier-1" data-company="NASA - National Aeronautics and Space Administration">
+                    <img src="logos/logo-nasa.png" alt="NASA Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-1" data-company="U.S. Department of Energy">
+                    <img src="logos/logo-us-doe.png" alt="U.S. Department of Energy Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-1" data-company="Los Alamos National Laboratory">
+                    <img src="logos/logo-los-alamos-national-lab.png" alt="Los Alamos National Laboratory Logo" loading="lazy">
+                </div>
+            </div>
+            
+            <!-- TIER 2 - Major Engineering Firms (Second Row) -->
+            <div class="tier-row tier-2-row">
+                <div class="client-logo tier-2" data-company="Bechtel Corporation">
+                    <img src="logos/logo-bechtel.png" alt="Bechtel Corporation Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="AECOM">
+                    <img src="logos/logo-aecom.png" alt="AECOM Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="Stantec">
+                    <img src="logos/logo-stantec.png" alt="Stantec Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="Raytheon Company">
+                    <img src="logos/logo-raytheon.png" alt="Raytheon Company Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="MWH Global">
+                    <img src="logos/logo-mwh-global.png" alt="MWH Global Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-2" data-company="Wilson & Company">
+                    <img src="logos/logo-wilson-company.png" alt="Wilson & Company Logo" loading="lazy">
+                </div>
+            </div>
+            
+            <!-- TIER 3 - Regional & Specialty Clients (Bottom Rows) -->
+            <div class="tier-row tier-3-row">
+                <div class="client-logo tier-3" data-company="New Mexico Department of Transportation">
+                    <img src="logos/logo-nm-dot.png" alt="New Mexico Department of Transportation Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="RMF Engineering">
+                    <img src="logos/logo-rmf-engineering.png" alt="RMF Engineering Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="University of California, Los Angeles">
+                    <img src="logos/logo-ucla.png" alt="UCLA Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Colorado Springs Utilities">
+                    <img src="logos/logo-colorado-springs-utilities.png" alt="Colorado Springs Utilities Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Cross Connection Inc.">
+                    <img src="logos/logo-cross-connection-inc.png" alt="Cross Connection Inc. Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="RED Rochester LLC">
+                    <img src="logos/logo-red-rochester.png" alt="RED Rochester LLC Logo" loading="lazy">
+                </div>
+            </div>
+            
+            <div class="tier-row tier-3-row">
+                <div class="client-logo tier-3" data-company="Frank Lill & Son Inc.">
+                    <img src="logos/logo-frank-lill-son.png" alt="Frank Lill & Son Inc. Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Futures Mechanical">
+                    <img src="logos/logo-futures-mechanical.png" alt="Futures Mechanical Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="SET Inc.">
+                    <img src="logos/logo-set-inc.png" alt="SET Inc. Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="DLS Construction">
+                    <img src="logos/logo-dls-construction.png" alt="DLS Construction Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Twenty20 Construction">
+                    <img src="logos/logo-twenty20-construction.png" alt="Twenty20 Construction Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Los Alamos Research Division">
+                    <img src="logos/logo-los-alamos-research.png" alt="Los Alamos Research Division Logo" loading="lazy">
+                </div>
+                <div class="client-logo tier-3" data-company="Pueblo Electric Inc.">
+                    <img src="logos/logo-pueblo-electric.png" alt="Pueblo Electric Inc. Logo" loading="lazy">
+                </div>
+            </div>
+        </div>
+    </section>
+
+
+    <script>
+        // Add click functionality
+        document.querySelectorAll('.client-logo').forEach(logo => {
+            logo.addEventListener('click', function() {
+                const company = this.getAttribute('data-company');
+                console.log('Clicked:', company);
+                
+                // Add temporary highlight effect
+                this.style.borderColor = 'var(--accent-gold)';
+                this.style.transform = 'translateY(-12px) scale(1.05)';
+                
+                setTimeout(() => {
+                    this.style.borderColor = '';
+                    this.style.transform = '';
+                }, 400);
+            });
+        });
+
+        // Enhanced hover effects for tier 1 clients
+        document.querySelectorAll('.tier-1').forEach(logo => {
+            logo.addEventListener('mouseenter', function() {
+                this.style.background = 'rgba(248, 249, 250, 0.3)';
+            });
+            
+            logo.addEventListener('mouseleave', function() {
+                this.style.background = 'transparent';
+            });
+        });
+    </script>
+</body>
+</html>
