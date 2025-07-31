@@ -22,5 +22,9 @@
   "homepage": "https://github.com/417ps/granalytich-solutions-website#readme",
   "dependencies": {
     "puppeteer": "^24.15.0"
+  },
+  "devDependencies": {
+    "@stackbit/cms-git": "^1.0.35",
+    "@stackbit/types": "^2.1.14"
   }
 }
