@@ -1,0 +1,104 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "uploads"
+public_folder: "/uploads"
+
+collections:
+  - name: "config"
+    label: "Site Configuration"
+    files:
+      - file: "_data/site.yml"
+        label: "Site Settings"
+        name: "site"
+        fields:
+          - {label: "Company Name", name: "company_name", widget: "string", default: "Granalytich Solutions Ltd."}
+          - {label: "Tagline", name: "tagline", widget: "string", default: "Project Controls & Infrastructure Management"}
+          - {label: "Phone", name: "phone", widget: "string", default: "(503) 703-0563"}
+          - {label: "Email", name: "email", widget: "string", default: "info@granalytich.com"}
+
+  - name: "hero"
+    label: "Hero Section"
+    files:
+      - file: "_data/hero.yml"
+        label: "Hero Content"
+        name: "hero"
+        fields:
+          - {label: "Main Headline", name: "headline", widget: "string", default: "Engineering Excellence in Project Controls"}
+          - {label: "Subheadline", name: "subheadline", widget: "text", default: "Specialized project management and controls for complex infrastructure, federal contracts, and engineering projects"}
+          - {label: "Primary Button Text", name: "primary_button", widget: "string", default: "Get Started"}
+          - {label: "Secondary Button Text", name: "secondary_button", widget: "string", default: "Learn More"}
+
+  - name: "clients"
+    label: "Clients Section"
+    files:
+      - file: "_data/clients.yml"
+        label: "Client Information"
+        name: "clients"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "DELIVERING EXCELLENCE FOR"}
+          - label: "Tier 1 Clients (Top Federal/Major)"
+            name: "tier1"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image"}
+              - {label: "Alt Text", name: "alt", widget: "string"}
+          - label: "Tier 2 Clients (Major Engineering Firms)"
+            name: "tier2"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image"}
+              - {label: "Alt Text", name: "alt", widget: "string"}
+          - label: "Tier 3 Clients (Regional/Specialty)"
+            name: "tier3"
+            widget: "list"
+            fields:
+              - {label: "Name", name: "name", widget: "string"}
+              - {label: "Logo", name: "logo", widget: "image"}
+              - {label: "Alt Text", name: "alt", widget: "string"}
+
+  - name: "services"
+    label: "Services"
+    files:
+      - file: "_data/services.yml"
+        label: "Services Content"
+        name: "services"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Our Services"}
+          - {label: "Section Description", name: "description", widget: "text"}
+          - label: "Service Items"
+            name: "items"
+            widget: "list"
+            fields:
+              - {label: "Service Name", name: "name", widget: "string"}
+              - {label: "Description", name: "description", widget: "text"}
+              - {label: "Icon", name: "icon", widget: "string", hint: "FontAwesome icon name (e.g., fa-cogs)"}
+
+  - name: "about"
+    label: "About Section"
+    files:
+      - file: "_data/about.yml"
+        label: "About Content"
+        name: "about"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "About Granalytich Solutions"}
+          - {label: "Mission Statement", name: "mission", widget: "text"}
+          - {label: "Values", name: "values", widget: "text"}
+          - {label: "Experience Description", name: "experience", widget: "text"}
+
+  - name: "contact"
+    label: "Contact Section"
+    files:
+      - file: "_data/contact.yml"
+        label: "Contact Information"
+        name: "contact"
+        fields:
+          - {label: "Section Title", name: "title", widget: "string", default: "Get In Touch"}
+          - {label: "Description", name: "description", widget: "text"}
+          - {label: "Address", name: "address", widget: "text"}
+          - {label: "Phone", name: "phone", widget: "string"}
+          - {label: "Email", name: "email", widget: "string"}
+          - {label: "Business Hours", name: "hours", widget: "text"}
