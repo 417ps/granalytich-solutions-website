@@ -1101,6 +1101,11 @@
             position: relative;
             overflow: hidden;
             height: 260px;
+            transform: translateZ(0);
+            -webkit-transform: translateZ(0);
+            will-change: contents;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         /* Gradient Masks */
@@ -1130,6 +1135,8 @@
             display: flex;
             animation: scroll 30s linear infinite;
             gap: 17px;
+            will-change: transform;
+            transform: translateZ(0);
         }
 
         .carousel-row.top {
@@ -1174,6 +1181,9 @@
             object-fit: contain;
             filter: grayscale(20%) opacity(0.9);
             transition: all 0.3s ease;
+            will-change: transform, filter;
+            -webkit-backface-visibility: hidden;
+            backface-visibility: hidden;
         }
 
         .logo-item-clean:hover img {
@@ -1552,72 +1562,72 @@
                 <div class="carousel-row top">
                     <!-- First set -->
                     <div class="logo-item-clean tier-1" data-company="NASA">
-                        <img src="logos/logo-nasa.png" alt="NASA" loading="lazy">
+                        <img src="logos/logo-nasa.png" alt="NASA" loading="eager">
                     </div>
                     <div class="logo-item-clean tier-1" data-company="U.S. Department of Energy">
-                        <img src="logos/logo-us-doe.png" alt="DOE" loading="lazy">
+                        <img src="logos/logo-us-doe.png" alt="DOE" loading="eager">
                     </div>
                     <div class="logo-item-clean tier-1" data-company="Los Alamos National Lab">
-                        <img src="logos/logo-los-alamos-national-lab.png" alt="LANL" loading="lazy">
+                        <img src="logos/logo-los-alamos-national-lab.png" alt="LANL" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Bechtel">
-                        <img src="logos/logo-bechtel.png" alt="Bechtel" loading="lazy">
+                        <img src="logos/logo-bechtel.png" alt="Bechtel" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="AECOM">
-                        <img src="logos/logo-aecom.png" alt="AECOM" loading="lazy">
+                        <img src="logos/logo-aecom.png" alt="AECOM" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Raytheon">
-                        <img src="logos/logo-raytheon.png" alt="Raytheon" loading="lazy">
+                        <img src="logos/logo-raytheon.png" alt="Raytheon" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Stantec">
-                        <img src="logos/logo-stantec.png" alt="Stantec" loading="lazy">
+                        <img src="logos/logo-stantec.png" alt="Stantec" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="UCLA">
-                        <img src="logos/logo-ucla.png" alt="UCLA" loading="lazy">
+                        <img src="logos/logo-ucla.png" alt="UCLA" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="MWH Global">
-                        <img src="logos/logo-mwh-global.png" alt="MWH" loading="lazy">
+                        <img src="logos/logo-mwh-global.png" alt="MWH" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="NM DOT">
-                        <img src="logos/logo-nm-dot.png" alt="NM DOT" loading="lazy">
+                        <img src="logos/logo-nm-dot.png" alt="NM DOT" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Colorado Springs Utilities">
-                        <img src="logos/logo-colorado-springs-utilities.png" alt="CSU" loading="lazy">
+                        <img src="logos/logo-colorado-springs-utilities.png" alt="CSU" loading="eager">
                     </div>
                     
                     <!-- Duplicate set for continuous scroll -->
                     <div class="logo-item-clean tier-1" data-company="NASA">
-                        <img src="logos/logo-nasa.png" alt="NASA" loading="lazy">
+                        <img src="logos/logo-nasa.png" alt="NASA" loading="eager">
                     </div>
                     <div class="logo-item-clean tier-1" data-company="U.S. Department of Energy">
-                        <img src="logos/logo-us-doe.png" alt="DOE" loading="lazy">
+                        <img src="logos/logo-us-doe.png" alt="DOE" loading="eager">
                     </div>
                     <div class="logo-item-clean tier-1" data-company="Los Alamos National Lab">
-                        <img src="logos/logo-los-alamos-national-lab.png" alt="LANL" loading="lazy">
+                        <img src="logos/logo-los-alamos-national-lab.png" alt="LANL" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Bechtel">
-                        <img src="logos/logo-bechtel.png" alt="Bechtel" loading="lazy">
+                        <img src="logos/logo-bechtel.png" alt="Bechtel" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="AECOM">
-                        <img src="logos/logo-aecom.png" alt="AECOM" loading="lazy">
+                        <img src="logos/logo-aecom.png" alt="AECOM" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Raytheon">
-                        <img src="logos/logo-raytheon.png" alt="Raytheon" loading="lazy">
+                        <img src="logos/logo-raytheon.png" alt="Raytheon" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Stantec">
-                        <img src="logos/logo-stantec.png" alt="Stantec" loading="lazy">
+                        <img src="logos/logo-stantec.png" alt="Stantec" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="UCLA">
-                        <img src="logos/logo-ucla.png" alt="UCLA" loading="lazy">
+                        <img src="logos/logo-ucla.png" alt="UCLA" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="MWH Global">
-                        <img src="logos/logo-mwh-global.png" alt="MWH" loading="lazy">
+                        <img src="logos/logo-mwh-global.png" alt="MWH" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="NM DOT">
-                        <img src="logos/logo-nm-dot.png" alt="NM DOT" loading="lazy">
+                        <img src="logos/logo-nm-dot.png" alt="NM DOT" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Colorado Springs Utilities">
-                        <img src="logos/logo-colorado-springs-utilities.png" alt="CSU" loading="lazy">
+                        <img src="logos/logo-colorado-springs-utilities.png" alt="CSU" loading="eager">
                     </div>
                 </div>
 
@@ -1625,72 +1635,72 @@
                 <div class="carousel-row bottom">
                     <!-- First set -->
                     <div class="logo-item-clean" data-company="Wilson & Company">
-                        <img src="logos/logo-wilson-company.png" alt="Wilson" loading="lazy">
+                        <img src="logos/logo-wilson-company.png" alt="Wilson" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Cross Connection Inc.">
-                        <img src="logos/logo-cross-connection-inc.png" alt="Cross Connection" loading="lazy">
+                        <img src="logos/logo-cross-connection-inc.png" alt="Cross Connection" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="DLS Construction">
-                        <img src="logos/logo-dls-construction.png" alt="DLS Construction" loading="lazy">
+                        <img src="logos/logo-dls-construction.png" alt="DLS Construction" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Frank Lill & Son">
-                        <img src="logos/logo-frank-lill-son.png" alt="Frank Lill & Son" loading="lazy">
+                        <img src="logos/logo-frank-lill-son.png" alt="Frank Lill & Son" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Futures Mechanical">
-                        <img src="logos/logo-futures-mechanical.png" alt="Futures Mechanical" loading="lazy">
+                        <img src="logos/logo-futures-mechanical.png" alt="Futures Mechanical" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Los Alamos Research">
-                        <img src="logos/logo-los-alamos-research.png" alt="Los Alamos Research" loading="lazy">
+                        <img src="logos/logo-los-alamos-research.png" alt="Los Alamos Research" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Pueblo Electric">
-                        <img src="logos/logo-pueblo-electric.png" alt="Pueblo Electric" loading="lazy">
+                        <img src="logos/logo-pueblo-electric.png" alt="Pueblo Electric" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="RED Rochester">
-                        <img src="logos/logo-red-rochester.png" alt="RED Rochester" loading="lazy">
+                        <img src="logos/logo-red-rochester.png" alt="RED Rochester" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="RMF Engineering">
-                        <img src="logos/logo-rmf-engineering.png" alt="RMF Engineering" loading="lazy">
+                        <img src="logos/logo-rmf-engineering.png" alt="RMF Engineering" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="SET Inc.">
-                        <img src="logos/logo-set-inc.png" alt="SET Inc." loading="lazy">
+                        <img src="logos/logo-set-inc.png" alt="SET Inc." loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Twenty20 Construction">
-                        <img src="logos/logo-twenty20-construction.png" alt="Twenty20" loading="lazy">
+                        <img src="logos/logo-twenty20-construction.png" alt="Twenty20" loading="eager">
                     </div>
                     
                     <!-- Duplicate set for continuous scroll -->
                     <div class="logo-item-clean" data-company="Wilson & Company">
-                        <img src="logos/logo-wilson-company.png" alt="Wilson" loading="lazy">
+                        <img src="logos/logo-wilson-company.png" alt="Wilson" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Cross Connection Inc.">
-                        <img src="logos/logo-cross-connection-inc.png" alt="Cross Connection" loading="lazy">
+                        <img src="logos/logo-cross-connection-inc.png" alt="Cross Connection" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="DLS Construction">
-                        <img src="logos/logo-dls-construction.png" alt="DLS Construction" loading="lazy">
+                        <img src="logos/logo-dls-construction.png" alt="DLS Construction" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Frank Lill & Son">
-                        <img src="logos/logo-frank-lill-son.png" alt="Frank Lill & Son" loading="lazy">
+                        <img src="logos/logo-frank-lill-son.png" alt="Frank Lill & Son" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Futures Mechanical">
-                        <img src="logos/logo-futures-mechanical.png" alt="Futures Mechanical" loading="lazy">
+                        <img src="logos/logo-futures-mechanical.png" alt="Futures Mechanical" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Los Alamos Research">
-                        <img src="logos/logo-los-alamos-research.png" alt="Los Alamos Research" loading="lazy">
+                        <img src="logos/logo-los-alamos-research.png" alt="Los Alamos Research" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Pueblo Electric">
-                        <img src="logos/logo-pueblo-electric.png" alt="Pueblo Electric" loading="lazy">
+                        <img src="logos/logo-pueblo-electric.png" alt="Pueblo Electric" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="RED Rochester">
-                        <img src="logos/logo-red-rochester.png" alt="RED Rochester" loading="lazy">
+                        <img src="logos/logo-red-rochester.png" alt="RED Rochester" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="RMF Engineering">
-                        <img src="logos/logo-rmf-engineering.png" alt="RMF Engineering" loading="lazy">
+                        <img src="logos/logo-rmf-engineering.png" alt="RMF Engineering" loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="SET Inc.">
-                        <img src="logos/logo-set-inc.png" alt="SET Inc." loading="lazy">
+                        <img src="logos/logo-set-inc.png" alt="SET Inc." loading="eager">
                     </div>
                     <div class="logo-item-clean" data-company="Twenty20 Construction">
-                        <img src="logos/logo-twenty20-construction.png" alt="Twenty20" loading="lazy">
+                        <img src="logos/logo-twenty20-construction.png" alt="Twenty20" loading="eager">
                     </div>
                 </div>
             </div>
@@ -2015,6 +2025,50 @@
             element.style.transform = 'translateY(30px)';
             element.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
             observer.observe(element);
+        });
+    </script>
+    
+    <script>
+        // Preload and fix carousel images
+        window.addEventListener('load', function() {
+            // Get all carousel images
+            const carouselImages = document.querySelectorAll('.carousel-container img');
+            
+            // Force each image to load
+            carouselImages.forEach(function(img) {
+                // Remove grayscale filter temporarily to ensure visibility
+                const originalFilter = img.style.filter;
+                
+                // Create a promise for each image load
+                const loadPromise = new Promise(function(resolve) {
+                    if (img.complete && img.naturalHeight !== 0) {
+                        resolve();
+                    } else {
+                        img.onload = resolve;
+                        img.onerror = resolve; // Resolve even on error to not block
+                    }
+                });
+                
+                // Force image reload if needed
+                loadPromise.then(function() {
+                    // Ensure image is visible
+                    if (img.naturalHeight === 0) {
+                        // Image failed to load, try reloading
+                        const src = img.src;
+                        img.src = '';
+                        img.src = src;
+                    }
+                });
+            });
+            
+            // Restart animation to ensure smooth playback
+            const carouselRows = document.querySelectorAll('.carousel-row');
+            carouselRows.forEach(function(row) {
+                row.style.animationPlayState = 'paused';
+                setTimeout(function() {
+                    row.style.animationPlayState = 'running';
+                }, 100);
+            });
         });
     </script>
     
