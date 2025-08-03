@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Clean Logo Carousel - Granalytich Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+        }
+
+        :root {
+            --primary-navy: #1e3a5f;
+            --secondary-blue: #2e5a8a;
+            --accent-gold: #d4af37;
+            --accent-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --border-color: #dee2e6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 60px;
+            font-size: 1.2rem;
+        }
+
+        /* Carousel Section */
+        .carousel-section {
+            background-color: white;
+            padding: 80px 0;
+            overflow: hidden;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--primary-navy);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-title .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Carousel Container */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            height: 260px; /* Height for two rows */
+        }
+
+        /* Gradient Masks */
+        .carousel-container::before,
+        .carousel-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 200px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .carousel-container::before {
+            left: 0;
+            background: linear-gradient(to right, white, transparent);
+        }
+
+        .carousel-container::after {
+            right: 0;
+            background: linear-gradient(to left, white, transparent);
+        }
+
+        /* Carousel Rows - SIMPLE AND CLEAN */
+        .carousel-row {
+            position: absolute;
+            display: flex;
+            gap: 17px;
+            animation: scroll 30s linear infinite;
+        }
+
+        .carousel-row.top {
+            top: 20px;
+        }
+
+        .carousel-row.bottom {
+            bottom: 20px;
+            left: 135px; /* Offset for staggered effect */
+        }
+
+        /* Animation */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Logo Styling */
+        .logo-item {
+            flex: 0 0 auto;
+            width: 200px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo-item:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-item img {
+            max-width: 180px;
+            max-height: 80px;
+            object-fit: contain;
+            filter: grayscale(20%) opacity(0.9);
+            transition: all 0.3s ease;
+        }
+
+        .logo-item:hover img {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.1);
+        }
+
+        /* Tier 1 styling */
+        .logo-item.tier-1 img {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.1);
+        }
+
+        /* Controls */
+        .controls-section {
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--light-gray);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .control-group {
+            display: inline-block;
+            margin: 0 20px;
+            vertical-align: top;
+        }
+
+        .control-group label {
+            display: block;
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 10px;
+        }
+
+        .control-group input[type="range"] {
+            width: 200px;
+            margin-bottom: 5px;
+        }
+
+        .control-group span {
+            display: block;
+            color: #666;
+            font-size: 14px;
+        }
+
+        button {
+            background: var(--accent-gold);
+            color: white;
+            border: none;
+            padding: 12px 24px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        button:hover {
+            background: #b8860b;
+            transform: translateY(-2px);
+        }
+
+        /* Link button */
+        .nav-link {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--secondary-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            margin: 20px auto;
+            transition: all 0.3s ease;
+        }
+
+        .nav-link:hover {
+            background: var(--primary-navy);
+            transform: translateY(-2px);
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .carousel-container {
+                height: 200px;
+            }
+
+            .logo-item {
+                width: 150px;
+                height: 80px;
+            }
+
+            .logo-item img {
+                max-width: 130px;
+                max-height: 60px;
+            }
+
+            .carousel-row.bottom {
+                left: 90px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Clean Logo Carousel</h1>
+        <p class="subtitle">Simple two-row carousel with synchronized animation</p>
+        
+        <section class="carousel-section">
+            <h2 class="section-title">DELIVERING <span class="highlight">EXCELLENCE</span> FOR</h2>
+            
+            <div class="carousel-container" id="carousel">
+                <!-- Top Row -->
+                <div class="carousel-row top">
+                    <!-- First set -->
+                    <div class="logo-item tier-1" data-company="NASA">
+                        <img src="logos/logo-nasa.png" alt="NASA">
+                    </div>
+                    <div class="logo-item tier-1" data-company="U.S. Department of Energy">
+                        <img src="logos/logo-us-doe.png" alt="DOE">
+                    </div>
+                    <div class="logo-item tier-1" data-company="Los Alamos National Lab">
+                        <img src="logos/logo-los-alamos-national-lab.png" alt="LANL">
+                    </div>
+                    <div class="logo-item" data-company="Bechtel">
+                        <img src="logos/logo-bechtel.png" alt="Bechtel">
+                    </div>
+                    <div class="logo-item" data-company="AECOM">
+                        <img src="logos/logo-aecom.png" alt="AECOM">
+                    </div>
+                    <div class="logo-item" data-company="Raytheon">
+                        <img src="logos/logo-raytheon.png" alt="Raytheon">
+                    </div>
+                    <div class="logo-item" data-company="Stantec">
+                        <img src="logos/logo-stantec.png" alt="Stantec">
+                    </div>
+                    <div class="logo-item" data-company="UCLA">
+                        <img src="logos/logo-ucla.png" alt="UCLA">
+                    </div>
+                    <div class="logo-item" data-company="MWH Global">
+                        <img src="logos/logo-mwh-global.png" alt="MWH">
+                    </div>
+                    <div class="logo-item" data-company="NM DOT">
+                        <img src="logos/logo-nm-dot.png" alt="NM DOT">
+                    </div>
+                    <div class="logo-item" data-company="Colorado Springs Utilities">
+                        <img src="logos/logo-colorado-springs-utilities.png" alt="CSU">
+                    </div>
+                    
+                    <!-- Duplicate set for continuous scroll -->
+                    <div class="logo-item tier-1" data-company="NASA">
+                        <img src="logos/logo-nasa.png" alt="NASA">
+                    </div>
+                    <div class="logo-item tier-1" data-company="U.S. Department of Energy">
+                        <img src="logos/logo-us-doe.png" alt="DOE">
+                    </div>
+                    <div class="logo-item tier-1" data-company="Los Alamos National Lab">
+                        <img src="logos/logo-los-alamos-national-lab.png" alt="LANL">
+                    </div>
+                    <div class="logo-item" data-company="Bechtel">
+                        <img src="logos/logo-bechtel.png" alt="Bechtel">
+                    </div>
+                    <div class="logo-item" data-company="AECOM">
+                        <img src="logos/logo-aecom.png" alt="AECOM">
+                    </div>
+                    <div class="logo-item" data-company="Raytheon">
+                        <img src="logos/logo-raytheon.png" alt="Raytheon">
+                    </div>
+                    <div class="logo-item" data-company="Stantec">
+                        <img src="logos/logo-stantec.png" alt="Stantec">
+                    </div>
+                    <div class="logo-item" data-company="UCLA">
+                        <img src="logos/logo-ucla.png" alt="UCLA">
+                    </div>
+                    <div class="logo-item" data-company="MWH Global">
+                        <img src="logos/logo-mwh-global.png" alt="MWH">
+                    </div>
+                    <div class="logo-item" data-company="NM DOT">
+                        <img src="logos/logo-nm-dot.png" alt="NM DOT">
+                    </div>
+                    <div class="logo-item" data-company="Colorado Springs Utilities">
+                        <img src="logos/logo-colorado-springs-utilities.png" alt="CSU">
+                    </div>
+                </div>
+
+                <!-- Bottom Row (Offset) -->
+                <div class="carousel-row bottom">
+                    <!-- First set -->
+                    <div class="logo-item" data-company="Wilson & Company">
+                        <img src="logos/logo-wilson-company.png" alt="Wilson">
+                    </div>
+                    <div class="logo-item" data-company="Cross Connection Inc.">
+                        <img src="logos/logo-cross-connection-inc.png" alt="Cross Connection">
+                    </div>
+                    <div class="logo-item" data-company="DLS Construction">
+                        <img src="logos/logo-dls-construction.png" alt="DLS Construction">
+                    </div>
+                    <div class="logo-item" data-company="Frank Lill & Son">
+                        <img src="logos/logo-frank-lill-son.png" alt="Frank Lill & Son">
+                    </div>
+                    <div class="logo-item" data-company="Futures Mechanical">
+                        <img src="logos/logo-futures-mechanical.png" alt="Futures Mechanical">
+                    </div>
+                    <div class="logo-item" data-company="Los Alamos Research">
+                        <img src="logos/logo-los-alamos-research.png" alt="Los Alamos Research">
+                    </div>
+                    <div class="logo-item" data-company="Pueblo Electric">
+                        <img src="logos/logo-pueblo-electric.png" alt="Pueblo Electric">
+                    </div>
+                    <div class="logo-item" data-company="RED Rochester">
+                        <img src="logos/logo-red-rochester.png" alt="RED Rochester">
+                    </div>
+                    <div class="logo-item" data-company="RMF Engineering">
+                        <img src="logos/logo-rmf-engineering.png" alt="RMF Engineering">
+                    </div>
+                    <div class="logo-item" data-company="SET Inc.">
+                        <img src="logos/logo-set-inc.png" alt="SET Inc.">
+                    </div>
+                    <div class="logo-item" data-company="Twenty20 Construction">
+                        <img src="logos/logo-twenty20-construction.png" alt="Twenty20">
+                    </div>
+                    
+                    <!-- Duplicate set for continuous scroll -->
+                    <div class="logo-item" data-company="Wilson & Company">
+                        <img src="logos/logo-wilson-company.png" alt="Wilson">
+                    </div>
+                    <div class="logo-item" data-company="Cross Connection Inc.">
+                        <img src="logos/logo-cross-connection-inc.png" alt="Cross Connection">
+                    </div>
+                    <div class="logo-item" data-company="DLS Construction">
+                        <img src="logos/logo-dls-construction.png" alt="DLS Construction">
+                    </div>
+                    <div class="logo-item" data-company="Frank Lill & Son">
+                        <img src="logos/logo-frank-lill-son.png" alt="Frank Lill & Son">
+                    </div>
+                    <div class="logo-item" data-company="Futures Mechanical">
+                        <img src="logos/logo-futures-mechanical.png" alt="Futures Mechanical">
+                    </div>
+                    <div class="logo-item" data-company="Los Alamos Research">
+                        <img src="logos/logo-los-alamos-research.png" alt="Los Alamos Research">
+                    </div>
+                    <div class="logo-item" data-company="Pueblo Electric">
+                        <img src="logos/logo-pueblo-electric.png" alt="Pueblo Electric">
+                    </div>
+                    <div class="logo-item" data-company="RED Rochester">
+                        <img src="logos/logo-red-rochester.png" alt="RED Rochester">
+                    </div>
+                    <div class="logo-item" data-company="RMF Engineering">
+                        <img src="logos/logo-rmf-engineering.png" alt="RMF Engineering">
+                    </div>
+                    <div class="logo-item" data-company="SET Inc.">
+                        <img src="logos/logo-set-inc.png" alt="SET Inc.">
+                    </div>
+                    <div class="logo-item" data-company="Twenty20 Construction">
+                        <img src="logos/logo-twenty20-construction.png" alt="Twenty20">
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <!-- Controls -->
+        <div class="controls-section">
+            <div class="control-group">
+                <label for="speed">Animation Speed</label>
+                <input type="range" id="speed" min="10" max="60" value="30">
+                <span id="speed-value">30s</span>
+            </div>
+            
+            <div class="control-group">
+                <label for="offset">Row Offset</label>
+                <input type="range" id="offset" min="0" max="200" value="135">
+                <span id="offset-value">135px</span>
+            </div>
+            
+            <div class="control-group">
+                <label for="gap">Logo Gap</label>
+                <input type="range" id="gap" min="10" max="50" value="17">
+                <span id="gap-value">17px</span>
+            </div>
+            
+            <div class="control-group">
+                <label for="vspacing">Vertical Spacing</label>
+                <input type="range" id="vspacing" min="200" max="400" value="260">
+                <span id="vspacing-value">260px</span>
+            </div>
+            
+            <div style="margin-top: 20px;">
+                <button id="pause-btn">Pause</button>
+                <button id="reverse-btn">Reverse Direction</button>
+            </div>
+        </div>
+        
+        <div style="text-align: center; margin-top: 40px;">
+            <a href="logo-carousel-final.html" class="nav-link">View Final Version</a>
+            <a href="logo-carousel-two-rows.html" class="nav-link">View Original Versions</a>
+        </div>
+    </div>
+
+    <script>
+        // Get elements
+        const topRow = document.querySelector('.carousel-row.top');
+        const bottomRow = document.querySelector('.carousel-row.bottom');
+        const container = document.querySelector('.carousel-container');
+        
+        // Speed control
+        const speedControl = document.getElementById('speed');
+        const speedValue = document.getElementById('speed-value');
+        
+        speedControl.addEventListener('input', function() {
+            const speed = this.value + 's';
+            speedValue.textContent = speed;
+            
+            // Apply the same speed to both rows
+            topRow.style.animationDuration = speed;
+            bottomRow.style.animationDuration = speed;
+        });
+        
+        // Offset control
+        const offsetControl = document.getElementById('offset');
+        const offsetValue = document.getElementById('offset-value');
+        
+        offsetControl.addEventListener('input', function() {
+            const offset = this.value + 'px';
+            offsetValue.textContent = offset;
+            bottomRow.style.left = offset;
+        });
+        
+        // Gap control
+        const gapControl = document.getElementById('gap');
+        const gapValue = document.getElementById('gap-value');
+        
+        gapControl.addEventListener('input', function() {
+            const gap = this.value + 'px';
+            gapValue.textContent = gap;
+            topRow.style.gap = gap;
+            bottomRow.style.gap = gap;
+        });
+        
+        // Vertical spacing control
+        const vspacingControl = document.getElementById('vspacing');
+        const vspacingValue = document.getElementById('vspacing-value');
+        
+        vspacingControl.addEventListener('input', function() {
+            const height = this.value + 'px';
+            vspacingValue.textContent = height;
+            container.style.height = height;
+        });
+        
+        // Pause/Play button
+        let isPaused = false;
+        const pauseBtn = document.getElementById('pause-btn');
+        
+        pauseBtn.addEventListener('click', function() {
+            if (isPaused) {
+                topRow.style.animationPlayState = 'running';
+                bottomRow.style.animationPlayState = 'running';
+                this.textContent = 'Pause';
+                isPaused = false;
+            } else {
+                topRow.style.animationPlayState = 'paused';
+                bottomRow.style.animationPlayState = 'paused';
+                this.textContent = 'Play';
+                isPaused = true;
+            }
+        });
+        
+        // Reverse direction button
+        let isReversed = false;
+        const reverseBtn = document.getElementById('reverse-btn');
+        
+        reverseBtn.addEventListener('click', function() {
+            if (isReversed) {
+                topRow.style.animationDirection = 'normal';
+                bottomRow.style.animationDirection = 'normal';
+                this.textContent = 'Reverse Direction';
+                isReversed = false;
+            } else {
+                topRow.style.animationDirection = 'reverse';
+                bottomRow.style.animationDirection = 'reverse';
+                this.textContent = 'Normal Direction';
+                isReversed = true;
+            }
+        });
+    </script>
+</body>
+</html>

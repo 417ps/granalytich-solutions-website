@@ -1,0 +1,462 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Final Logo Carousel - Granalytich Solutions</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f8f9fa;
+            padding: 40px 20px;
+        }
+
+        :root {
+            --primary-navy: #1e3a5f;
+            --secondary-blue: #2e5a8a;
+            --accent-gold: #d4af37;
+            --accent-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --border-color: #dee2e6;
+        }
+
+        .container {
+            max-width: 1400px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            font-size: 2.5rem;
+        }
+
+        .subtitle {
+            text-align: center;
+            color: #666;
+            margin-bottom: 60px;
+            font-size: 1.2rem;
+        }
+
+        /* Navigation Links */
+        .nav-links {
+            text-align: center;
+            margin-bottom: 40px;
+        }
+
+        .nav-links a {
+            display: inline-block;
+            padding: 12px 24px;
+            background: var(--secondary-blue);
+            color: white;
+            text-decoration: none;
+            border-radius: 4px;
+            font-weight: 600;
+            margin: 0 10px;
+            transition: all 0.3s ease;
+        }
+
+        .nav-links a:hover {
+            background: var(--primary-navy);
+            transform: translateY(-2px);
+        }
+
+        /* Carousel Container */
+        .carousel-section {
+            background-color: white;
+            padding: 80px 0;
+            overflow: hidden;
+            position: relative;
+            border-radius: 12px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.1);
+        }
+
+        .section-title {
+            font-size: 2.2rem;
+            font-weight: 300;
+            color: var(--primary-navy);
+            margin-bottom: 60px;
+            text-align: center;
+        }
+
+        .section-title .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        /* Two-Row Carousel - Fixed Settings */
+        .carousel-container {
+            position: relative;
+            overflow: hidden;
+            height: 260px; /* Fixed vertical spacing */
+        }
+
+        /* Gradient Masks */
+        .carousel-container::before,
+        .carousel-container::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            width: 200px;
+            z-index: 10;
+            pointer-events: none;
+        }
+
+        .carousel-container::before {
+            left: 0;
+            background: linear-gradient(to right, white, transparent);
+        }
+
+        .carousel-container::after {
+            right: 0;
+            background: linear-gradient(to left, white, transparent);
+        }
+
+        .carousel-row {
+            position: absolute;
+            display: flex;
+            animation: scroll 30s linear infinite; /* Fixed 30s speed */
+            gap: 17px; /* Fixed 17px gap */
+        }
+
+        .carousel-row.top {
+            top: 20px;
+        }
+
+        .carousel-row.bottom {
+            bottom: 20px;
+            padding-left: 135px; /* Fixed 135px offset */
+            animation-direction: normal;
+            animation-duration: 30s; /* Fixed to match top row */
+        }
+
+        /* Animation */
+        @keyframes scroll {
+            0% {
+                transform: translateX(0);
+            }
+            100% {
+                transform: translateX(-50%);
+            }
+        }
+
+        /* Logo Styling - Clean Version */
+        .logo-item-clean {
+            min-width: 200px;
+            height: 100px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: transform 0.3s ease;
+            cursor: pointer;
+        }
+
+        .logo-item-clean:hover {
+            transform: scale(1.05);
+        }
+
+        .logo-item-clean img {
+            max-width: 180px;
+            max-height: 80px;
+            object-fit: contain;
+            filter: grayscale(20%) opacity(0.9);
+            transition: all 0.3s ease;
+        }
+
+        .logo-item-clean:hover img {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.1);
+        }
+
+        /* Tier 1 styling */
+        .logo-item-clean.tier-1 img {
+            filter: grayscale(0%) opacity(1);
+            transform: scale(1.1);
+        }
+
+        /* Settings Display */
+        .settings-display {
+            margin-top: 40px;
+            padding: 30px;
+            background: var(--light-gray);
+            border-radius: 12px;
+            text-align: center;
+        }
+
+        .settings-display h3 {
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            font-size: 1.5rem;
+        }
+
+        .settings-info {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            margin-bottom: 20px;
+        }
+
+        .setting-item {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .setting-label {
+            font-weight: 600;
+            color: var(--primary-navy);
+            margin-bottom: 5px;
+        }
+
+        .setting-value {
+            color: var(--accent-gold);
+            font-size: 1.2rem;
+            font-weight: 700;
+        }
+
+        .description {
+            color: #666;
+            font-size: 14px;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        /* Mobile responsiveness */
+        @media (max-width: 768px) {
+            .carousel-container {
+                height: 200px;
+            }
+
+            .logo-item-clean {
+                min-width: 150px;
+                height: 80px;
+            }
+
+            .logo-item-clean img {
+                max-width: 130px;
+                max-height: 60px;
+            }
+
+            .carousel-row.bottom {
+                padding-left: 90px;
+            }
+
+            .settings-info {
+                gap: 20px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Final Logo Carousel Design</h1>
+        <p class="subtitle">Optimized two-row carousel with balanced logo distribution</p>
+        
+        <!-- Navigation Links -->
+        <div class="nav-links">
+            <a href="logo-carousel-two-rows.html">← Back to Testing Versions</a>
+            <a href="index.html">← Back to Main Site</a>
+        </div>
+        
+        <!-- Final Carousel -->
+        <section class="carousel-section">
+            <h2 class="section-title">DELIVERING <span class="highlight">EXCELLENCE</span> FOR</h2>
+            
+            <div class="carousel-container">
+                <!-- Top Row -->
+                <div class="carousel-row top">
+                    <!-- First set -->
+                    <div class="logo-item-clean tier-1" data-company="NASA">
+                        <img src="logos/logo-nasa.png" alt="NASA" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+TkFTQTwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean tier-1" data-company="U.S. Department of Energy">
+                        <img src="logos/logo-us-doe.png" alt="DOE" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+RE9FPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <div class="logo-item-clean tier-1" data-company="Los Alamos National Lab">
+                        <img src="logos/logo-los-alamos-national-lab.png" alt="LANL" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+TEFOTDwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="Bechtel">
+                        <img src="logos/logo-bechtel.png" alt="Bechtel" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+QmVjaHRlbDwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="AECOM">
+                        <img src="logos/logo-aecom.png" alt="AECOM" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+QUVDT008L3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Raytheon">
+                        <img src="logos/logo-raytheon.png" alt="Raytheon" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+UmF5dGhlb248L3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Stantec">
+                        <img src="logos/logo-stantec.png" alt="Stantec" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+U3RhbnRlYzwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="UCLA">
+                        <img src="logos/logo-ucla.png" alt="UCLA" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+VUNMQTWVL3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    <div class="logo-item-clean" data-company="MWH Global">
+                        <img src="logos/logo-mwh-global.png" alt="MWH" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+TVdIPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <div class="logo-item-clean" data-company="NM DOT">
+                        <img src="logos/logo-nm-dot.png" alt="NM DOT" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+Tk0gRE9UPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Colorado Springs Utilities">
+                        <img src="logos/logo-colorado-springs-utilities.png" alt="CSU" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+Q1NVPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    
+                    <!-- Duplicate set for continuous scroll -->
+                    <div class="logo-item-clean tier-1" data-company="NASA">
+                        <img src="logos/logo-nasa.png" alt="NASA" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiboZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+TkFTQTwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean tier-1" data-company="U.S. Department of Energy">
+                        <img src="logos/logo-us-doe.png" alt="DOE" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+RE9FPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <div class="logo-item-clean tier-1" data-company="Los Alamos National Lab">
+                        <img src="logos/logo-los-alamos-national-lab.png" alt="LANL" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+TEFOTDwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="Bechtel">
+                        <img src="logos/logo-bechtel.png" alt="Bechtel" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+QmVjaHRlbDwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="AECOM">
+                        <img src="logos/logo-aecom.png" alt="AECOM" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+QUVDT008L3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Raytheon">
+                        <img src="logos/logo-raytheon.png" alt="Raytheon" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+UmF5dGhlb248L3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Stantec">
+                        <img src="logos/logo-stantec.png" alt="Stantec" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+U3RhbnRlYzwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="UCLA">
+                        <img src="logos/logo-ucla.png" alt="UCLA" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+VUNMQTWVL3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    <div class="logo-item-clean" data-company="MWH Global">
+                        <img src="logos/logo-mwh-global.png" alt="MWH" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+TVdIPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <div class="logo-item-clean" data-company="NM DOT">
+                        <img src="logos/logo-nm-dot.png" alt="NM DOT" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdhWlnaHA9ImJvbGQiPk5NIERPVDwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="Colorado Springs Utilities">
+                        <img src="logos/logo-colorado-springs-utilities.png" alt="CSU" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHA9IjEwNSIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4NCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+Q1NVPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                </div>
+
+                <!-- Bottom Row (Offset) -->
+                <div class="carousel-row bottom">
+                    <!-- First set -->
+                    <div class="logo-item-clean" data-company="Wilson & Company">
+                        <img src="logos/logo-wilson-company.png" alt="Wilson" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+V2lsc29uPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Cross Connection Inc.">
+                        <img src="logos/logo-cross-connection-inc.png" alt="Cross Connection" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+Q3Jvc3MgQ29ubmVjdGlvbjwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="DLS Construction">
+                        <img src="logos/logo-dls-construction.png" alt="DLS Construction" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+RExTPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Frank Lill & Son">
+                        <img src="logos/logo-frank-lill-son.png" alt="Frank Lill & Son" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+RnJhbmsgTGlsbDwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="Futures Mechanical">
+                        <img src="logos/logo-futures-mechanical.png" alt="Futures Mechanical" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGhh9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTawIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWjLXQ9ImJvbGQiPkZ1dHVyZXMgTWVjaC48L3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Los Alamos Research">
+                        <img src="logos/logo-los-alamos-research.png" alt="Los Alamos Research" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+TEEgUmVzZWFyY2g8L3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Pueblo Electric">
+                        <img src="logos/logo-pueblo-electric.png" alt="Pueblo Electric" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+UHVlYmxvIEVsZWN0cmljPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <div class="logo-item-clean" data-company="RED Rochester">
+                        <img src="logos/logo-red-rochester.png" alt="RED Rochester" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+UkVEIFJvY2hlc3RlcjwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="RMF Engineering">
+                        <img src="logos/logo-rmf-engineering.png" alt="RMF Engineering" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+Uk1GIEVuZ2luZWVyaW5nPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <div class="logo-item-clean" data-company="SET Inc.">
+                        <img src="logos/logo-set-inc.png" alt="SET Inc." onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+U0VUIEluYy48L3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Twenty20 Construction">
+                        <img src="logos/logo-twenty20-construction.png" alt="Twenty20" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+VHdlbnR5MjA8L3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    
+                    <!-- Duplicate set for continuous scroll -->
+                    <div class="logo-item-clean" data-company="Wilson & Company">
+                        <img src="logos/logo-wilson-company.png" alt="Wilson" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+V2lsc29uPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Cross Connection Inc.">
+                        <img src="logos/logo-cross-connection-inc.png" alt="Cross Connection" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+Q3Jvc3MgQ29ubmVjdGlvbjwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="DLS Construction">
+                        <img src="logos/logo-dls-construction.png" alt="DLS Construction" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+RExTDwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="Frank Lill & Son">
+                        <img src="logos/logo-frank-lill-son.png" alt="Frank Lill & Son" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIWMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+RnJhbmsgTGlsbDwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="Futures Mechanical">
+                        <img src="logos/logo-futures-mechanical.png" alt="Futures Mechanical" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+RnV0dXJlcyBNZWNoLjwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="Los Alamos Research">
+                        <img src="logos/logo-los-alamos-research.png" alt="Los Alamos Research" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+TEEgUmVzZWFyY2g8L3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Pueblo Electric">
+                        <img src="logos/logo-pueblo-electric.png" alt="Pueblo Electric" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+UHVlYmxvIEVsZWN0cmljPC90ZXh0Pgo8L3N2Zz4ç'">
+                    </div>
+                    <div class="logo-item-clean" data-company="RED Rochester">
+                        <img src="logos/logo-red-rochester.png" alt="RED Rochester" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIXhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+UkVEIFJvY2hlc3RlcjwvdGV4dD4KPC9zdmc+'">
+                    </div>
+                    <div class="logo-item-clean" data-company="RMF Engineering">
+                        <img src="logos/logo-rmf-engineering.png" alt="RMF Engineering" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIIMmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+Uk1GIEVuZ2luZWVyaW5nPC90ZXh0Pgo8L3N2Zz4='">
+                    </div>
+                    <div class="logo-item-clean" data-company="SET Inc.">
+                        <img src="logos/logo-set-inc.png" alt="SET Inc." onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+U0VUIEluYy48L3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                    <div class="logo-item-clean" data-company="Twenty20 Construction">
+                        <img src="logos/logo-twenty20-construction.png" alt="Twenty20" onerror="this.src='data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiNoZWlnaHQ9IjEwMCIgdmlld0JveD0iMCAwIDIwMCAxMDAiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHg9IjEwIiB5PSIxMCIgd2lkdGg9IjE4MCIgaGVpZ2h0PSI4MCIgZmlsbD0iI0UwRTBFMCIgcng9IjgiLz4KPHRleHQgeD0iMTAwIiB5PSI1NSIgdGV4dC1hbmNob3I9Im1pZGRsZSIgZmlsbD0iIzY2NiIgZm9udC1mYW1pbHk9IkFyaWFsIiBmb250LXNpemU9IjIwIiBmb250LXdlaWdodD0iYm9sZCI+VHdlbnR5MjA8L3RleHQ+Cjwvc3ZnPg=='">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- Settings Display -->
+        <div class="settings-display">
+            <h3>Optimized Settings</h3>
+            <div class="settings-info">
+                <div class="setting-item">
+                    <div class="setting-label">Animation Speed</div>
+                    <div class="setting-value">30s</div>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-label">Row Offset</div>
+                    <div class="setting-value">135px</div>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-label">Logo Gap</div>
+                    <div class="setting-value">17px</div>
+                </div>
+                <div class="setting-item">
+                    <div class="setting-label">Vertical Spacing</div>
+                    <div class="setting-value">260px</div>
+                </div>
+            </div>
+            <p class="description">
+                Clean design with no borders. Both rows move in the same direction (right to left) at synchronized speed, with the bottom row offset to create an interlocking pattern. Features 11 companies per row with higher-tier clients prominently displayed in the top row.
+            </p>
+        </div>
+    </div>
+
+    <script>
+        // Add click feedback for all logo items
+        document.querySelectorAll('.logo-item-clean').forEach(item => {
+            item.addEventListener('click', function() {
+                const company = this.getAttribute('data-company');
+                console.log(`Clicked on ${company}`);
+            });
+        });
+    </script>
+</body>
+</html>

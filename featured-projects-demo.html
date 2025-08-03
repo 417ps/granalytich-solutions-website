@@ -1,0 +1,477 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Featured Projects Demo - Granalytich Solutions</title>
+    <style>
+        /* Anti-flash navigation protection - loads before any JS */
+        .global-nav,
+        .navbar,
+        nav {
+            background: rgba(10, 10, 10, 0.95) !important;
+            backdrop-filter: blur(20px) !important;
+        }
+        .global-nav *,
+        .navbar *,
+        nav * {
+            color: #b8b8b8 !important;
+            background: transparent !important;
+        }
+        .global-nav .nav-link:hover,
+        .global-nav .nav-link.active,
+        .navbar .nav-link:hover,
+        .navbar .nav-link.active,
+        nav .nav-link:hover,
+        nav .nav-link.active {
+            color: #d4af37 !important;
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #f8f9fa;
+        }
+
+        /* Granalytich Color Scheme */
+        :root {
+            --primary-navy: #1e3a5f;
+            --secondary-blue: #2e5a8a;
+            --accent-gold: #d4af37;
+            --accent-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+        }
+
+        /* Container */
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Header */
+        .demo-header {
+            background: var(--primary-navy);
+            color: white;
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .demo-header h1 {
+            font-size: 2.5rem;
+            margin-bottom: 10px;
+        }
+
+        .demo-header p {
+            font-size: 1.1rem;
+            opacity: 0.9;
+        }
+
+        /* Featured Projects Section */
+        .featured-projects {
+            padding: 80px 0;
+            background: white;
+        }
+
+        .section-title {
+            font-size: 36px;
+            font-weight: 300;
+            color: var(--primary-navy);
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        .section-title .highlight {
+            color: var(--accent-gold);
+            font-weight: 700;
+        }
+
+        .section-subtitle {
+            font-size: 16px;
+            color: #666;
+            text-align: center;
+            margin-bottom: 60px;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Projects Grid */
+        .projects-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 0;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            border-radius: 8px;
+            overflow: hidden;
+        }
+
+        /* Project Card */
+        .project-card {
+            position: relative;
+            overflow: hidden;
+            aspect-ratio: 4/3;
+            background: #e9ecef;
+            border-right: 1px solid rgba(255,255,255,0.1);
+            border-bottom: 1px solid rgba(255,255,255,0.1);
+        }
+
+        .project-card:hover {
+            z-index: 10;
+        }
+
+        .project-card img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+        }
+
+        .project-card:hover img {
+            transform: scale(1.08);
+        }
+
+        /* Project Overlay */
+        .project-overlay {
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            background: linear-gradient(to top, 
+                rgba(30, 58, 95, 0.95) 0%, 
+                rgba(30, 58, 95, 0.85) 50%,
+                transparent 100%);
+            color: white;
+            padding: 40px 30px 30px;
+            transform: translateY(100%);
+            transition: transform 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-end;
+            min-height: 150px;
+            cursor: pointer;
+            text-decoration: none;
+        }
+
+        .project-card:hover .project-overlay {
+            transform: translateY(0);
+        }
+
+        .project-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            line-height: 1.2;
+        }
+
+        .project-value {
+            font-size: 1.75rem;
+            color: var(--accent-gold);
+            font-weight: 700;
+            margin-bottom: 15px;
+        }
+
+        .project-description {
+            font-size: 0.9rem;
+            line-height: 1.4;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .project-link {
+            color: white;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            align-self: flex-start;
+        }
+
+        .project-link:hover {
+            gap: 12px;
+            color: var(--accent-gold);
+        }
+
+        .project-link .arrow {
+            font-size: 1.2em;
+            display: inline-block;
+            transition: transform 0.3s ease;
+        }
+
+        .project-card:hover .project-link .arrow {
+            transform: translateX(3px);
+        }
+
+        /* Placeholder images - using gradients */
+        .project-image-placeholder {
+            width: 100%;
+            height: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 3rem;
+            color: rgba(255,255,255,0.3);
+            font-weight: 700;
+        }
+
+        .project-1 { background: linear-gradient(135deg, #667eea 0%, #764ba2 100%); }
+        .project-2 { background: linear-gradient(135deg, #f093fb 0%, #f5576c 100%); }
+        .project-3 { background: linear-gradient(135deg, #4facfe 0%, #00f2fe 100%); }
+        .project-4 { background: linear-gradient(135deg, #43e97b 0%, #38f9d7 100%); }
+        .project-5 { background: linear-gradient(135deg, #fa709a 0%, #fee140 100%); }
+        .project-6 { background: linear-gradient(135deg, #30cfd0 0%, #330867 100%); }
+
+        /* Demo Notes */
+        .demo-notes {
+            background: var(--light-gray);
+            padding: 40px 0;
+            text-align: center;
+        }
+
+        .demo-notes h3 {
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+        }
+
+        .demo-notes ul {
+            list-style: none;
+            display: inline-block;
+            text-align: left;
+        }
+
+        .demo-notes li {
+            margin-bottom: 10px;
+            padding-left: 20px;
+            position: relative;
+        }
+
+        .demo-notes li::before {
+            content: "✓";
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 768px) {
+            .projects-grid {
+                grid-template-columns: 1fr;
+                gap: 2px;
+            }
+            
+            .project-card {
+                aspect-ratio: 16/9;
+            }
+            
+            /* On mobile, show overlay by default with gradient */
+            .project-overlay {
+                transform: translateY(0);
+                background: linear-gradient(to top, 
+                    rgba(30, 58, 95, 0.95) 0%, 
+                    rgba(30, 58, 95, 0.7) 70%,
+                    transparent 100%);
+                padding: 30px 20px 20px;
+            }
+            
+            .project-title {
+                font-size: 1.1rem;
+            }
+            
+            .project-value {
+                font-size: 1.5rem;
+            }
+            
+            .project-description {
+                display: none;
+            }
+        }
+
+        /* Animation on page load */
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(30px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .project-card {
+            animation: fadeInUp 0.6s ease-out forwards;
+            opacity: 0;
+        }
+
+        .project-card:nth-child(1) { animation-delay: 0.1s; }
+        .project-card:nth-child(2) { animation-delay: 0.2s; }
+        .project-card:nth-child(3) { animation-delay: 0.3s; }
+        .project-card:nth-child(4) { animation-delay: 0.4s; }
+        .project-card:nth-child(5) { animation-delay: 0.5s; }
+        .project-card:nth-child(6) { animation-delay: 0.6s; }
+    </style>
+</head>
+<body>
+    <!-- Demo Header -->
+    <header class="demo-header">
+        <div class="container">
+            <h1>Featured Projects Demo</h1>
+            <p>Hover over projects to see the interactive overlay effect</p>
+        </div>
+    </header>
+
+    <!-- Featured Projects Section -->
+    <section class="featured-projects">
+        <div class="container">
+            <h2 class="section-title">FEATURED <span class="highlight">PROJECTS</span></h2>
+            <p class="section-subtitle">Proven delivery of complex infrastructure projects across federal, municipal, and private sectors</p>
+            
+            <div class="projects-grid">
+                <!-- Project 1 -->
+                <div class="project-card">
+                    <div class="project-image-placeholder project-1">
+                        AWS
+                    </div>
+                    <a href="project-detail-template.html" class="project-overlay">
+                        <h3 class="project-title">Alternative Water Supply Program</h3>
+                        <div class="project-value">$1.7B</div>
+                        <p class="project-description">Senior Program Controls Lead for transmission lines and storage infrastructure</p>
+                        <span class="project-link">
+                            Learn More <span class="arrow">→</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Project 2 -->
+                <div class="project-card">
+                    <div class="project-image-placeholder project-2">
+                        SDWS
+                    </div>
+                    <a href="project-detail-template.html" class="project-overlay">
+                        <h3 class="project-title">Southern Delivery Water System</h3>
+                        <div class="project-value">$841M</div>
+                        <p class="project-description">60 miles of piping with treatment plant and pump stations</p>
+                        <span class="project-link">
+                            Learn More <span class="arrow">→</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Project 3 -->
+                <div class="project-card">
+                    <div class="project-image-placeholder project-3">
+                        LANL
+                    </div>
+                    <a href="project-detail-template.html" class="project-overlay">
+                        <h3 class="project-title">Nuclear Material Security</h3>
+                        <div class="project-value">$254M</div>
+                        <p class="project-description">Critical nuclear facility security enhancements at Los Alamos</p>
+                        <span class="project-link">
+                            Learn More <span class="arrow">→</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Project 4 -->
+                <div class="project-card">
+                    <div class="project-image-placeholder project-4">
+                        DC
+                    </div>
+                    <a href="project-detail-template.html" class="project-overlay">
+                        <h3 class="project-title">Data Center Infrastructure</h3>
+                        <div class="project-value">$52.4M</div>
+                        <p class="project-description">Exascale computer cooling and critical infrastructure</p>
+                        <span class="project-link">
+                            Learn More <span class="arrow">→</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Project 5 -->
+                <div class="project-card">
+                    <div class="project-image-placeholder project-5">
+                        DOT
+                    </div>
+                    <a href="project-detail-template.html" class="project-overlay">
+                        <h3 class="project-title">NM Transportation Projects</h3>
+                        <div class="project-value">$170M</div>
+                        <p class="project-description">Multiple highway improvements including I-25 and major routes</p>
+                        <span class="project-link">
+                            Learn More <span class="arrow">→</span>
+                        </span>
+                    </a>
+                </div>
+
+                <!-- Project 6 -->
+                <div class="project-card">
+                    <div class="project-image-placeholder project-6">
+                        EWS
+                    </div>
+                    <a href="project-detail-template.html" class="project-overlay">
+                        <h3 class="project-title">Eastern Wastewater System</h3>
+                        <div class="project-value">$396M</div>
+                        <p class="project-description">Large-scale wastewater infrastructure and treatment facilities</p>
+                        <span class="project-link">
+                            Learn More <span class="arrow">→</span>
+                        </span>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Demo Notes -->
+    <section class="demo-notes">
+        <div class="container">
+            <h3>Implementation Features</h3>
+            <ul>
+                <li>Smooth hover animations with CSS transitions</li>
+                <li>Responsive grid layout adapting to screen size</li>
+                <li>Gradient overlays for elegant text appearance</li>
+                <li>Scale effect on images during hover</li>
+                <li>Mobile-optimized with persistent overlays</li>
+                <li>Staggered load animations for visual appeal</li>
+            </ul>
+        </div>
+    </section>
+
+    <script>
+        // Optional: Add intersection observer for scroll animations
+        const observerOptions = {
+            threshold: 0.1,
+            rootMargin: '0px 0px -50px 0px'
+        };
+
+        const observer = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                }
+            });
+        }, observerOptions);
+
+        // Observe all project cards
+        document.querySelectorAll('.project-card').forEach(card => {
+            observer.observe(card);
+        });
+    </script>
+</body>
+</html>

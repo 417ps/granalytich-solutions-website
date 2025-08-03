@@ -1,0 +1,1214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Granalytich Logo Variations</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            background-color: #f5f5f5;
+            padding: 40px 20px;
+        }
+
+        :root {
+            --primary-navy: #1e3a5f;
+            --secondary-blue: #2e5a8a;
+            --accent-gold: #d4af37;
+            --accent-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+        }
+
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        h1 {
+            text-align: center;
+            color: var(--primary-navy);
+            margin-bottom: 40px;
+            font-size: 36px;
+        }
+
+        .logo-showcase {
+            background: white;
+            padding: 40px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+        }
+
+        .logo-container {
+            border: 2px solid var(--light-gray);
+            padding: 30px;
+            margin-bottom: 20px;
+            border-radius: 4px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            min-height: 100px;
+            background: white;
+        }
+
+        h2 {
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+            font-size: 20px;
+        }
+
+        /* Base logo styles for all versions */
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 40px;
+            position: relative;
+        }
+
+        .logo-bar {
+            width: 8px;
+            background: linear-gradient(to top, var(--secondary-blue), var(--primary-navy));
+            border-radius: 2px 2px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .logo-bar:nth-child(1) { height: 40%; }
+        .logo-bar:nth-child(2) { height: 55%; }
+        .logo-bar:nth-child(3) { height: 70%; }
+        .logo-bar:nth-child(4) { height: 85%; }
+        .logo-bar:nth-child(5) { height: 100%; }
+
+        .logo:hover .logo-bar {
+            background: linear-gradient(to top, var(--accent-gold), var(--secondary-blue));
+        }
+
+
+        /* VERSION 1: ANALYTIC highlighted */
+        .v1 .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .v1 .logo-text-main {
+            font-size: 22px;
+            font-weight: 700;
+            color: #b8b8b8;
+            letter-spacing: 0.75px;
+        }
+
+        .v1 .logo-text-main .highlight {
+            color: var(--secondary-blue);
+        }
+
+        .v1 .logo-text-sub {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary-blue);
+            margin-top: 2px;
+        }
+
+        .v1 .logo-text-tagline {
+            font-size: 9px;
+            color: var(--accent-gray);
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        /* VERSION 2: Horizontal balanced */
+        .v2 .logo-text {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .v2 .logo-text-left {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .v2 .logo-text-main {
+            font-size: 22px;
+            font-weight: 700;
+            color: var(--text-dark);
+            letter-spacing: 0.75px;
+        }
+
+        .v2 .logo-text-main .highlight {
+            color: var(--secondary-blue);
+        }
+
+        .v2 .logo-text-right {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            justify-content: center;
+        }
+
+        .v2 .logo-text-sub {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary-blue);
+            line-height: 1;
+        }
+
+        .v2 .logo-text-tagline {
+            font-size: 8px;
+            color: var(--accent-gray);
+            text-transform: uppercase;
+            letter-spacing: 2.8px;
+            opacity: 0.7;
+            margin-top: 2px;
+        }
+
+
+        /* VERSION 4: Minimalist with accent line */
+        .v4 .logo {
+            flex-direction: column;
+            align-items: flex-start;
+            gap: 5px;
+        }
+
+        .v4 .logo-top {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+
+        .v4 .logo-icon {
+            height: 25px;
+            gap: 2px;
+            padding-right: 0;
+        }
+
+        .v4 .logo-bar {
+            width: 4px;
+        }
+
+        .v4 .logo-icon::after {
+            display: none;
+        }
+
+        .v4 .logo-text-main {
+            font-size: 20px;
+            font-weight: 600;
+            color: var(--text-dark);
+            letter-spacing: 0;
+        }
+
+        .v4 .logo-text-main .highlight {
+            color: var(--secondary-blue);
+            font-weight: 700;
+        }
+
+        .v4 .logo-text-sub {
+            font-size: 13px;
+            font-weight: 500;
+            color: var(--secondary-blue);
+            margin-left: 2px;
+        }
+
+        .v4 .logo-bottom {
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(to right, var(--accent-gold), var(--secondary-blue));
+            border-radius: 1px;
+        }
+
+        /* VERSION 5: Bold modern with circle accent */
+        .v5 .logo {
+            gap: 20px;
+        }
+
+        .v5 .logo-icon-wrapper {
+            position: relative;
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-navy));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .v5 .logo-icon {
+            height: 25px;
+            gap: 2px;
+            padding: 0;
+            margin: 0;
+        }
+
+        .v5 .logo-bar {
+            width: 4px;
+            background: white;
+        }
+
+        .v5 .logo-icon::after {
+            display: none;
+        }
+
+        .v5 .logo-text {
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+
+        .v5 .logo-text-main {
+            font-size: 26px;
+            font-weight: 800;
+            color: #b8b8b8;
+            letter-spacing: 0.75px;
+            line-height: 1;
+        }
+
+        .v5 .logo-text-main .highlight {
+            color: var(--secondary-blue);
+        }
+
+        .v5 .logo-text-sub {
+            font-size: 12px;
+            font-weight: 600;
+            color: var(--accent-gray);
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            margin-top: 4px;
+        }
+        
+        .v5 .logo-text-tagline {
+            font-size: 8px;
+            font-weight: 500;
+            color: var(--accent-gray);
+            text-transform: uppercase;
+            letter-spacing: 0.75px;
+            margin-top: 3px;
+            opacity: 0.7;
+        }
+        
+        /* Version 1 with rounded bars is using existing v1 styles */
+        
+        /* VERSION 3: Shield Badge Logo */
+        .v3-shield .logo {
+            gap: 15px;
+        }
+        
+        .logo-icon-shield {
+            width: 56px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--accent-gold), #b8860b);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+        }
+        
+        .shield-inner-logo {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 30px;
+        }
+        
+        .mini-bar-shield-logo {
+            width: 5px;
+            background: white;
+            border-radius: 1px 1px 0 0;
+        }
+        
+        .mini-bar-shield-logo:nth-child(1) { height: 30%; }
+        .mini-bar-shield-logo:nth-child(2) { height: 50%; }
+        .mini-bar-shield-logo:nth-child(3) { height: 70%; }
+        .mini-bar-shield-logo:nth-child(4) { height: 90%; }
+        
+        /* VERSION 4: Growth Trend Logo */
+        .v4-trend .logo {
+            gap: 15px;
+        }
+        
+        .logo-icon-trend {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 40px;
+            position: relative;
+        }
+        
+        .bar-trend-logo {
+            width: 7px;
+            background: linear-gradient(to top, var(--secondary-blue), var(--primary-navy));
+            border-radius: 2px 2px 0 0;
+            transition: all 0.3s ease;
+        }
+        
+        .bar-trend-logo:nth-child(1) { height: 35%; }
+        .bar-trend-logo:nth-child(2) { height: 45%; }
+        .bar-trend-logo:nth-child(3) { height: 40%; }
+        .bar-trend-logo:nth-child(4) { height: 65%; }
+        .bar-trend-logo:nth-child(5) { height: 85%; }
+        
+        .trend-line-logo {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), #f4d03f);
+            border-radius: 1px;
+            top: 60%;
+            transform: rotate(-15deg);
+            transform-origin: left center;
+            box-shadow: 0 0 4px rgba(212, 175, 55, 0.4);
+        }
+        
+        .trend-line-logo::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: -3px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid var(--accent-gold);
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+        
+        
+        /* Common text styles for v3-shield, v4-trend */
+        .v3-shield .logo-text,
+        .v4-trend .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+        
+        .v3-shield .logo-text-main,
+        .v4-trend .logo-text-main {
+            font-size: 22px;
+            font-weight: 700;
+            color: #b8b8b8;
+            letter-spacing: 0.75px;
+        }
+        
+        .v3-shield .logo-text-main .highlight,
+        .v4-trend .logo-text-main .highlight {
+            color: var(--secondary-blue);
+            font-weight: 700;
+        }
+        
+        .v3-shield .logo-text-sub,
+        .v4-trend .logo-text-sub {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary-blue);
+            margin-top: 2px;
+        }
+        
+        .v3-shield .logo-text-tagline,
+        .v4-trend .logo-text-tagline {
+            font-size: 9px;
+            color: var(--accent-gray);
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .description {
+            font-size: 14px;
+            color: var(--accent-gray);
+            margin-top: 10px;
+            font-style: italic;
+        }
+
+        /* Light letter variations */
+        .light-letters .logo-text-main {
+            color: #a0a0a0 !important;
+        }
+
+        .light-letters .logo-text-main .highlight {
+            color: var(--secondary-blue) !important;
+            font-weight: 700;
+        }
+        
+        /* Chart Icon Variations */
+        
+        /* Variation 1: Rounded Bars */
+        .chart-icon-1 {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 50px;
+        }
+        
+        .bar-rounded {
+            width: 10px;
+            background: linear-gradient(to top, var(--secondary-blue), var(--primary-navy));
+            border-radius: 5px 5px 0 0;
+        }
+        
+        .chart-icon-1 .bar-rounded:nth-child(1) { height: 40%; }
+        .chart-icon-1 .bar-rounded:nth-child(2) { height: 55%; }
+        .chart-icon-1 .bar-rounded:nth-child(3) { height: 70%; }
+        .chart-icon-1 .bar-rounded:nth-child(4) { height: 85%; }
+        .chart-icon-1 .bar-rounded:nth-child(5) { height: 100%; }
+        
+        
+        /* Variation 4: Grouped Bars */
+        .chart-icon-3 {
+            display: flex;
+            align-items: flex-end;
+            gap: 8px;
+            height: 50px;
+        }
+        
+        .bar-group {
+            display: flex;
+            gap: 2px;
+            align-items: flex-end;
+            height: 100%;
+        }
+        
+        .bar-primary {
+            width: 8px;
+            background: var(--primary-navy);
+            border-radius: 1px 1px 0 0;
+        }
+        
+        .bar-secondary {
+            width: 8px;
+            background: var(--accent-gold);
+            border-radius: 1px 1px 0 0;
+            opacity: 0.7;
+        }
+        
+        .chart-icon-3 .bar-group:nth-child(1) .bar-primary { height: 50%; }
+        .chart-icon-3 .bar-group:nth-child(1) .bar-secondary { height: 35%; }
+        .chart-icon-3 .bar-group:nth-child(2) .bar-primary { height: 70%; }
+        .chart-icon-3 .bar-group:nth-child(2) .bar-secondary { height: 55%; }
+        .chart-icon-3 .bar-group:nth-child(3) .bar-primary { height: 90%; }
+        .chart-icon-3 .bar-group:nth-child(3) .bar-secondary { height: 75%; }
+        
+        
+        /* Variation 6: 3D Perspective */
+        .chart-icon-6 {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 50px;
+            perspective: 100px;
+        }
+        
+        .bar-3d {
+            width: 8px;
+            background: linear-gradient(to right, var(--secondary-blue), var(--primary-navy));
+            border-radius: 1px 1px 0 0;
+            position: relative;
+            transform-style: preserve-3d;
+        }
+        
+        .bar-3d::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            right: -3px;
+            width: 3px;
+            height: 100%;
+            background: rgba(0,0,0,0.2);
+            transform: skewY(-45deg);
+            transform-origin: top left;
+        }
+        
+        .chart-icon-6 .bar-3d:nth-child(1) { height: 40%; }
+        .chart-icon-6 .bar-3d:nth-child(2) { height: 55%; }
+        .chart-icon-6 .bar-3d:nth-child(3) { height: 70%; }
+        .chart-icon-6 .bar-3d:nth-child(4) { height: 85%; }
+        .chart-icon-6 .bar-3d:nth-child(5) { height: 100%; }
+        
+        /* Variation 7: Segmented Bars */
+        .chart-icon-7 {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 50px;
+        }
+        
+        .bar-segmented {
+            width: 10px;
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+        
+        .segment {
+            flex: 1;
+            background: var(--secondary-blue);
+            border-radius: 1px;
+        }
+        
+        .segment:first-child {
+            background: var(--primary-navy);
+        }
+        
+        .chart-icon-7 .bar-segmented:nth-child(1) { height: 40%; }
+        .chart-icon-7 .bar-segmented:nth-child(2) { height: 60%; }
+        .chart-icon-7 .bar-segmented:nth-child(3) { height: 80%; }
+        .chart-icon-7 .bar-segmented:nth-child(4) { height: 100%; }
+        
+        
+        /* Variation 9: Arrow Integration */
+        .chart-icon-9 {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 50px;
+            position: relative;
+        }
+        
+        .bar-arrow {
+            width: 8px;
+            background: var(--primary-navy);
+            border-radius: 1px 1px 0 0;
+        }
+        
+        .chart-icon-9 .bar-arrow:nth-child(1) { height: 40%; }
+        .chart-icon-9 .bar-arrow:nth-child(2) { height: 55%; }
+        .chart-icon-9 .bar-arrow:nth-child(3) { height: 70%; }
+        .chart-icon-9 .bar-arrow:nth-child(4) { height: 85%; }
+        
+        .arrow-head {
+            position: absolute;
+            right: -10px;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 12px solid var(--accent-gold);
+            border-top: 6px solid transparent;
+            border-bottom: 6px solid transparent;
+        }
+        
+        /* Variation 10: Connected Growth */
+        .chart-icon-10 {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 50px;
+            position: relative;
+        }
+        
+        .bar-connected {
+            width: 8px;
+            background: var(--secondary-blue);
+            border-radius: 1px 1px 0 0;
+            position: relative;
+        }
+        
+        .chart-icon-10 .bar-connected:nth-child(1) { height: 40%; }
+        .chart-icon-10 .bar-connected:nth-child(2) { height: 55%; }
+        .chart-icon-10 .bar-connected:nth-child(3) { height: 70%; }
+        .chart-icon-10 .bar-connected:nth-child(4) { height: 85%; }
+        .chart-icon-10 .bar-connected:nth-child(5) { height: 100%; }
+        
+        .connection-line {
+            position: absolute;
+            width: calc(100% - 8px);
+            height: 2px;
+            background: var(--accent-gold);
+            left: 4px;
+            bottom: 40%;
+            transform: rotate(-12deg);
+            transform-origin: left center;
+        }
+        
+        
+        /* Variation 12: Gradient Circle */
+        .chart-icon-12 {
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-navy));
+            border-radius: 50%;
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 3px;
+            padding: 12px;
+            position: relative;
+            box-shadow: 0 6px 20px rgba(30, 58, 95, 0.3);
+        }
+        
+        .mini-bar-gradient {
+            width: 5px;
+            background: rgba(255, 255, 255, 0.9);
+            border-radius: 2.5px 2.5px 0 0;
+        }
+        
+        .chart-icon-12 .mini-bar-gradient:nth-child(1) { height: 30%; opacity: 0.6; }
+        .chart-icon-12 .mini-bar-gradient:nth-child(2) { height: 40%; opacity: 0.7; }
+        .chart-icon-12 .mini-bar-gradient:nth-child(3) { height: 50%; opacity: 0.8; }
+        .chart-icon-12 .mini-bar-gradient:nth-child(4) { height: 60%; opacity: 0.9; }
+        .chart-icon-12 .mini-bar-gradient:nth-child(5) { height: 70%; opacity: 1; }
+        
+        /* Variation 13: Ring Design */
+        .chart-icon-13 {
+            width: 60px;
+            height: 60px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .ring-outer {
+            width: 60px;
+            height: 60px;
+            border: 4px solid var(--secondary-blue);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: white;
+        }
+        
+        .ring-inner {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 30px;
+        }
+        
+        .mini-bar-ring {
+            width: 4px;
+            background: var(--primary-navy);
+            border-radius: 2px 2px 0 0;
+        }
+        
+        .chart-icon-13 .mini-bar-ring:nth-child(1) { height: 30%; }
+        .chart-icon-13 .mini-bar-ring:nth-child(2) { height: 50%; }
+        .chart-icon-13 .mini-bar-ring:nth-child(3) { height: 70%; }
+        .chart-icon-13 .mini-bar-ring:nth-child(4) { height: 90%; }
+        
+        /* Variation 14: Hexagon Badge */
+        .chart-icon-14 {
+            width: 60px;
+            height: 60px;
+            background: var(--primary-navy);
+            clip-path: polygon(30% 0%, 70% 0%, 100% 50%, 70% 100%, 30% 100%, 0% 50%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+        }
+        
+        .hex-inner {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 35px;
+        }
+        
+        .mini-bar-hex {
+            width: 4px;
+            background: var(--accent-gold);
+            border-radius: 2px 2px 0 0;
+        }
+        
+        .chart-icon-14 .mini-bar-hex:nth-child(1) { height: 25%; }
+        .chart-icon-14 .mini-bar-hex:nth-child(2) { height: 40%; }
+        .chart-icon-14 .mini-bar-hex:nth-child(3) { height: 55%; }
+        .chart-icon-14 .mini-bar-hex:nth-child(4) { height: 70%; }
+        .chart-icon-14 .mini-bar-hex:nth-child(5) { height: 85%; }
+        
+        /* Variation 3: Shield Badge */
+        .chart-icon-2 {
+            width: 56px;
+            height: 64px;
+            background: linear-gradient(135deg, var(--accent-gold), #b8860b);
+            clip-path: polygon(50% 0%, 100% 25%, 100% 75%, 50% 100%, 0% 75%, 0% 25%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            box-shadow: 0 4px 16px rgba(212, 175, 55, 0.3);
+        }
+        
+        .shield-inner {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 30px;
+        }
+        
+        .mini-bar-shield {
+            width: 5px;
+            background: white;
+            border-radius: 2.5px 2.5px 0 0;
+        }
+        
+        .chart-icon-2 .mini-bar-shield:nth-child(1) { height: 30%; }
+        .chart-icon-2 .mini-bar-shield:nth-child(2) { height: 50%; }
+        .chart-icon-2 .mini-bar-shield:nth-child(3) { height: 70%; }
+        .chart-icon-2 .mini-bar-shield:nth-child(4) { height: 90%; }
+        
+        /* Variation 4: Growth Trend with Line */
+        .chart-icon-3 {
+            display: flex;
+            align-items: flex-end;
+            gap: 5px;
+            height: 50px;
+            position: relative;
+        }
+        
+        .bar-trend {
+            width: 7px;
+            background: var(--secondary-blue);
+            border-radius: 1px 1px 0 0;
+            position: relative;
+        }
+        
+        .chart-icon-3 .bar-trend:nth-child(1) { height: 35%; }
+        .chart-icon-3 .bar-trend:nth-child(2) { height: 45%; }
+        .chart-icon-3 .bar-trend:nth-child(3) { height: 40%; }
+        .chart-icon-3 .bar-trend:nth-child(4) { height: 65%; }
+        .chart-icon-3 .bar-trend:nth-child(5) { height: 85%; }
+        
+        .trend-line {
+            position: absolute;
+            width: 100%;
+            height: 2px;
+            background: linear-gradient(90deg, var(--accent-gold), #f4d03f);
+            border-radius: 1px;
+            top: 60%;
+            transform: rotate(-15deg);
+            transform-origin: left center;
+            box-shadow: 0 0 4px rgba(212, 175, 55, 0.4);
+        }
+        
+        .trend-line::after {
+            content: '';
+            position: absolute;
+            right: -8px;
+            top: -3px;
+            width: 0;
+            height: 0;
+            border-left: 8px solid var(--accent-gold);
+            border-top: 4px solid transparent;
+            border-bottom: 4px solid transparent;
+        }
+        
+        /* Variation 5: Circle Badge (from Version 3) */
+        .chart-icon-4 {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, var(--secondary-blue), var(--primary-navy));
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            box-shadow: 0 4px 12px rgba(46, 90, 138, 0.3);
+        }
+        
+        .chart-icon-4-inner {
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 25px;
+        }
+        
+        .chart-icon-4 .mini-bar-circle {
+            width: 4px;
+            background: white;
+            border-radius: 2px 2px 0 0;
+        }
+        
+        .chart-icon-4 .mini-bar-circle:nth-child(1) { height: 40%; }
+        .chart-icon-4 .mini-bar-circle:nth-child(2) { height: 55%; }
+        .chart-icon-4 .mini-bar-circle:nth-child(3) { height: 70%; }
+        .chart-icon-4 .mini-bar-circle:nth-child(4) { height: 85%; }
+        .chart-icon-4 .mini-bar-circle:nth-child(5) { height: 100%; }
+        
+        /* Variation 17: Data Points with Connection */
+        .chart-icon-17 {
+            display: flex;
+            align-items: flex-end;
+            gap: 6px;
+            height: 50px;
+            position: relative;
+        }
+        
+        .data-point {
+            width: 8px;
+            height: 8px;
+            background: var(--secondary-blue);
+            border-radius: 50%;
+            position: relative;
+            margin-bottom: 10px;
+        }
+        
+        .data-stem {
+            position: absolute;
+            bottom: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 2px;
+            background: var(--primary-navy);
+        }
+        
+        .chart-icon-17 .data-point:nth-child(1) { margin-bottom: 5px; }
+        .chart-icon-17 .data-point:nth-child(1) .data-stem { height: 15px; }
+        .chart-icon-17 .data-point:nth-child(2) { margin-bottom: 15px; }
+        .chart-icon-17 .data-point:nth-child(2) .data-stem { height: 25px; }
+        .chart-icon-17 .data-point:nth-child(3) { margin-bottom: 10px; }
+        .chart-icon-17 .data-point:nth-child(3) .data-stem { height: 20px; }
+        .chart-icon-17 .data-point:nth-child(4) { margin-bottom: 25px; }
+        .chart-icon-17 .data-point:nth-child(4) .data-stem { height: 35px; }
+        .chart-icon-17 .data-point:nth-child(5) { margin-bottom: 35px; }
+        .chart-icon-17 .data-point:nth-child(5) .data-stem { height: 45px; }
+        
+        .connection-curve {
+            position: absolute;
+            width: 100%;
+            height: 100%;
+            background: transparent;
+            border: 2px solid var(--accent-gold);
+            border-radius: 20px 20px 0 0;
+            border-bottom: none;
+            border-left: none;
+            border-right: none;
+            top: 20%;
+            opacity: 0.6;
+        }
+        
+        /* Variation 18: Stacked Performance Bars */
+        .chart-icon-18 {
+            display: flex;
+            align-items: flex-end;
+            gap: 4px;
+            height: 50px;
+        }
+        
+        .performance-bar {
+            width: 9px;
+            display: flex;
+            flex-direction: column;
+            gap: 1px;
+            border-radius: 1px;
+        }
+        
+        .perf-segment-1 {
+            background: var(--primary-navy);
+            flex: 2;
+            border-radius: 1px 1px 0 0;
+        }
+        
+        .perf-segment-2 {
+            background: var(--secondary-blue);
+            flex: 3;
+        }
+        
+        .perf-segment-3 {
+            background: var(--accent-gold);
+            flex: 1;
+        }
+        
+        .chart-icon-18 .performance-bar:nth-child(1) { height: 40%; }
+        .chart-icon-18 .performance-bar:nth-child(2) { height: 55%; }
+        .chart-icon-18 .performance-bar:nth-child(3) { height: 70%; }
+        .chart-icon-18 .performance-bar:nth-child(4) { height: 85%; }
+        .chart-icon-18 .performance-bar:nth-child(5) { height: 100%; }
+        
+        /* Variation 19: Analytical Dashboard Style */
+        .chart-icon-19 {
+            width: 60px;
+            height: 50px;
+            background: white;
+            border: 2px solid var(--secondary-blue);
+            border-radius: 4px;
+            display: flex;
+            align-items: flex-end;
+            justify-content: space-around;
+            padding: 8px 6px 6px;
+            position: relative;
+            box-shadow: 0 2px 8px rgba(46, 90, 138, 0.15);
+        }
+        
+        .dashboard-bar {
+            width: 6px;
+            background: linear-gradient(to top, var(--secondary-blue), var(--primary-navy));
+            border-radius: 1px 1px 0 0;
+        }
+        
+        .chart-icon-19 .dashboard-bar:nth-child(1) { height: 30%; }
+        .chart-icon-19 .dashboard-bar:nth-child(2) { height: 50%; }
+        .chart-icon-19 .dashboard-bar:nth-child(3) { height: 70%; }
+        .chart-icon-19 .dashboard-bar:nth-child(4) { height: 90%; }
+        .chart-icon-19 .dashboard-bar:nth-child(5) { height: 60%; }
+        
+        .dashboard-indicator {
+            position: absolute;
+            top: -8px;
+            right: -8px;
+            width: 16px;
+            height: 16px;
+            background: var(--accent-gold);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 8px;
+            font-weight: bold;
+            color: white;
+        }
+        
+        .dashboard-indicator::after {
+            content: '↗';
+        }
+        
+        /* Variation 20: Layered Analytics */
+        .chart-icon-20 {
+            width: 55px;
+            height: 55px;
+            position: relative;
+            background: linear-gradient(135deg, rgba(46, 90, 138, 0.1), rgba(30, 58, 95, 0.1));
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .analytics-layer-1 {
+            position: absolute;
+            display: flex;
+            align-items: flex-end;
+            gap: 2px;
+            height: 25px;
+            opacity: 0.4;
+        }
+        
+        .analytics-layer-2 {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 30px;
+        }
+        
+        .layer-bar-1 {
+            width: 4px;
+            background: var(--accent-gray);
+            border-radius: 1px 1px 0 0;
+        }
+        
+        .layer-bar-2 {
+            width: 5px;
+            background: var(--secondary-blue);
+            border-radius: 1px 1px 0 0;
+        }
+        
+        .analytics-layer-1 .layer-bar-1:nth-child(1) { height: 40%; }
+        .analytics-layer-1 .layer-bar-1:nth-child(2) { height: 60%; }
+        .analytics-layer-1 .layer-bar-1:nth-child(3) { height: 80%; }
+        .analytics-layer-1 .layer-bar-1:nth-child(4) { height: 50%; }
+        
+        .analytics-layer-2 .layer-bar-2:nth-child(1) { height: 50%; }
+        .analytics-layer-2 .layer-bar-2:nth-child(2) { height: 70%; }
+        .analytics-layer-2 .layer-bar-2:nth-child(3) { height: 90%; }
+        .analytics-layer-2 .layer-bar-2:nth-child(4) { height: 60%; }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Granalytich Solutions Logo Variations</h1>
+        <p style="text-align: center; color: var(--accent-gray); margin: -20px 0 40px;">Chart icon variations and logo designs</p>
+        
+        <!-- Chart Icon Variations Section -->
+        <div style="background: white; padding: 40px; margin-bottom: 60px; border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.1);">
+            <h2 style="text-align: center; color: var(--primary-navy); margin-bottom: 40px;">Bar Chart Icon Variations</h2>
+            
+            <div style="display: grid; grid-template-columns: repeat(4, 1fr); gap: 25px; margin-bottom: 40px;">
+                
+                <!-- Variation 2: Rounded Bars (BEST) -->
+                <div style="text-align: center;">
+                    <div style="background: #f5f5f5; padding: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; height: 100px; margin-bottom: 10px; border: 3px solid var(--accent-gold);">
+                        <div class="chart-icon-1">
+                            <div class="bar-rounded"></div>
+                            <div class="bar-rounded"></div>
+                            <div class="bar-rounded"></div>
+                            <div class="bar-rounded"></div>
+                            <div class="bar-rounded"></div>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; color: #666; font-weight: bold;">Icon 1: Rounded Bars ⭐</p>
+                </div>
+                
+                <!-- Variation 15: Shield Badge (BEST) -->
+                <div style="text-align: center;">
+                    <div style="background: #f5f5f5; padding: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; height: 100px; margin-bottom: 10px; border: 3px solid var(--accent-gold);">
+                        <div class="chart-icon-2">
+                            <div class="shield-inner">
+                                <div class="mini-bar-shield"></div>
+                                <div class="mini-bar-shield"></div>
+                                <div class="mini-bar-shield"></div>
+                                <div class="mini-bar-shield"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; color: #666; font-weight: bold;">Icon 2: Shield Badge ⭐</p>
+                </div>
+                
+                <!-- Variation 16: Growth Trend Line (BEST) -->
+                <div style="text-align: center;">
+                    <div style="background: #f5f5f5; padding: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; height: 100px; margin-bottom: 10px; border: 3px solid var(--accent-gold);">
+                        <div class="chart-icon-3">
+                            <div class="bar-trend"></div>
+                            <div class="bar-trend"></div>
+                            <div class="bar-trend"></div>
+                            <div class="bar-trend"></div>
+                            <div class="bar-trend"></div>
+                            <div class="trend-line"></div>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; color: #666; font-weight: bold;">Icon 3: Growth Trend ⭐</p>
+                </div>
+                
+                <!-- Variation 5: Circle Badge (from Version 3) -->
+                <div style="text-align: center;">
+                    <div style="background: #f5f5f5; padding: 30px; border-radius: 8px; display: flex; align-items: center; justify-content: center; height: 100px; margin-bottom: 10px; border: 3px solid var(--accent-gold);">
+                        <div class="chart-icon-4">
+                            <div class="chart-icon-4-inner">
+                                <div class="mini-bar-circle"></div>
+                                <div class="mini-bar-circle"></div>
+                                <div class="mini-bar-circle"></div>
+                                <div class="mini-bar-circle"></div>
+                                <div class="mini-bar-circle"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <p style="font-size: 12px; color: #666; font-weight: bold;">Icon 4: Circle Badge ⭐</p>
+                </div>
+                
+            </div>
+        </div>
+
+        <!-- Full Logo Versions Section -->
+        <h2 style="text-align: center; color: var(--primary-navy); margin: 60px 0 40px; font-size: 32px;">Full Logo Versions with Different Icons</h2>
+
+        <!-- Version 1: Rounded Bars -->
+        <div class="logo-showcase">
+            <h2>Version 1: Rounded Bars Logo</h2>
+            <div class="logo-container v1 light-letters">
+                <a href="#" class="logo">
+                    <div class="logo-icon">
+                        <div class="logo-bar"></div>
+                        <div class="logo-bar"></div>
+                        <div class="logo-bar"></div>
+                        <div class="logo-bar"></div>
+                        <div class="logo-bar"></div>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-text-main">GR<span class="highlight">ANALYTIC</span>H</div>
+                        <div class="logo-text-sub">Solutions Ltd.</div>
+                        <div class="logo-text-tagline">Data-Driven Project Controls</div>
+                    </div>
+                </a>
+            </div>
+            <p class="description">Classic rounded bar chart icon with tagline</p>
+        </div>
+
+<!-- Version 3: Shield Badge -->
+        <div class="logo-showcase">
+            <h2>Version 2: Shield Badge Logo</h2>
+            <div class="logo-container v3-shield light-letters">
+                <a href="#" class="logo">
+                    <div class="logo-icon-shield">
+                        <div class="shield-inner-logo">
+                            <div class="mini-bar-shield-logo"></div>
+                            <div class="mini-bar-shield-logo"></div>
+                            <div class="mini-bar-shield-logo"></div>
+                            <div class="mini-bar-shield-logo"></div>
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-text-main">GR<span class="highlight">ANALYTIC</span>H</div>
+                        <div class="logo-text-sub">Solutions Ltd.</div>
+                        <div class="logo-text-tagline">Data-Driven Project Controls</div>
+                    </div>
+                </a>
+            </div>
+            <p class="description">Premium shield badge design with gold accent</p>
+        </div>
+
+        <!-- Version 4: Growth Trend Line -->
+        <div class="logo-showcase">
+            <h2>Version 3: Growth Trend Logo</h2>
+            <div class="logo-container v4-trend light-letters">
+                <a href="#" class="logo">
+                    <div class="logo-icon-trend">
+                        <div class="bar-trend-logo"></div>
+                        <div class="bar-trend-logo"></div>
+                        <div class="bar-trend-logo"></div>
+                        <div class="bar-trend-logo"></div>
+                        <div class="bar-trend-logo"></div>
+                        <div class="trend-line-logo"></div>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-text-main">GR<span class="highlight">ANALYTIC</span>H</div>
+                        <div class="logo-text-sub">Solutions Ltd.</div>
+                        <div class="logo-text-tagline">Data-Driven Project Controls</div>
+                    </div>
+                </a>
+            </div>
+            <p class="description">Dynamic growth visualization with trend line</p>
+        </div>
+
+        <!-- Version 5: Circle Badge -->
+        <div class="logo-showcase">
+            <h2>Version 4: Circle Badge Logo</h2>
+            <div class="logo-container v5 light-letters">
+                <a href="#" class="logo">
+                    <div class="logo-icon-wrapper">
+                        <div class="logo-icon">
+                            <div class="logo-bar"></div>
+                            <div class="logo-bar"></div>
+                            <div class="logo-bar"></div>
+                            <div class="logo-bar"></div>
+                            <div class="logo-bar"></div>
+                        </div>
+                    </div>
+                    <div class="logo-text">
+                        <div class="logo-text-main">GR<span class="highlight">ANALYTIC</span>H</div>
+                        <div class="logo-text-sub">SOLUTIONS LTD</div>
+                        <div class="logo-text-tagline">DATA-DRIVEN PROJECT CONTROLS</div>
+                    </div>
+                </a>
+            </div>
+            <p class="description">Bold contemporary design with circle badge</p>
+        </div>
+
+        <!-- Navigation to other test pages -->
+        <div style="text-align: center; margin-bottom: 40px;">
+            <a href="logo-carousel-two-rows.html" style="display: inline-block; padding: 12px 24px; background: var(--secondary-blue); color: white; text-decoration: none; border-radius: 4px; font-weight: 600; margin: 0 10px; transition: all 0.3s ease;">
+                View Logo Carousel Test →
+            </a>
+            <a href="logo-carousel-clean.html" style="display: inline-block; padding: 12px 24px; background: var(--accent-gold); color: white; text-decoration: none; border-radius: 4px; font-weight: 600; margin: 0 10px; transition: all 0.3s ease;">
+                View Clean Carousel →
+            </a>
+        </div>
+    </div>
+</body>
+</html>

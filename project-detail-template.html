@@ -1,0 +1,725 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Alternative Water Supply Program - Granalytich Solutions Ltd.</title>
+    <style>
+        /* Anti-flash navigation protection - loads before any JS */
+        .navbar {
+            background: white !important;
+        }
+    </style>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, 'Helvetica Neue', Arial, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            background: #ffffff;
+        }
+
+        /* Granalytich Color Scheme */
+        :root {
+            --primary-navy: #1e3a5f;
+            --secondary-blue: #2e5a8a;
+            --accent-gold: #d4af37;
+            --accent-gray: #6c757d;
+            --light-gray: #f8f9fa;
+            --white: #ffffff;
+            --text-dark: #333333;
+            --border-color: #dee2e6;
+        }
+
+        /* Navigation (copied from main site) */
+        .navbar {
+            background-color: white;
+            padding: 15px 0;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            position: relative;
+            z-index: 100;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 20px;
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            text-decoration: none;
+        }
+
+        .logo-icon {
+            display: flex;
+            align-items: flex-end;
+            gap: 3px;
+            height: 40px;
+            position: relative;
+            padding-right: 20px;
+        }
+
+        .logo-bar {
+            width: 8px;
+            background: linear-gradient(to top, var(--secondary-blue), var(--primary-navy));
+            border-radius: 2px 2px 0 0;
+            transition: all 0.3s ease;
+        }
+
+        .logo-bar:nth-child(1) { height: 40%; }
+        .logo-bar:nth-child(2) { height: 55%; }
+        .logo-bar:nth-child(3) { height: 70%; }
+        .logo-bar:nth-child(4) { height: 85%; }
+        .logo-bar:nth-child(5) { height: 100%; }
+
+        .logo:hover .logo-bar {
+            background: linear-gradient(to top, var(--accent-gold), var(--secondary-blue));
+        }
+
+        .logo-icon::after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            width: 0;
+            height: 0;
+            border-left: 10px solid transparent;
+            border-right: 10px solid transparent;
+            border-bottom: 10px solid var(--accent-gray);
+            transform: rotate(45deg);
+        }
+
+        .logo-text {
+            display: flex;
+            flex-direction: column;
+            align-items: flex-start;
+            line-height: 1;
+        }
+
+        .logo-text-main {
+            font-size: 22px;
+            font-weight: 700;
+            color: #a0a0a0;
+            letter-spacing: -0.5px;
+        }
+
+        .logo-text-main .highlight {
+            color: var(--secondary-blue);
+            font-weight: 700;
+        }
+
+        .logo-text-sub {
+            font-size: 16px;
+            font-weight: 600;
+            color: var(--secondary-blue);
+            margin-top: 2px;
+        }
+        
+        .logo-text-tagline {
+            font-size: 9px;
+            color: var(--accent-gray);
+            margin-top: 2px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            opacity: 0.7;
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 35px;
+        }
+
+        .nav-menu a {
+            text-decoration: none;
+            color: var(--primary-navy);
+            font-weight: 500;
+            font-size: 14px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+            transition: color 0.3s ease;
+        }
+
+        .nav-menu a:hover {
+            color: var(--accent-gold);
+        }
+
+        /* Project Hero Section */
+        .project-hero {
+            position: relative;
+            height: 50vh;
+            min-height: 400px;
+            background: linear-gradient(rgba(30, 58, 95, 0.85), rgba(30, 58, 95, 0.7)), 
+                        linear-gradient(135deg, #1e3a5f 0%, #2e5a8a 100%);
+            display: flex;
+            align-items: flex-end;
+            color: white;
+            overflow: hidden;
+        }
+
+        .project-hero::after {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            height: 2px;
+            background: var(--accent-gold);
+        }
+
+        .hero-content {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px 60px;
+        }
+
+        .breadcrumb {
+            font-size: 14px;
+            margin-bottom: 20px;
+            opacity: 0.9;
+        }
+
+        .breadcrumb a {
+            color: white;
+            text-decoration: none;
+            transition: opacity 0.3s ease;
+            opacity: 0.8;
+        }
+
+        .breadcrumb a:hover {
+            opacity: 1;
+            text-decoration: underline;
+        }
+        
+        .breadcrumb span {
+            color: var(--accent-gold);
+            font-weight: 600;
+        }
+
+        .project-title {
+            font-size: 3rem;
+            font-weight: 900;
+            line-height: 1.1;
+            margin-bottom: 20px;
+            text-transform: uppercase;
+            letter-spacing: -1px;
+        }
+
+        .project-meta {
+            display: flex;
+            gap: 30px;
+            flex-wrap: wrap;
+        }
+
+        .meta-item {
+            font-size: 16px;
+        }
+
+        .meta-item strong {
+            color: var(--accent-gold);
+            margin-right: 5px;
+        }
+
+        /* Project Details Section */
+        .project-details {
+            padding: 80px 0;
+        }
+
+        .details-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 60px;
+        }
+
+        .project-content h2 {
+            font-size: 2rem;
+            color: var(--primary-navy);
+            margin-bottom: 20px;
+            font-weight: 700;
+        }
+
+        .project-content h3 {
+            font-size: 1.5rem;
+            color: var(--secondary-blue);
+            margin: 40px 0 20px;
+            font-weight: 600;
+        }
+
+        .project-content p {
+            margin-bottom: 20px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        .project-content ul {
+            margin-bottom: 30px;
+            padding-left: 20px;
+        }
+
+        .project-content li {
+            margin-bottom: 12px;
+            line-height: 1.6;
+            color: #555;
+            position: relative;
+            padding-left: 20px;
+        }
+
+        .project-content li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--accent-gold);
+            font-weight: bold;
+        }
+
+        /* Specs Grid */
+        .specs-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 30px;
+            margin: 30px 0;
+        }
+
+        .spec-item {
+            background: var(--light-gray);
+            padding: 30px;
+            border-radius: 8px;
+            border-left: 4px solid var(--accent-gold);
+        }
+
+        .spec-item h4 {
+            color: var(--primary-navy);
+            margin-bottom: 15px;
+            font-size: 1.2rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .spec-item p {
+            margin: 0;
+            font-size: 0.95rem;
+        }
+
+        /* Project Sidebar */
+        .project-sidebar {
+            position: sticky;
+            top: 30px;
+            height: fit-content;
+        }
+
+        .project-info-box {
+            background: white;
+            border: 1px solid var(--border-color);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+        }
+
+        .project-info-box h3 {
+            color: var(--primary-navy);
+            margin-bottom: 25px;
+            font-size: 1.3rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-info-box dl {
+            margin: 0;
+        }
+
+        .project-info-box dt {
+            font-weight: 700;
+            color: var(--secondary-blue);
+            margin-bottom: 5px;
+            font-size: 0.9rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .project-info-box dd {
+            margin: 0 0 20px 0;
+            color: #666;
+            font-size: 1rem;
+        }
+
+        .project-info-box dd:last-child {
+            margin-bottom: 0;
+        }
+
+        /* Related Projects */
+        .related-projects {
+            background: var(--light-gray);
+            padding: 80px 0;
+        }
+
+        .related-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        .related-title {
+            font-size: 2rem;
+            color: var(--primary-navy);
+            text-align: center;
+            margin-bottom: 50px;
+        }
+
+        .related-grid {
+            display: grid;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 30px;
+        }
+
+        .related-card {
+            background: white;
+            border-radius: 8px;
+            overflow: hidden;
+            box-shadow: 0 5px 20px rgba(0,0,0,0.05);
+            transition: all 0.3s ease;
+            text-decoration: none;
+            color: inherit;
+        }
+
+        .related-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+
+        .related-image {
+            height: 200px;
+            background: linear-gradient(135deg, #2e5a8a 0%, #1e3a5f 100%);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: rgba(255,255,255,0.3);
+            font-weight: 700;
+        }
+
+        .related-content {
+            padding: 25px;
+        }
+
+        .related-value {
+            color: var(--accent-gold);
+            font-size: 1.5rem;
+            font-weight: 700;
+            margin-bottom: 10px;
+        }
+
+        .related-name {
+            font-size: 1.1rem;
+            color: var(--primary-navy);
+            font-weight: 600;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+
+        .related-description {
+            font-size: 0.9rem;
+            color: #666;
+            line-height: 1.4;
+        }
+
+        /* Back to Projects Button */
+        .back-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: var(--primary-navy);
+            color: white;
+            padding: 15px 30px;
+            border-radius: 5px;
+            text-decoration: none;
+            font-weight: 600;
+            margin-bottom: 60px;
+            transition: all 0.3s ease;
+        }
+
+        .back-button:hover {
+            background: var(--secondary-blue);
+            transform: translateX(-5px);
+        }
+
+        .back-button .arrow {
+            transform: rotate(180deg);
+        }
+
+        /* Footer */
+        .footer {
+            background-color: var(--primary-navy);
+            color: white;
+            text-align: center;
+            padding: 40px 0;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .details-container {
+                grid-template-columns: 1fr;
+                gap: 40px;
+            }
+
+            .project-sidebar {
+                position: relative;
+                top: 0;
+            }
+
+            .specs-grid {
+                grid-template-columns: 1fr;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+
+            .project-title {
+                font-size: 2rem;
+            }
+
+            .project-meta {
+                gap: 15px;
+            }
+
+            .meta-item {
+                font-size: 14px;
+            }
+
+            .related-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .project-content h2 {
+                font-size: 1.5rem;
+            }
+
+            .project-content h3 {
+                font-size: 1.2rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <div class="logo-icon">
+                    <div class="logo-bar"></div>
+                    <div class="logo-bar"></div>
+                    <div class="logo-bar"></div>
+                    <div class="logo-bar"></div>
+                    <div class="logo-bar"></div>
+                </div>
+                <div class="logo-text">
+                    <div class="logo-text-main">GR<span class="highlight">ANALYTIC</span>H</div>
+                    <div class="logo-text-sub">solutions Ltd.</div>
+                    <div class="logo-text-tagline">Data-Driven Project Controls</div>
+                </div>
+            </a>
+            <ul class="nav-menu">
+                <li><a href="index.html">HOME</a></li>
+                <li><a href="index.html#about">ABOUT</a></li>
+                <li><a href="index.html#projects">PROJECTS</a></li>
+                <li><a href="index.html#leadership">TEAM</a></li>
+                <li><a href="index.html#contact">CONTACT</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- Project Hero -->
+    <section class="project-hero">
+        <div class="hero-content">
+            <nav class="breadcrumb">
+                <a href="index.html">Home</a> / 
+                <a href="index.html#projects">Projects</a> / 
+                <span>Alternative Water Supply Program</span>
+            </nav>
+            <h1 class="project-title">Alternative Water Supply Program</h1>
+            <div class="project-meta">
+                <span class="meta-item">
+                    <strong>Value:</strong> $1.7 Billion
+                </span>
+                <span class="meta-item">
+                    <strong>Duration:</strong> 2019-2024
+                </span>
+                <span class="meta-item">
+                    <strong>Location:</strong> Colorado
+                </span>
+                <span class="meta-item">
+                    <strong>Client:</strong> Multiple Municipalities
+                </span>
+            </div>
+        </div>
+    </section>
+
+    <!-- Project Details -->
+    <section class="project-details">
+        <div class="details-container">
+            <div class="project-content">
+                <a href="index.html#projects" class="back-button">
+                    <span class="arrow">→</span> Back to Projects
+                </a>
+
+                <h2>Project Overview</h2>
+                <p>As the Owner's Senior Program Controls Lead, Granalytich Solutions managed one of Colorado's most ambitious water infrastructure programs. This $1.7 billion initiative involved the design and construction of critical water supply infrastructure serving eight municipalities across the region.</p>
+                <p>The program encompassed multiple complex components including transmission lines, underwater tunnels, pump stations, and storage tanks, all requiring meticulous coordination and control to ensure on-time, on-budget delivery while maintaining the highest standards of quality and safety.</p>
+
+                <h3>Key Achievements</h3>
+                <ul>
+                    <li>Successfully managed program controls for 8 interconnected municipal projects</li>
+                    <li>Implemented integrated master schedule tracking 2,500+ activities</li>
+                    <li>Delivered $127M in cost savings through value engineering initiatives</li>
+                    <li>Maintained 98% schedule adherence across all work packages</li>
+                    <li>Zero safety incidents throughout 5-year program duration</li>
+                </ul>
+
+                <h3>Technical Scope</h3>
+                <div class="specs-grid">
+                    <div class="spec-item">
+                        <h4>Transmission Infrastructure</h4>
+                        <p>87 miles of large-diameter transmission lines ranging from 48" to 96" in diameter, including complex river crossings and urban installations.</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Underwater Tunnels</h4>
+                        <p>3.2 miles of underwater tunnel construction using advanced TBM technology, including geological risk management and groundwater control.</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Pump Stations</h4>
+                        <p>Five major pump stations with combined capacity of 450 MGD, featuring redundant systems and advanced SCADA integration.</p>
+                    </div>
+                    <div class="spec-item">
+                        <h4>Storage Facilities</h4>
+                        <p>12 storage tanks with total capacity of 850 million gallons, including seismic design considerations and water quality management systems.</p>
+                    </div>
+                </div>
+
+                <h3>Project Controls Excellence</h3>
+                <p>Granalytich Solutions implemented a comprehensive project controls framework that became the model for large-scale water infrastructure programs:</p>
+                <ul>
+                    <li>Developed and maintained integrated master schedule using Primavera P6</li>
+                    <li>Established earned value management system achieving 0.95 CPI/SPI average</li>
+                    <li>Created custom dashboard reporting for executive stakeholders</li>
+                    <li>Implemented risk register tracking 200+ items with mitigation strategies</li>
+                    <li>Coordinated weekly progress meetings with 30+ contractors and consultants</li>
+                </ul>
+
+                <h3>Stakeholder Management</h3>
+                <p>This program required exceptional stakeholder coordination across multiple jurisdictions, regulatory agencies, and community groups. Our team facilitated over 150 stakeholder meetings, ensuring transparent communication and maintaining strong community support throughout the project lifecycle.</p>
+            </div>
+
+            <aside class="project-sidebar">
+                <div class="project-info-box">
+                    <h3>Project Information</h3>
+                    <dl>
+                        <dt>Client</dt>
+                        <dd>Colorado Water Authority & 8 Municipalities</dd>
+                        
+                        <dt>Services Provided</dt>
+                        <dd>Program Controls Management, Schedule Development, Cost Engineering, Risk Management, Earned Value Analysis</dd>
+                        
+                        <dt>Contract Type</dt>
+                        <dd>Professional Services / Time & Materials</dd>
+                        
+                        <dt>Delivery Method</dt>
+                        <dd>Progressive Design-Build</dd>
+                        
+                        <dt>Key Personnel</dt>
+                        <dd>Jarett Granich, PMP - Principal<br>
+                        Senior Schedulers (3)<br>
+                        Cost Engineers (2)</dd>
+                        
+                        <dt>Recognition</dt>
+                        <dd>2023 APWA Project of the Year<br>
+                        ENR Mountain States Project Excellence Award</dd>
+                    </dl>
+                </div>
+            </aside>
+        </div>
+    </section>
+
+    <!-- Related Projects -->
+    <section class="related-projects">
+        <div class="related-container">
+            <h2 class="related-title">Related Projects</h2>
+            <div class="related-grid">
+                <a href="#" class="related-card">
+                    <div class="related-image">SDWS</div>
+                    <div class="related-content">
+                        <div class="related-value">$841M</div>
+                        <h3 class="related-name">Southern Delivery Water System</h3>
+                        <p class="related-description">60 miles of piping with treatment plant and pump stations</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="related-card">
+                    <div class="related-image">EWS</div>
+                    <div class="related-content">
+                        <div class="related-value">$396M</div>
+                        <h3 class="related-name">Eastern Wastewater System</h3>
+                        <p class="related-description">Large-scale wastewater infrastructure and treatment</p>
+                    </div>
+                </a>
+                
+                <a href="#" class="related-card">
+                    <div class="related-image">DCI</div>
+                    <div class="related-content">
+                        <div class="related-value">$52.4M</div>
+                        <h3 class="related-name">Data Center Infrastructure</h3>
+                        <p class="related-description">Critical infrastructure for high-tech facilities</p>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2024 Granalytich Solutions Ltd. All rights reserved.</p>
+            <p>Building Trust Through Excellence • Project Controls • Infrastructure Management</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling for navigation links
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
