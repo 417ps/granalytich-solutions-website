@@ -3,6 +3,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="Cache-Control" content="no-cache, no-store, must-revalidate">
+    <meta http-equiv="Pragma" content="no-cache">
+    <meta http-equiv="Expires" content="0">
     <title>Granalytich Solutions Ltd. - Project Controls & Infrastructure Management</title>
     <style>
         * {
@@ -2029,6 +2032,29 @@
     </script>
     
     <script>
+        // Force refresh specific logos with cache issues
+        document.addEventListener('DOMContentLoaded', function() {
+            // List of logos that were recently updated
+            const updatedLogos = [
+                'logo-bechtel.png',
+                'logo-mwh-global.png', 
+                'logo-ucla.png',
+                'logo-colorado-springs-utilities.png'
+            ];
+            
+            // Force reload these specific images
+            const images = document.querySelectorAll('.carousel-container img, .client-logo img');
+            images.forEach(function(img) {
+                updatedLogos.forEach(function(logoName) {
+                    if (img.src.includes(logoName)) {
+                        // Force a complete reload with timestamp
+                        const timestamp = new Date().getTime();
+                        img.src = img.src.split('?')[0] + '?t=' + timestamp;
+                    }
+                });
+            });
+        });
+        
         // Preload and fix carousel images
         window.addEventListener('load', function() {
             // Get all carousel images
