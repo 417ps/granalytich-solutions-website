@@ -22,6 +22,12 @@
   status = 200
   force = true
 
+[[redirects]]
+  from = "/test-logos-v2"
+  to = "/logo-variations-v2.html"
+  status = 200
+  force = true
+
 
 [[headers]]
   for = "/*"
