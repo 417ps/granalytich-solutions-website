@@ -22,11 +22,6 @@
   status = 200
   force = true
 
-[[redirects]]
-  from = "/carousel-test"
-  to = "/logo-carousel-two-rows.html"
-  status = 200
-  force = true
 
 [[headers]]
   for = "/*"
